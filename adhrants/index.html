@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RPSPAC – Liste des entreprises</title>
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f8f9fa;
+      }
+      .spacer {
+        height: 80px;
+        background-color: #333;
+        width: 100%;
+      }
+      .container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 40px 20px;
+      }
+      h1 {
+        color: #1a1a1a;
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      h2 {
+        color: #2c3e50;
+        font-size: 1.5rem;
+        margin-top: 3rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 3px solid #3498db;
+        display: inline-block;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 25px;
+        margin-top: 30px;
+      }
+      .card {
+        background: white;
+        border-radius: 15px;
+        padding: 25px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+      .logo-placeholder {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #3498db, #2980b9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 1.2rem;
+        color: white;
+        margin: auto;
+        margin-bottom: 20px;
+      }
+      .entreprise {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: #2c3e50;
+      }
+      .membre {
+        font-size: 1rem;
+        color: #7f8c8d;
+        margin-bottom: 20px;
+      }
+      .icons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+      }
+      .icons a {
+        text-decoration: none;
+        color: #3498db;
+        font-size: 1.2rem;
+        transition: color 0.3s ease;
+      }
+      .icons a:hover {
+        color: #2980b9;
+      }
+      @media (max-width: 768px) {
+        .container {
+          padding: 20px;
+        }
+        h1 {
+          font-size: 1.5rem;
+        }
+        .grid {
+          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        }
+      }
+    </style>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="spacer"></div>
+    <div class="container">
+      <h1>
+        Réseau des entreprises et sociétés de production audiovisuelle et
+        cinématographique du Sénégal (RPSPAC)
+      </h1>
+
+      <h2>Adhérents 2021</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="logo-placeholder">LS</div>
+          <div class="entreprise">LACME STUDIOS</div>
+          <div class="membre">PAMELA DIOP</div>
+          <div class="icons">
+            <a href="#"><i class="fa-solid fa-globe"></i></a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="logo-placeholder">SS</div>
+          <div class="entreprise">STUDIO SANKARA</div>
+          <div class="membre">MAGUY H. AWADI</div>
+        </div>
+        <div class="card">
+          <div class="logo-placeholder">CK</div>
+          <div class="entreprise">CINEKAP</div>
+          <div class="membre">OMAR SALL</div>
+        </div>
+        <div class="card">
+          <div class="logo-placeholder">DM</div>
+          <div class="entreprise">GIE DM MEDIA</div>
+          <div class="membre">DJIBRIL DRAME</div>
+        </div>
+        <div class="card">
+          <div class="logo-placeholder">MT</div>
+          <div class="entreprise">MEDIATIK</div>
+          <div class="membre">MOCTAR BA</div>
+        </div>
+        <div class="card">
+          <div class="logo-placeholder">CP</div>
+          <div class="entreprise">CHOUETTE PROD</div>
+          <div class="membre">ZENA ZEIDAN</div>
+        </div>
+      </div>
+
+      <h2>Adhérents 2022</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="logo-placeholder">PE</div>
+          <div class="entreprise">PROD-EVENTS</div>
+          <div class="membre">BASSIROU NDIAYE</div>
+        </div>
+        <div class="card">
+          <div class="logo-placeholder">KA</div>
+          <div class="entreprise">KARONINKA</div>
+          <div class="membre">ANGELE DIABANG</div>
+        </div>
+        <div class="card">
+          <div class="logo-placeholder">FA</div>
+          <div class="entreprise">LES FILMS DE L'ATELIER</div>
+          <div class="membre">GORA SECK</div>
+        </div>
+        <div class="card">
+          <div class="logo-placeholder">TF</div>
+          <div class="entreprise">THIELYFILM</div>
+          <div class="membre">SOULEYMANE DIA</div>
+        </div>
+        <div class="card">
+          <div class="logo-placeholder">OA</div>
+          <div class="entreprise">OXYGEN AFRICA</div>
+          <div class="membre">JAM C</div>
+        </div>
+        <div class="card">
+          <div class="logo-placeholder">LC</div>
+          <div class="entreprise">LYDEL COM</div>
+          <div class="membre">TABARA LY</div>
+        </div>
+      </div>
+
+      <h2>Adhérents 2023</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="logo-placeholder">CF</div>
+          <div class="entreprise">CHALLENGER FACTORY</div>
+          <div class="membre">OUSMANE FALL</div>
+        </div>
+        <div class="card">
+          <div class="logo-placeholder">KP</div>
+          <div class="entreprise">KALISTA PRODUCTION</div>
+          <div class="membre">KALISTA</div>
+        </div>
+        <div class="card">
+          <div class="logo-placeholder">SF</div>
+          <div class="entreprise">SUNUY FILMS</div>
+          <div class="membre">SOULEYMANE KEBE</div>
+        </div>
+        <div class="card">
+          <div class="logo-placeholder">CL</div>
+          <div class="entreprise">CATHY LENA KANE</div>
+          <div class="membre">CATHY LENA KANE</div>
+        </div>
+        <div class="card">
+          <div class="logo-placeholder">NF</div>
+          <div class="entreprise">NAFI FILMS</div>
+          <div class="membre">YORO MBAYE</div>
+        </div>
+        <div class="card">
+          <div class="logo-placeholder">WS</div>
+          <div class="entreprise">WARU STUDIO</div>
+          <div class="membre">FATOU KANDE</div>
+        </div>
+      </div>
+
+      <h2>Adhérents 2024</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="logo-placeholder">LB</div>
+          <div class="entreprise">LADY BLUE PRODUCTION</div>
+          <div class="membre">BINETOU FAYE</div>
+        </div>
+      </div>
+
+      <h2>Adhérents 2025</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="logo-placeholder">KP</div>
+          <div class="entreprise">KOURTRAJMÉ PRODUCTION</div>
+          <div class="membre">EMMA SANGHARÉ</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
