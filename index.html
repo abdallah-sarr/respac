@@ -1,0 +1,2220 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RESPAC - Accueil</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Ionicons CDN (Outlined & Filled icons) -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+
+    <style>
+      /* Boutons bordures avec animation remplissage */
+      .btn-border-fill {
+        position: relative;
+        overflow: hidden;
+        border: 2px solid #daa520;
+        color: #daa520;
+        background: transparent;
+        padding: 0.85rem 3rem;
+        font-weight: 700;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        cursor: pointer;
+        transition: color 0.3s ease;
+        border-radius: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        font-size: 1.1rem;
+      }
+      .btn-border-fill::before {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 0;
+        background: #daa520;
+        transition: all 0.3s ease;
+        z-index: -1;
+      }
+      .btn-border-fill:hover {
+        color: white;
+      }
+      .btn-border-fill:hover::before {
+        top: 0;
+        height: 100%;
+      }
+      .btn-border-fill:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(218, 165, 32, 0.6);
+      }
+
+      /* Overlay dégradé bas carte films */
+      .overlay-gradient {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 40%;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+        pointer-events: none;
+        border-radius: 0 0 0.375rem 0.375rem;
+      }
+
+      /* Header transitions */
+      header {
+        transition: all 0.4s ease;
+        z-index: 100;
+        will-change: transform;
+        background: transparent;
+        color: #111827;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+        height: var(--header-height, 72px);
+      }
+      header::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: #ffffff;
+        transform: translateY(-100%);
+        transition: transform 0.35s ease;
+        z-index: -1;
+      }
+      header.hidden {
+        transform: translateY(-100%);
+      }
+
+      /* Scrollbar styles for horizontal carousels */
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .carousel::-webkit-scrollbar {
+        height: 8px;
+      }
+      .carousel::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .carousel::-webkit-scrollbar-thumb {
+        background: #daa520;
+        border-radius: 10px;
+      }
+
+      /* Dark mode global */
+      .dark body {
+        background-color: #121212;
+        color: #e0e0e0;
+      }
+      .dark section {
+        background-color: #121212 !important;
+        color: #e0e0e0 !important;
+      }
+      .dark header {
+        color: #ffffff !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .dark header .tab-link {
+        color: rgba(255, 255, 255, 0.92);
+      }
+      .dark header .tab-link:hover {
+        color: #ffffff;
+      }
+      .dark header .tab-active {
+        color: #ffffff;
+      }
+      /* Dark mode avec header scrolled: conserver les liens blancs */
+      .dark header.header-scrolled .tab-link {
+        color: rgba(255, 255, 255, 0.92) !important;
+      }
+      .dark header.header-scrolled .tab-active {
+        color: #ffffff !important;
+      }
+      .dark header.header-scrolled .tab-link:hover {
+        color: #ffffff !important;
+      }
+      .dark header .theme-toggle-square {
+        border-color: rgba(255, 255, 255, 0.35) !important;
+        background: rgba(255, 255, 255, 0.08) !important;
+        color: #ffffff !important;
+      }
+      .dark .theme-toggle-square {
+        border-color: rgba(255, 255, 255, 0.35) !important;
+        background: rgba(255, 255, 255, 0.08) !important;
+        color: #ffffff !important;
+      }
+      .dark .theme-toggle-square:hover {
+        background: rgba(255, 255, 255, 0.15) !important;
+        color: #ffffff !important;
+      }
+
+      .dark header::before {
+        background: var(--dark-header-bg);
+      }
+      .dark header.header-scrolled::before {
+        background: var(--dark-header-bg) !important;
+      }
+      .dark a {
+        color: #daa520;
+      }
+      .dark a:hover {
+        color: #ffcc33 !important;
+      }
+      .dark .btn-border-fill {
+        border-color: #daa520;
+        color: #daa520;
+      }
+      .dark .btn-border-fill:hover {
+        color: white;
+      }
+      .dark .placeholder {
+        background-color: #444 !important;
+        color: #ddd !important;
+      }
+      .dark .sortie-film-card {
+        background-color: #1e1e1e !important;
+        color: #fff !important;
+      }
+      .dark h1,
+      .dark h2,
+      .dark h3 {
+        color: #fff !important;
+      }
+      .dark .social-box {
+        border-color: rgba(255, 255, 255, 0.1);
+      }
+      .dark .social-username {
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .dark article {
+        background-color: #1e1e1e;
+        border-color: rgba(255, 255, 255, 0.1);
+      }
+      .dark article p {
+        color: rgba(255, 255, 255, 0.7);
+      }
+      .dark article time {
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      /* Responsive text sizes for titles */
+      h1,
+      h2,
+      h3 {
+        font-family: "Playfair Display", serif;
+        letter-spacing: -0.02em;
+      }
+
+      h1 {
+        font-size: 4rem !important;
+        line-height: 1.1 !important;
+        background: linear-gradient(to right, #daa520, #ffd700);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      h2 {
+        font-size: 2.75rem !important;
+        font-weight: 600;
+        color: #1a1a1a;
+      }
+
+      h3 {
+        font-size: 2rem !important;
+        font-weight: 500;
+      }
+
+      /* Sorties films: largeur cartes réduite pour en avoir 6 visibles en desktop */
+      @media (min-width: 1024px) {
+        .sortie-film-card {
+          min-width: 240px;
+          max-width: 240px;
+          height: 360px;
+        }
+      }
+      .sortie-film-card {
+        min-width: 220px;
+        max-width: 220px;
+        height: 330px;
+        position: relative;
+        transition: all 0.3s ease;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      .sortie-film-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .sortie-film-card:hover img {
+        transform: scale(1.05);
+      }
+
+      .film-info {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 4rem 1rem 0.75rem;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.95) 0%,
+          rgba(0, 0, 0, 0.8) 30%,
+          rgba(0, 0, 0, 0) 100%
+        );
+      }
+      .film-info h3 {
+        margin-bottom: 0.125rem;
+      }
+      .film-info time {
+        display: block;
+      }
+
+      /* Header moderne */
+      header {
+        transition: all 0.4s ease;
+        z-index: 100;
+        will-change: transform;
+        background: rgba(0, 0, 0, 0.15);
+        backdrop-filter: blur(12px) saturate(120%);
+        -webkit-backdrop-filter: blur(12px) saturate(120%);
+        color: #ffffff; /* White by default for transparent background */
+        position: fixed;
+        top: 0;
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06),
+          0 10px 24px rgba(0, 0, 0, 0.15);
+        height: var(--header-height, 72px);
+      }
+
+      /* Style unifié pour tous les CTA */
+      .cta-button {
+        position: relative;
+        overflow: hidden;
+        border: 2px solid #e50914;
+        color: #ffffff;
+        background: #e50914;
+        padding: 0.85rem 2.5rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border-radius: 4px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        font-size: 1rem;
+        min-height: 48px;
+      }
+      .cta-button::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 0%;
+        background: #b20710;
+        z-index: -1;
+        transition: height 0.3s ease;
+      }
+      .cta-button:hover {
+        color: #ffffff;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(229, 9, 20, 0.35);
+      }
+      .cta-button:hover::before {
+        height: 100%;
+      }
+      .cta-button:active {
+        transform: translateY(0);
+      }
+
+      /* Réseaux sociaux: styles des boxes */
+      .social-box {
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 0.375rem;
+        background: white;
+        transition: border-color 0.3s ease;
+      }
+      .social-box:hover {
+        border-color: #daa520;
+      }
+      .social-icon {
+        font-size: 1.5rem;
+        transition: transform 0.3s ease;
+      }
+      .social-box:hover .social-icon {
+        transform: scale(1.1);
+      }
+      .social-username {
+        font-size: 0.875rem;
+        color: rgba(0, 0, 0, 0.6);
+      }
+
+      /* Layout grid pour les réseaux sociaux */
+      @media (min-width: 768px) {
+        .social-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 1.5rem;
+        }
+      }
+
+      /* Mise à jour des styles typographiques */
+      h1,
+      h2,
+      h3 {
+        font-family: "Playfair Display", serif;
+        letter-spacing: -0.02em;
+      }
+
+      h1 {
+        font-size: 4rem !important;
+        line-height: 1.1 !important;
+        background: linear-gradient(to right, #daa520, #ffd700);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      h2 {
+        font-size: 2.75rem !important;
+        font-weight: 600;
+        color: #1a1a1a;
+      }
+
+      h3 {
+        font-size: 2rem !important;
+        font-weight: 500;
+      }
+
+      /* Ajustement des cartes de films */
+      .sortie-film-card {
+        min-width: 150px;
+        max-width: 150px;
+        height: 225px; /* 2:3 ratio */
+        position: relative;
+        transition: all 0.3s ease;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      @media (min-width: 1024px) {
+        .sortie-film-card {
+          min-width: 180px;
+          max-width: 180px;
+          height: 270px; /* 2:3 ratio */
+        }
+      }
+
+      .sortie-film-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .film-info {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 4rem 1rem 0.75rem;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.95) 0%,
+          rgba(0, 0, 0, 0.8) 30%,
+          rgba(0, 0, 0, 0) 100%
+        );
+      }
+      .film-info h3 {
+        margin-bottom: 0.125rem;
+      }
+      .film-info time {
+        display: block;
+      }
+
+      /* Style global du texte */
+      body {
+        font-family: "Raleway", sans-serif;
+      }
+
+      /* Mise à jour du style des bordures de titre */
+      .border-b-4 {
+        border-image: linear-gradient(to right, #daa520, #ffd700) 1;
+      }
+
+      /* Styles pour la section Festival */
+      .festival-card {
+        display: flex;
+        min-width: calc(50% - 1rem);
+        max-width: calc(50% - 1rem);
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid #eee;
+        transition: all 0.3s ease;
+      }
+
+      @media (max-width: 768px) {
+        .festival-card {
+          min-width: 85%;
+          max-width: 85%;
+        }
+      }
+
+      .festival-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+      }
+
+      .festival-image {
+        width: 150px;
+        min-width: 150px;
+        height: 300px;
+        background-color: #e5e5e5;
+        object-fit: cover;
+      }
+
+      @media (max-width: 640px) {
+        .festival-image {
+          width: 100px;
+          min-width: 100px;
+          height: 200px;
+        }
+      }
+
+      /* Styles pour la section Partenaires */
+      .partners-section {
+        text-align: center;
+      }
+
+      .partner-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+        max-width: 1200px;
+        margin: 3rem auto;
+        padding: 0 1rem;
+      }
+
+      @media (min-width: 768px) {
+        .partner-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+
+      .partner-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .partner-logo {
+        width: 100%;
+        max-width: 180px;
+        height: 100px;
+        background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        border: 2px solid #dee2e6;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .partner-logo::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 60%;
+        height: 60%;
+        background: linear-gradient(45deg, #daa520, #ffd700);
+        border-radius: 4px;
+        opacity: 0.2;
+      }
+
+      .partner-logo::after {
+        content: "LOGO";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: #6c757d;
+        letter-spacing: 1px;
+        z-index: 1;
+      }
+
+      .partner-card:hover .partner-logo {
+        transform: translateY(-4px);
+      }
+
+      .partner-name {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #374151;
+        text-align: center;
+      }
+
+      /* Mode sombre pour partenaires */
+      .dark .partner-logo {
+        background: linear-gradient(135deg, #4b5563, #374151);
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+      .dark .partner-logo::after {
+        color: #9ca3af;
+      }
+      .dark .partner-name {
+        color: #d1d5db;
+      }
+
+      /* SECTION: Contact */
+      .contact-section {
+        background-color: #ffffff;
+        padding: 4rem 1rem;
+        text-align: center;
+      }
+
+      .contact-section h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        color: #111827;
+      }
+
+      .contact-section form {
+        max-width: 600px;
+        margin: 0 auto;
+        display: grid;
+        gap: 1.5rem;
+      }
+
+      .contact-section input,
+      .contact-section textarea {
+        width: 100%;
+        padding: 1rem;
+        border: 1px solid #d1d5db;
+        border-radius: 0.375rem;
+        font-size: 1rem;
+        color: #111827;
+      }
+
+      .contact-section button {
+        padding: 1rem;
+        background-color: #daa520;
+        color: white;
+        border: none;
+        border-radius: 0.375rem;
+        font-size: 1.125rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .contact-section button:hover {
+        background-color: #b88600;
+      }
+
+      /* ===== Uniformisation des paddings des sections + titres ===== */
+      :root {
+        --section-padding-block: 4rem; /* Uniforme pour toutes les sections */
+        --section-padding-inline: 1.5rem;
+        --section-padding-inline-mobile: 1rem; /* Padding réduit sur mobile */
+        --title-underline-width: 40%; /* 30–50% de la largeur du texte */
+        --header-height: 88px; /* Hauteur du header augmentée */
+        --contact-overlap: 12rem; /* Pour le chevauchement contact/footer */
+        --deep-green-1: #0b1f1a; /* Couleur verte pour la section contact */
+        --deep-green-2: #0e2a22;
+        --dark-header-bg: #0b0b0b; /* Couleur du header en mode sombre */
+        --dark-header-color: #ffffff; /* Couleur du texte du header en mode sombre */
+        --card-border-radius: 12px; /* Rayon des bordures des cartes */
+        --box-shadow-subtle: 0 4px 16px rgba(0, 0, 0, 0.1); /* Ombre subtile */
+      }
+
+      section {
+        padding-block: var(--section-padding-block) !important;
+        padding-inline: var(--section-padding-inline) !important;
+      }
+
+      /* Responsive: paddings réduits sur mobile */
+      @media (max-width: 768px) {
+        section {
+          padding-inline: var(--section-padding-inline-mobile) !important;
+        }
+        h1 {
+          font-size: 2.5rem !important;
+        }
+        h2 {
+          font-size: 2rem !important;
+        }
+        h3 {
+          font-size: 1.5rem !important;
+        }
+      }
+
+      /* Première section: paddings haut/bas réduits et pas de min-height plein écran */
+      section:first-of-type {
+        padding-top: 2rem !important;
+        padding-bottom: var(--section-padding-block) !important;
+        min-height: auto !important;
+      }
+
+      /* Titres: taille harmonisée, texte blanc, soulignement décoratif */
+      h1,
+      h2,
+      h3 {
+        position: relative;
+        display: inline-block;
+        color: #ffffff !important;
+        margin-bottom: 1.5rem !important;
+        border-bottom: none !important;
+        background: none !important;
+        -webkit-text-fill-color: initial !important;
+        -webkit-background-clip: initial !important;
+      }
+
+      h1 {
+        font-size: 3.5rem !important;
+        line-height: 1.1 !important;
+      }
+
+      h2 {
+        font-size: 2.5rem !important;
+        line-height: 1.2 !important;
+      }
+
+      h3 {
+        font-size: 1.875rem !important;
+        line-height: 1.25 !important;
+      }
+
+      h1::after,
+      h2::after,
+      h3::after {
+        content: "";
+        display: block;
+        width: var(--title-underline-width);
+        height: 4px;
+        background: #ffd700;
+        margin-top: 0.5rem;
+      }
+      h1.text-center::after,
+      h2.text-center::after,
+      h3.text-center::after {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* Tabs header (centre) */
+      .tabs {
+        gap: 1rem;
+      }
+      .tab-link {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.25rem;
+        padding: 0.375rem 0.5rem;
+        color: rgba(17, 24, 39, 0.85);
+        text-align: center;
+        position: relative;
+        white-space: nowrap;
+      }
+      .tab-link:hover {
+        color: #111827;
+      }
+      .tab-link ion-icon {
+        font-size: 1.35rem;
+        line-height: 1;
+      }
+      .tab-link span {
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+      }
+      .tab-link::after {
+        content: "";
+        position: absolute;
+        bottom: -6px;
+        left: 0;
+        width: 40%;
+        height: 3px;
+        background: #ffd700;
+        border-radius: 999px;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+      }
+      .tab-active {
+        color: #111827;
+      }
+      .tab-active::after {
+        opacity: 1;
+      }
+      .tab-icon-filled {
+        display: none;
+      }
+      .tab-active .tab-icon-filled {
+        display: inline-block;
+      }
+      .tab-active .tab-icon-outline {
+        display: none;
+      }
+
+      /* Hover on non-active tabs: subtle overlay + underline */
+      .tab-link:not(.tab-active):hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 8px;
+      }
+      .tab-link:not(.tab-active):hover::after {
+        opacity: 1;
+      }
+
+      /* Header scrolled: white background and adapted content */
+      header.header-scrolled {
+        color: #111827 !important; /* Black text for white background */
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+      }
+      header.header-scrolled::before {
+        transform: translateY(0);
+      }
+      header.header-scrolled .tab-link {
+        color: rgba(17, 24, 39, 0.85);
+      }
+      header.header-scrolled .tab-active {
+        color: #111827;
+      }
+      header.header-scrolled .tab-link:not(.tab-active):hover {
+        background: rgba(0, 0, 0, 0.05);
+      }
+      header.header-scrolled .theme-toggle-square {
+        border-color: rgba(0, 0, 0, 0.15);
+        background: rgba(0, 0, 0, 0.06);
+        color: #111827;
+      }
+
+      /* Header at very top: more transparent with less blur */
+      header.header-top {
+        color: #ffffff !important;
+        background: rgba(0, 0, 0, 0.05) !important;
+        border-bottom-color: transparent !important;
+        box-shadow: none !important;
+        backdrop-filter: blur(8px) saturate(120%);
+        -webkit-backdrop-filter: blur(8px) saturate(120%);
+      }
+      header.header-top::before {
+        transform: translateY(-100%);
+      }
+      header.header-top .tab-link {
+        color: rgba(255, 255, 255, 0.92);
+      }
+      header.header-top .tab-link:hover {
+        color: #ffffff;
+      }
+      header.header-top .theme-toggle-square {
+        border-color: rgba(255, 255, 255, 0.35);
+        background: rgba(255, 255, 255, 0.08);
+        color: #ffffff;
+      }
+      header .max-w-7xl {
+        height: var(--header-height);
+      }
+      header .max-w-7xl > * {
+        align-self: center;
+      }
+
+      /* Default colors for transparent header (white content) */
+      header .tab-link {
+        color: rgba(255, 255, 255, 0.92);
+      }
+      header .tab-link:hover {
+        color: #ffffff;
+      }
+      header .tab-active {
+        color: #ffffff;
+      }
+      header .theme-toggle-square {
+        border-color: rgba(255, 255, 255, 0.35);
+        background: rgba(255, 255, 255, 0.08);
+        color: #ffffff;
+      }
+
+      /* Bouton thème carré aligné sur la hauteur de .cta-button */
+      .theme-toggle-square {
+        min-height: 48px;
+        min-width: 48px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        background: rgba(0, 0, 0, 0.06);
+        color: #111827;
+        border-radius: 8px;
+        transition: background 0.2s ease, transform 0.2s ease;
+      }
+      .theme-toggle-square:hover {
+        background: rgba(0, 0, 0, 0.1);
+        transform: translateY(-1px);
+      }
+
+      /* Logo box and image fit */
+      .logo-box {
+        background: #ffffff;
+        padding: 0 3px;
+        border-radius: 8px;
+        display: inline-flex;
+        align-items: center;
+        height: 90%;
+      }
+      .logo-img {
+        height: 100%;
+        width: auto;
+        display: block;
+      }
+      .dark .logo-box {
+        background: #ffffff !important;
+      }
+
+      /* Titres des "box" (cartes, articles) sans soulignement et tailles raisonnables */
+      .grid article h3,
+      .festival-card h3 {
+        color: #111827 !important;
+        font-size: 1.25rem !important; /* ~text-xl */
+        line-height: 1.4 !important;
+      }
+      .grid article h3::after,
+      .festival-card h3::after,
+      .sortie-film-card .film-info h3::after {
+        content: none !important;
+        display: none !important;
+      }
+      .sortie-film-card .film-info h3 {
+        font-size: 1.125rem !important;
+        line-height: 1.35 !important;
+      }
+
+      /* Titre de section sur fond clair (sans soulignement décoratif) */
+      .title-section-dark {
+        color: #111827 !important;
+        font-size: 2.5rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 1.5rem !important;
+      }
+      .title-section-dark::after {
+        display: none !important;
+      }
+
+      /* Section "Pourquoi devenir membre" - Harmonisation */
+      .member-benefits-section {
+        background: #ffffff;
+      }
+      .member-benefits-section .description-text {
+        font-size: 1.125rem;
+        line-height: 1.7;
+        color: #374151;
+        margin-bottom: 2rem;
+      }
+      .member-benefits-section .benefit-card {
+        padding: 1.5rem;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: var(--card-border-radius);
+        background: #ffffff;
+        box-shadow: var(--box-shadow-subtle);
+        transition: all 0.3s ease;
+        height: 100%;
+      }
+      .member-benefits-section .benefit-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+      .member-benefits-section .benefit-card h3 {
+        font-size: 1.25rem !important;
+        line-height: 1.4 !important;
+        color: #111827 !important;
+        margin-bottom: 1rem !important;
+      }
+      .member-benefits-section .benefit-card ul {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: #6b7280;
+      }
+      .member-benefits-section .benefit-card ion-icon {
+        font-size: 2.5rem;
+        color: #daa520;
+        margin-bottom: 1rem;
+      }
+
+      /* Mode sombre pour la section membre */
+      .dark .member-benefits-section {
+        background: #1f2937 !important;
+      }
+      .dark .member-benefits-section .description-text {
+        color: #d1d5db;
+      }
+      .dark .member-benefits-section .benefit-card {
+        background: #374151;
+        border-color: rgba(255, 255, 255, 0.1);
+      }
+      .dark .member-benefits-section .benefit-card h3 {
+        color: #ffffff !important;
+      }
+      .dark .member-benefits-section .benefit-card ul {
+        color: #9ca3af;
+      }
+
+      /* Section Contact (carte noir-vert) */
+      :root {
+        --deep-green-1: #0b1f1a;
+        --deep-green-2: #0e2a22;
+      }
+      .contact-card {
+        background: linear-gradient(
+          135deg,
+          var(--deep-green-1),
+          var(--deep-green-2)
+        );
+        border-radius: 20px;
+        width: calc(100% - (var(--section-padding-inline) * 2));
+        margin-inline: auto;
+        padding: 3rem 1.5rem;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+        position: relative;
+        z-index: 2;
+      }
+      @media (min-width: 768px) {
+        .contact-card {
+          padding: 4rem 3rem;
+        }
+      }
+
+      .contact-left-title {
+        color: #ffffff;
+      }
+      .contact-left-desc {
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .contact-item {
+        display: flex;
+        gap: 0.75rem;
+        align-items: flex-start;
+        padding: 1rem;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.05);
+        transition: transform 0.2s ease, background 0.2s ease,
+          border-color 0.2s ease;
+      }
+      .contact-item:hover {
+        transform: translateY(-2px);
+        background: rgba(255, 255, 255, 0.07);
+        border-color: rgba(255, 255, 255, 0.18);
+      }
+      .contact-item-icon {
+        font-size: 1.5rem;
+        color: #daa520;
+        min-width: 1.5rem;
+      }
+      .contact-item-title {
+        color: #ffffff;
+        font-weight: 700;
+      }
+      .contact-item-sub {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.95rem;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+        padding: 0.85rem 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+        color: #ffffff;
+      }
+      .contact-form input::placeholder,
+      .contact-form textarea::placeholder {
+        color: rgba(255, 255, 255, 0.6);
+      }
+      .contact-form input:focus,
+      .contact-form textarea:focus {
+        outline: none;
+        border-color: #daa520;
+        box-shadow: 0 0 0 3px rgba(218, 165, 32, 0.25);
+      }
+
+      /* Overlap settings for contact card above footer */
+      :root {
+        --contact-overlap: 12rem;
+      }
+      @media (max-width: 768px) {
+        :root {
+          --contact-overlap: 6rem;
+        }
+      }
+      .contact-overlap {
+        position: relative;
+        z-index: 2;
+        margin-bottom: calc(-1 * var(--contact-overlap));
+      }
+      .footer-extended {
+        position: relative;
+        z-index: 1;
+        padding-top: calc(6rem + var(--contact-overlap)) !important;
+      }
+
+      /* Refined contact buttons */
+      .contact-item {
+        display: flex;
+        gap: 0.75rem;
+        align-items: center;
+        padding: 1.1rem 1rem;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(0, 0, 0, 0.15);
+        transition: transform 0.2s ease, background 0.2s ease,
+          border-color 0.2s ease;
+        cursor: pointer;
+        text-decoration: none;
+      }
+      .contact-item:hover {
+        transform: translateY(-2px);
+        background: rgba(0, 0, 0, 0.22);
+        border-color: rgba(255, 255, 255, 0.18);
+      }
+      .contact-item-icon {
+        font-size: 1.5rem;
+        color: #daa520;
+        min-width: 1.5rem;
+      }
+      .contact-item-title {
+        color: #ffffff;
+        font-weight: 700;
+      }
+      .contact-item-sub {
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 0.95rem;
+      }
+
+      /* Sections noires teintées de vert foncé */
+      section.bg-black {
+        background-color: #0e1a16 !important;
+      }
+
+      /* Direction-sensitive subtle effect */
+      header.scrolling-down {
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      }
+      header.scrolling-up {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      }
+
+      /* Tabs underline alignment left by default; centered if parent has text-center */
+      .tabs .tab-link::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .tabs.text-left .tab-link::after {
+        left: 0;
+        transform: none;
+      }
+
+      /* Hero (première section) avec image de fond et overlay bas */
+      .hero-section {
+        position: relative;
+        background-image: url("https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=1600&q=80");
+        background-size: cover;
+        background-position: center;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .hero-section::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          to top,
+          rgba(14, 26, 22, 0.9) 0%,
+          rgba(14, 26, 22, 0.7) 15%,
+          rgba(14, 26, 22, 0.3) 30%,
+          rgba(0, 0, 0, 0.15) 40%,
+          rgba(0, 0, 0, 0.08) 100%
+        );
+        pointer-events: none;
+      }
+      .hero-content {
+        padding-top: calc(var(--header-height) + 1.25rem);
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Titres des "box" (cartes, articles) sans soulignement et tailles raisonnables */
+      .grid article h3,
+      .festival-card h3 {
+        color: #111827 !important;
+        font-size: 1.25rem !important; /* ~text-xl */
+        line-height: 1.4 !important;
+      }
+      .dark .grid article h3,
+      .dark .festival-card h3 {
+        color: #ffffff !important;
+      }
+
+      /* Mission section layout adjustments */
+      .mission-section {
+        padding: 0 !important;
+        min-height: 50vh;
+        gap: var(--section-padding-inline) !important;
+        align-items: stretch !important;
+      }
+      @media (min-width: 768px) {
+        .mission-section .mission-text {
+          width: 50% !important;
+        }
+        .mission-section .mission-image {
+          width: 50% !important;
+          padding: 0 !important;
+        }
+      }
+      .mission-text {
+        padding: var(--section-padding-block)
+          calc(var(--section-padding-inline) * 1.5) var(--section-padding-block)
+          var(--section-padding-inline) !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .mission-section .mission-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 0;
+      }
+    </style>
+  </head>
+  <body class="font-sans bg-white text-black transition-colors duration-500">
+    <!-- HEADER -->
+    <header id="site-header" aria-label="En-tête du site">
+      <div
+        class="max-w-7xl mx-auto grid grid-cols-3 items-center justify-items-center px-6"
+        style="height: var(--header-height)"
+      >
+        <div
+          class="text-2xl font-extrabold tracking-wide select-none justify-self-start"
+        >
+          <a href="#" class="flex items-center gap-3 h-[var(--header-height)]">
+            <span class="logo-box"
+              ><img
+                src="./logo_respac.jpg"
+                alt="RESPAC"
+                class="logo-img rounded-sm"
+            /></span>
+            <span class="sr-only">RESPAC</span>
+          </a>
+        </div>
+        <nav
+          class="tabs flex items-center justify-center font-medium justify-self-center"
+        >
+          <a href="#" class="tab-link tab-active" data-tab="home">
+            <ion-icon class="tab-icon-outline" name="home-outline"></ion-icon>
+            <ion-icon class="tab-icon-filled" name="home"></ion-icon>
+            <span>Accueil</span>
+          </a>
+          <a href="#" class="tab-link" data-tab="presentation">
+            <ion-icon
+              class="tab-icon-outline"
+              name="information-circle-outline"
+            ></ion-icon>
+            <ion-icon
+              class="tab-icon-filled"
+              name="information-circle"
+            ></ion-icon>
+            <span>Présentation</span>
+          </a>
+          <a href="#" class="tab-link" data-tab="actualite">
+            <ion-icon
+              class="tab-icon-outline"
+              name="newspaper-outline"
+            ></ion-icon>
+            <ion-icon class="tab-icon-filled" name="newspaper"></ion-icon>
+            <span>Actualité</span>
+          </a>
+          <a href="#" class="tab-link" data-tab="sorties">
+            <ion-icon class="tab-icon-outline" name="film-outline"></ion-icon>
+            <ion-icon class="tab-icon-filled" name="film"></ion-icon>
+            <span>Sortie en salle</span>
+          </a>
+          <a href="#" class="tab-link" data-tab="festival">
+            <ion-icon class="tab-icon-outline" name="ribbon-outline"></ion-icon>
+            <ion-icon class="tab-icon-filled" name="ribbon"></ion-icon>
+            <span>Festival</span>
+          </a>
+          <a href="#" class="tab-link" data-tab="tournages">
+            <ion-icon
+              class="tab-icon-outline"
+              name="videocam-outline"
+            ></ion-icon>
+            <ion-icon class="tab-icon-filled" name="videocam"></ion-icon>
+            <span>Tournages</span>
+          </a>
+          <a href="#" class="tab-link" data-tab="intel-eco">
+            <ion-icon
+              class="tab-icon-outline"
+              name="analytics-outline"
+            ></ion-icon>
+            <ion-icon class="tab-icon-filled" name="analytics"></ion-icon>
+            <span>Économie</span>
+          </a>
+        </nav>
+        <div class="flex items-center justify-end gap-3 justify-self-end">
+          <button class="cta-button" type="button">
+            <i class="fas fa-user-plus"></i>
+            Adhérer
+          </button>
+          <button
+            id="theme-toggle"
+            aria-label="Basculer thème clair/sombre"
+            class="theme-toggle-square"
+            type="button"
+          >
+            <ion-icon name="moon-outline"></ion-icon>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- SECTION: Présentation (Hero) -->
+    <section class="hero-section text-white text-center px-6">
+      <div class="hero-content w-full md:w-1/2 max-w-3xl mx-auto">
+        <h1
+          class="text-3xl md:text-4xl font-extrabold mb-6 border-b-4 border-[#DAA520] inline-block pb-2"
+        >
+          Le RESPAC
+        </h1>
+        <p class="mb-10 text-lg md:text-xl leading-relaxed">
+          Le Réseau des Entreprises Sénégalaises de Production Audiovisuelle et
+          Cinématographique (RESPAC) fédère les acteurs de la production
+          audiovisuelle et cinématographique au Sénégal, défend leurs intérêts
+          et œuvre pour un écosystème créatif et compétitif.
+        </p>
+        <button class="cta-button" type="button">
+          <i class="fas fa-arrow-right"></i>
+          En savoir plus
+        </button>
+      </div>
+    </section>
+
+    <!-- SECTION: Mission -->
+    <section
+      class="bg-black text-white flex flex-col md:flex-row mission-section"
+    >
+      <div class="mission-text">
+        <h2
+          class="text-3xl font-extrabold border-b-4 border-[#DAA520] inline-block mb-10"
+        >
+          Notre mission
+        </h2>
+        <p class="mb-8 text-lg leading-relaxed">
+          Notre mission est de fédérer et soutenir les entreprises et
+          professionnels de l'audiovisuel et du cinéma au Sénégal. Nous
+          accompagnons la création, la production et la diffusion d'œuvres
+          originales, tout en renforçant les compétences locales, en
+          encourageant l'innovation et en promouvant la culture sénégalaise sur
+          la scène internationale. À travers des partenariats solides et une
+          veille stratégique, nous construisons un écosystème durable et
+          dynamique pour l'ensemble des acteurs du secteur.
+        </p>
+        <button
+          class="cta-button inline-block"
+          style="width: 320px; padding-left: 2rem; padding-right: 2rem"
+          type="button"
+        >
+          <i class="fas fa-compass"></i>
+          Découvrir nos actions
+        </button>
+      </div>
+      <div class="mission-image">
+        <img
+          src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=800&q=80"
+          alt="Vue aérienne de montagne - Paysage naturel aux tonalités dorées"
+          class=""
+        />
+      </div>
+    </section>
+
+    <!-- SECTION: Réseaux sociaux -->
+    <section class="bg-gray-100 py-16 md:py-24 px-6 md:px-32">
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto"
+      >
+        <a
+          href="#"
+          class="flex items-center gap-4 p-6 rounded-lg border border-gray-200 hover:border-[#DAA520] transition-colors duration-300 group social-box"
+        >
+          <i
+            class="fab fa-facebook-f text-3xl text-[#3b5998] group-hover:scale-110 transition-transform duration-300 social-icon"
+          ></i>
+          <div class="flex flex-col">
+            <span class="font-semibold">Facebook</span>
+            <span class="text-sm text-gray-500 social-username"
+              >@respac.senegal</span
+            >
+          </div>
+        </a>
+
+        <a
+          href="#"
+          class="flex items-center gap-4 p-6 rounded-lg border border-gray-200 hover:border-[#DAA520] transition-colors duration-300 group social-box"
+        >
+          <i
+            class="fab fa-instagram text-3xl text-pink-600 group-hover:scale-110 transition-transform duration-300 social-icon"
+          ></i>
+          <div class="flex flex-col">
+            <span class="font-semibold">Instagram</span>
+            <span class="text-sm text-gray-500 social-username"
+              >@respac_sn</span
+            >
+          </div>
+        </a>
+
+        <a
+          href="#"
+          class="flex items-center gap-4 p-6 rounded-lg border border-gray-200 hover:border-[#DAA520] transition-colors duration-300 group social-box"
+        >
+          <i
+            class="fab fa-twitter text-3xl text-[#1DA1F2] group-hover:scale-110 transition-transform duration-300 social-icon"
+          ></i>
+          <div class="flex flex-col">
+            <span class="font-semibold">Twitter</span>
+            <span class="text-sm text-gray-500 social-username"
+              >@RESPAC_Senegal</span
+            >
+          </div>
+        </a>
+
+        <a
+          href="#"
+          class="flex items-center gap-4 p-6 rounded-lg border border-gray-200 hover:border-[#DAA520] transition-colors duration-300 group social-box"
+        >
+          <i
+            class="fab fa-youtube text-3xl text-red-600 group-hover:scale-110 transition-transform duration-300 social-icon"
+          ></i>
+          <div class="flex flex-col">
+            <span class="font-semibold">YouTube</span>
+            <span class="text-sm text-gray-500 social-username"
+              >RESPAC Sénégal</span
+            >
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- SECTION: Actualités -->
+    <section class="bg-white py-16 px-6 md:px-20">
+      <h2
+        class="text-3xl font-extrabold mb-10 border-b-4 border-[#DAA520] inline-block"
+      >
+        Actualités
+      </h2>
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 max-w-7xl mx-auto"
+      >
+        <article
+          class="flex flex-col items-start p-8 border rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
+        >
+          <i class="fas fa-film text-4xl text-[#DAA520] mb-6"></i>
+          <h3 class="text-xl font-bold mb-3">Festival du Film Africain</h3>
+          <p class="text-gray-600 mb-4">
+            Participation remarquée des membres du RESPAC au Festival
+            International du Film de Dakar.
+          </p>
+          <time class="text-sm text-gray-500">15 décembre 2023</time>
+        </article>
+
+        <article
+          class="flex flex-col items-start p-8 border rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
+        >
+          <i class="fas fa-handshake text-4xl text-[#DAA520] mb-6"></i>
+          <h3 class="text-xl font-bold mb-3">Partenariat Stratégique</h3>
+          <p class="text-gray-600 mb-4">
+            Signature d'une convention de partenariat avec les distributeurs
+            internationaux.
+          </p>
+          <time class="text-sm text-gray-500">10 décembre 2023</time>
+        </article>
+
+        <article
+          class="flex flex-col items-start p-8 border rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
+        >
+          <i class="fas fa-graduation-cap text-4xl text-[#DAA520] mb-6"></i>
+          <h3 class="text-xl font-bold mb-3">Formation Professionnelle</h3>
+          <p class="text-gray-600 mb-4">
+            Lancement du programme de formation en production audiovisuelle.
+          </p>
+          <time class="text-sm text-gray-500">5 décembre 2023</time>
+        </article>
+
+        <article
+          class="flex flex-col items-start p-8 border rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
+        >
+          <i class="fas fa-trophy text-4xl text-[#DAA520] mb-6"></i>
+          <h3 class="text-xl font-bold mb-3">Prix d'Excellence</h3>
+          <p class="text-gray-600 mb-4">
+            Récompense internationale pour une production membre du RESPAC.
+          </p>
+          <time class="text-sm text-gray-500">1 décembre 2023</time>
+        </article>
+      </div>
+      <div class="mt-12 flex justify-start">
+        <a href="#" class="cta-button">Voir plus d'actualités</a>
+      </div>
+    </section>
+
+    <!-- SECTION: Sorties de films -->
+    <section class="bg-black text-white py-16 px-6 md:px-20">
+      <div class="text-center mb-10">
+        <h2
+          class="text-3xl font-extrabold border-b-4 border-[#DAA520] inline-block"
+        >
+          Sorties de films
+        </h2>
+      </div>
+      <div class="relative">
+        <div
+          class="carousel flex overflow-x-auto scrollbar-hide gap-6 pb-4 snap-x snap-mandatory"
+        >
+          <article
+            class="sortie-film-card snap-start rounded-lg shadow-lg overflow-hidden flex-shrink-0"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1594909122845-11baa439b7bf?auto=format&fit=crop&w=300&h=450&q=80"
+              alt="Affiche de L'Écho du Sahel"
+            />
+            <div class="film-info">
+              <h3 class="text-lg font-bold mb-1">L'Écho du Sahel</h3>
+              <time class="text-sm text-gray-300">Mars 2024</time>
+            </div>
+          </article>
+
+          <article
+            class="sortie-film-card snap-start rounded-lg shadow-lg overflow-hidden flex-shrink-0"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1486572788966-cfd3df1f5b42?auto=format&fit=crop&w=300&h=450&q=80"
+              alt="Affiche de Terres d'Espoir"
+            />
+            <div class="film-info">
+              <h3 class="text-lg font-bold mb-1">Terres d'Espoir</h3>
+              <time class="text-sm text-gray-300">Avril 2024</time>
+            </div>
+          </article>
+
+          <article
+            class="sortie-film-card snap-start rounded-lg shadow-lg overflow-hidden flex-shrink-0"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=300&h=450&q=80"
+              alt="Affiche de L'Héritage d'Ousmane"
+            />
+            <div class="film-info">
+              <h3 class="text-lg font-bold mb-1">L'Héritage d'Ousmane</h3>
+              <time class="text-sm text-gray-300">Juin 2024</time>
+            </div>
+          </article>
+
+          <article
+            class="sortie-film-card snap-start rounded-lg shadow-lg overflow-hidden flex-shrink-0"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1594909122845-11baa439b7bf?auto=format&fit=crop&w=300&h=450&q=80"
+              alt="Affiche de Dakar Stories"
+            />
+            <div class="film-info">
+              <h3 class="text-lg font-bold mb-1">Dakar Stories</h3>
+              <time class="text-sm text-gray-300">Juillet 2024</time>
+            </div>
+          </article>
+
+          <!-- More films -->
+
+          <article
+            class="sortie-film-card snap-start rounded-lg shadow-lg overflow-hidden flex-shrink-0"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1522407183863-c0bf2256188c?auto=format&fit=crop&w=300&h=450&q=80"
+              alt="Affiche de Mémoires de Gorée"
+            />
+            <div class="film-info">
+              <h3 class="text-lg font-bold mb-1">Mémoires de Gorée</h3>
+              <time class="text-sm text-gray-300">Octobre 2024</time>
+            </div>
+          </article>
+
+          <article
+            class="sortie-film-card snap-start rounded-lg shadow-lg overflow-hidden flex-shrink-0"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?auto=format&fit=crop&w=300&h=450&q=80"
+              alt="Affiche de Teranga"
+            />
+            <div class="film-info">
+              <h3 class="text-lg font-bold mb-1">Teranga</h3>
+              <time class="text-sm text-gray-300">Novembre 2024</time>
+            </div>
+          </article>
+
+          <article
+            class="sortie-film-card snap-start rounded-lg shadow-lg overflow-hidden flex-shrink-0"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&h=450&q=80"
+              alt="Affiche de La Route de Casamance"
+            />
+            <div class="film-info">
+              <h3 class="text-lg font-bold mb-1">La Route de Casamance</h3>
+              <time class="text-sm text-gray-300">Décembre 2024</time>
+            </div>
+          </article>
+
+          <article
+            class="sortie-film-card snap-start rounded-lg shadow-lg overflow-hidden flex-shrink-0"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1436891620584-47fd0e565afb?auto=format&fit=crop&w=300&h=450&q=80"
+              alt="Affiche de Sous l'Arbre à Palabres"
+            />
+            <div class="film-info">
+              <h3 class="text-lg font-bold mb-1">Sous l'Arbre à Palabres</h3>
+              <time class="text-sm text-gray-300">Janvier 2025</time>
+            </div>
+          </article>
+
+          <article
+            class="sortie-film-card snap-start rounded-lg shadow-lg overflow-hidden flex-shrink-0"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=300&h=450&q=80"
+              alt="Affiche de Les Femmes de Ndande"
+            />
+            <div class="film-info">
+              <h3 class="text-lg font-bold mb-1">Les Femmes de Ndande</h3>
+              <time class="text-sm text-gray-300">Février 2025</time>
+            </div>
+          </article>
+        </div>
+        <div class="mt-8 flex justify-center">
+          <a href="#" class="cta-button">Voir plus de sorties en salle</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: Festivals -->
+    <section class="bg-white py-16 px-6 md:px-20">
+      <h2
+        class="text-3xl font-extrabold mb-10 border-b-4 border-[#DAA520] inline-block"
+      >
+        Festivals
+      </h2>
+      <div class="relative">
+        <div
+          class="carousel flex overflow-x-auto scrollbar-hide gap-6 pb-4 snap-x snap-mandatory"
+        >
+          <!-- Festival 1 -->
+          <article class="festival-card shadow-sm">
+            <img
+              src="https://images.unsplash.com/photo-1515281239448-2abe329fe5e1?auto=format&fit=crop&w=300&q=70"
+              alt="Festival 1"
+              class="festival-image"
+            />
+            <div class="p-6 flex flex-col justify-between">
+              <div>
+                <h3 class="text-xl font-bold mb-2">
+                  Festival International du Film de Dakar
+                </h3>
+                <time class="text-sm text-gray-500 mb-3 block"
+                  >15-20 Décembre 2023</time
+                >
+                <p class="text-gray-600">
+                  Le plus grand rassemblement du cinéma africain, présentant les
+                  meilleurs films du continent et favorisant les échanges
+                  culturels.
+                </p>
+              </div>
+              <button class="cta-button mt-4 self-start">En savoir plus</button>
+            </div>
+          </article>
+
+          <!-- Festival 2 -->
+          <article class="festival-card shadow-sm">
+            <img
+              src="https://images.unsplash.com/photo-1464375117522-1311d6a5b81f?auto=format&fit=crop&w=300&q=70"
+              alt="Festival 2"
+              class="festival-image"
+            />
+            <div class="p-6 flex flex-col justify-between">
+              <div>
+                <h3 class="text-xl font-bold mb-2">
+                  Festival des Films Documentaires
+                </h3>
+                <time class="text-sm text-gray-500 mb-3 block"
+                  >5-10 Janvier 2024</time
+                >
+                <p class="text-gray-600">
+                  Une sélection unique de documentaires mettant en lumière les
+                  enjeux contemporains de l'Afrique.
+                </p>
+              </div>
+              <button class="cta-button mt-4 self-start">En savoir plus</button>
+            </div>
+          </article>
+
+          <!-- Festival 3 -->
+          <article class="festival-card shadow-sm">
+            <img
+              src="https://images.unsplash.com/photo-1485841890310-6a055c88698a?auto=format&fit=crop&w=300&q=70"
+              alt="Festival 3"
+              class="festival-image"
+            />
+            <div class="p-6 flex flex-col justify-between">
+              <div>
+                <h3 class="text-xl font-bold mb-2">
+                  Festival du Court Métrage
+                </h3>
+                <time class="text-sm text-gray-500 mb-3 block"
+                  >20-25 Février 2024</time
+                >
+                <p class="text-gray-600">
+                  Une plateforme de découverte pour les nouveaux talents du
+                  cinéma sénégalais à travers le format court.
+                </p>
+              </div>
+              <button class="cta-button mt-4 self-start">En savoir plus</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: Partenaires -->
+    <section class="bg-white py-16 px-6 md:px-20 partners-section">
+      <h2
+        class="text-3xl font-extrabold mb-10 border-b-4 border-[#DAA520] inline-block"
+      >
+        Nos Partenaires
+      </h2>
+      <div class="partner-grid">
+        <div class="partner-card">
+          <div class="partner-logo"></div>
+          <span class="partner-name">Ministère de la Culture</span>
+        </div>
+
+        <div class="partner-card">
+          <div class="partner-logo"></div>
+          <span class="partner-name">FOPICA</span>
+        </div>
+
+        <div class="partner-card">
+          <div class="partner-logo"></div>
+          <span class="partner-name">Cinéma Pathé de Dakar</span>
+        </div>
+
+        <div class="partner-card">
+          <div class="partner-logo"></div>
+          <span class="partner-name">Institut Culturel Sénégalais</span>
+        </div>
+
+        <div class="partner-card">
+          <div class="partner-logo"></div>
+          <span class="partner-name">Africa Films Distribution</span>
+        </div>
+
+        <div class="partner-card">
+          <div class="partner-logo"></div>
+          <span class="partner-name">MediaTech Dakar</span>
+        </div>
+
+        <div class="partner-card">
+          <div class="partner-logo"></div>
+          <span class="partner-name">Studio Digital Afrique</span>
+        </div>
+
+        <div class="partner-card">
+          <div class="partner-logo"></div>
+          <span class="partner-name">CinéWest Productions</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: Chiffres clés -->
+    <section class="bg-white py-20 px-6 md:px-20">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <!-- Chiffre 1: Membres -->
+          <div class="text-center">
+            <div class="mb-6">
+              <ion-icon
+                name="people-outline"
+                class="text-4xl text-gray-400"
+              ></ion-icon>
+            </div>
+            <p class="text-lg font-medium text-gray-600 mb-4">Membres actifs</p>
+            <div class="mb-4">
+              <span
+                class="text-5xl md:text-6xl font-bold bg-gradient-to-r from-[#daa520] via-[#111827] to-[#daa520] bg-clip-text text-transparent"
+              >
+                150<span class="text-3xl">+</span>
+              </span>
+            </div>
+            <p class="text-sm text-gray-500 max-w-sm mx-auto">
+              Professionnels et entreprises de l'audiovisuel unis pour
+              développer l'industrie sénégalaise
+            </p>
+          </div>
+
+          <!-- Chiffre 2: Productions -->
+          <div class="text-center">
+            <div class="mb-6">
+              <ion-icon
+                name="film-outline"
+                class="text-4xl text-gray-400"
+              ></ion-icon>
+            </div>
+            <p class="text-lg font-medium text-gray-600 mb-4">
+              Productions soutenues
+            </p>
+            <div class="mb-4">
+              <span
+                class="text-5xl md:text-6xl font-bold bg-gradient-to-r from-[#daa520] via-[#111827] to-[#daa520] bg-clip-text text-transparent"
+              >
+                75<span class="text-3xl">+</span>
+              </span>
+            </div>
+            <p class="text-sm text-gray-500 max-w-sm mx-auto">
+              Films et contenus audiovisuels accompagnés depuis la création du
+              réseau
+            </p>
+          </div>
+
+          <!-- Chiffre 3: Formations -->
+          <div class="text-center">
+            <div class="mb-6">
+              <ion-icon
+                name="school-outline"
+                class="text-4xl text-gray-400"
+              ></ion-icon>
+            </div>
+            <p class="text-lg font-medium text-gray-600 mb-4">
+              Formations dispensées
+            </p>
+            <div class="mb-4">
+              <span
+                class="text-5xl md:text-6xl font-bold bg-gradient-to-r from-[#daa520] via-[#111827] to-[#daa520] bg-clip-text text-transparent"
+              >
+                200<span class="text-3xl">+</span>
+              </span>
+            </div>
+            <p class="text-sm text-gray-500 max-w-sm mx-auto">
+              Sessions de formation et workshops pour renforcer les compétences
+              professionnelles
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: Pourquoi devenir membre -->
+    <section class="member-benefits-section">
+      <div
+        class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-10 items-center px-6"
+      >
+        <!-- Colonne gauche (~40%) -->
+        <div class="md:col-span-2">
+          <h2 class="title-section-dark font-extrabold tracking-tight mb-6">
+            Pourquoi devenir<br />membre
+          </h2>
+          <p class="description-text">
+            Rejoindre le RESPAC, c'est intégrer un réseau dynamique qui
+            soutient, forme et promeut les acteurs de l'audiovisuel et du cinéma
+            au Sénégal et à l'international. Ensemble, nous créons des
+            opportunités, développons des compétences et faisons rayonner notre
+            culture.
+          </p>
+          <button class="cta-button text-lg">
+            <i class="fas fa-user-plus"></i>
+            Je deviens membre
+          </button>
+        </div>
+        <!-- Colonne droite (~60%) -->
+        <div class="md:col-span-3">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <!-- Avantage 1 -->
+            <div class="benefit-card">
+              <div class="flex flex-col items-center text-center gap-3">
+                <ion-icon name="school-outline"></ion-icon>
+                <h3 class="title-section-dark">
+                  Formation & montée en compétences
+                </h3>
+                <ul>
+                  <li>• Ateliers et workshops</li>
+                  <li>• Programmes de mentorat</li>
+                </ul>
+              </div>
+            </div>
+            <!-- Avantage 2 -->
+            <div class="benefit-card">
+              <div class="flex flex-col items-center text-center gap-3">
+                <ion-icon name="people-outline"></ion-icon>
+                <h3 class="title-section-dark">Opportunités & networking</h3>
+                <ul>
+                  <li>• Festivals et forums</li>
+                  <li>• Coproductions et collaborations</li>
+                </ul>
+              </div>
+            </div>
+            <!-- Avantage 3 -->
+            <div class="benefit-card">
+              <div class="flex flex-col items-center text-center gap-3">
+                <ion-icon name="briefcase-outline"></ion-icon>
+                <h3 class="title-section-dark">Soutien professionnel</h3>
+                <ul>
+                  <li>• Accompagnement à la production et diffusion</li>
+                  <li>• Conseils techniques et juridiques</li>
+                </ul>
+              </div>
+            </div>
+            <!-- Avantage 4 -->
+            <div class="benefit-card">
+              <div class="flex flex-col items-center text-center gap-3">
+                <ion-icon name="megaphone-outline"></ion-icon>
+                <h3 class="title-section-dark">Visibilité & promotion</h3>
+                <ul>
+                  <li>• Communication et marketing</li>
+                  <li>• Relations médias et promotion internationale</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: Contact - nouveau design -->
+    <section class="relative">
+      <div class="contact-card contact-overlap">
+        <div
+          class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start"
+        >
+          <!-- Colonne gauche: infos contact -->
+          <div>
+            <h2
+              class="contact-left-title text-3xl md:text-4xl font-extrabold mb-4"
+            >
+              Contactez-nous
+            </h2>
+            <p class="contact-left-desc mb-6">
+              Un projet, une question ou une proposition de partenariat ? Notre
+              équipe vous répond rapidement.
+            </p>
+            <div class="space-y-3">
+              <a
+                href="https://wa.me/221000000000"
+                class="contact-item"
+                target="_blank"
+                rel="noopener"
+              >
+                <ion-icon
+                  name="logo-whatsapp"
+                  class="contact-item-icon"
+                ></ion-icon>
+                <div>
+                  <div class="contact-item-title">WhatsApp</div>
+                  <div class="contact-item-sub">+221 00 000 00 00</div>
+                </div>
+              </a>
+              <a href="tel:+221000000000" class="contact-item">
+                <ion-icon
+                  name="call-outline"
+                  class="contact-item-icon"
+                ></ion-icon>
+                <div>
+                  <div class="contact-item-title">Appel</div>
+                  <div class="contact-item-sub">+221 00 000 00 00</div>
+                </div>
+              </a>
+              <a href="mailto:contact@respac.sn" class="contact-item">
+                <ion-icon
+                  name="mail-outline"
+                  class="contact-item-icon"
+                ></ion-icon>
+                <div>
+                  <div class="contact-item-title">Email</div>
+                  <div class="contact-item-sub">contact@respac.sn</div>
+                </div>
+              </a>
+              <a
+                href="https://maps.google.com/?q=Dakar%2C+S%C3%A9n%C3%A9gal"
+                class="contact-item"
+                target="_blank"
+                rel="noopener"
+              >
+                <ion-icon
+                  name="location-outline"
+                  class="contact-item-icon"
+                ></ion-icon>
+                <div>
+                  <div class="contact-item-title">Localisation</div>
+                  <div class="contact-item-sub">Dakar, Sénégal</div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <!-- Colonne droite: formulaire -->
+          <div>
+            <form class="contact-form space-y-4">
+              <div>
+                <input type="text" name="name" placeholder="Nom" required />
+              </div>
+              <div>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email (optionnel)"
+                />
+              </div>
+              <div>
+                <textarea
+                  name="message"
+                  rows="5"
+                  placeholder="Message"
+                  required
+                ></textarea>
+              </div>
+              <div>
+                <button type="submit" class="cta-button text-lg">
+                  Envoyer un message
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER étendu -->
+    <footer class="bg-black text-white pt-16 pb-10 footer-extended">
+      <div
+        class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10"
+      >
+        <!-- Col 1: Présentation -->
+        <div>
+          <div class="text-2xl font-extrabold tracking-wide mb-3">
+            <span class="text-[#DAA520]">RES</span>PAC
+          </div>
+          <p class="text-gray-400">
+            Réseau des Entreprises Sénégalaises de Production Audiovisuelle et
+            Cinématographique. Nous fédérons, accompagnons et promouvons les
+            acteurs du secteur.
+          </p>
+        </div>
+        <!-- Col 2: Liens rapides -->
+        <div>
+          <h4 class="text-lg font-semibold mb-3">Liens rapides</h4>
+          <ul class="space-y-2 text-gray-300">
+            <li><a href="#" class="hover:text-white">Accueil</a></li>
+            <li><a href="#" class="hover:text-white">Présentation</a></li>
+            <li><a href="#" class="hover:text-white">Actualité</a></li>
+            <li><a href="#" class="hover:text-white">Sortie en salle</a></li>
+            <li><a href="#" class="hover:text-white">Festival</a></li>
+          </ul>
+        </div>
+        <!-- Col 3: Coordonnées -->
+        <div>
+          <h4 class="text-lg font-semibold mb-3">Coordonnées</h4>
+          <ul class="space-y-2 text-gray-300">
+            <li>contact@respac.sn</li>
+            <li>+221 00 000 00 00</li>
+            <li>Dakar, Sénégal</li>
+          </ul>
+        </div>
+        <!-- Col 4: Réseaux sociaux -->
+        <div>
+          <h4 class="text-lg font-semibold mb-3">Suivez-nous</h4>
+          <div class="flex items-center gap-4 text-2xl">
+            <a href="#" class="text-white/80 hover:text-white"
+              ><ion-icon name="logo-facebook"></ion-icon
+            ></a>
+            <a href="#" class="text-white/80 hover:text-white"
+              ><ion-icon name="logo-instagram"></ion-icon
+            ></a>
+            <a href="#" class="text-white/80 hover:text-white"
+              ><ion-icon name="logo-twitter"></ion-icon
+            ></a>
+            <a href="#" class="text-white/80 hover:text-white"
+              ><ion-icon name="logo-youtube"></ion-icon
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center text-gray-500 mt-10">
+        © 2025 RESPAC. Tous droits réservés.
+      </div>
+    </footer>
+
+    <!-- SCRIPT -->
+    <script>
+      (() => {
+        const header = document.getElementById("site-header");
+        const firstSection = document.querySelector("body > section");
+        const rootStyles = getComputedStyle(document.documentElement);
+        const headerHeightVar = rootStyles
+          .getPropertyValue("--header-height")
+          .trim();
+        const headerHeight = parseInt(headerHeightVar || "88", 10) || 88;
+
+        let lastY = window.scrollY;
+        let currentY = lastY;
+        let ticking = false;
+
+        const updateHeader = () => {
+          const scrollingDown = currentY > lastY;
+          const heroBottom = firstSection
+            ? firstSection.offsetTop + firstSection.offsetHeight - headerHeight
+            : 10;
+
+          // Top transparent state
+          if (currentY <= 10) {
+            header.classList.add("header-top");
+          } else {
+            header.classList.remove("header-top");
+          }
+
+          // Solid background past hero
+          if (currentY > heroBottom) {
+            header.classList.add("header-scrolled");
+          } else {
+            header.classList.remove("header-scrolled");
+          }
+
+          // Hide on scroll down only after hero; show on scroll up or before hero
+          const hysteresis = 8; // reduce flicker
+          if (currentY > heroBottom + hysteresis && scrollingDown) {
+            header.classList.add("hidden");
+          } else {
+            header.classList.remove("hidden");
+          }
+
+          header.classList.toggle("scrolling-down", scrollingDown);
+          header.classList.toggle("scrolling-up", !scrollingDown);
+
+          lastY = currentY;
+          ticking = false;
+        };
+
+        const onScroll = () => {
+          currentY = window.scrollY;
+          if (!ticking) {
+            requestAnimationFrame(updateHeader);
+            ticking = true;
+          }
+        };
+
+        window.addEventListener("scroll", onScroll, { passive: true });
+        updateHeader();
+
+        const htmlEl = document.documentElement;
+        const themeToggleBtn = document.getElementById("theme-toggle");
+
+        // Init theme icon
+        const setThemeIcon = () => {
+          const isDark = htmlEl.classList.contains("dark");
+          themeToggleBtn.innerHTML = isDark
+            ? '<ion-icon name="sunny-outline"></ion-icon>'
+            : '<ion-icon name="moon-outline"></ion-icon>';
+        };
+
+        if (
+          ("theme" in localStorage &&
+            localStorage.getItem("theme") === "dark") ||
+          window.matchMedia("(prefers-color-scheme: dark)").matches
+        ) {
+          htmlEl.classList.add("dark");
+        }
+        setThemeIcon();
+
+        themeToggleBtn.addEventListener("click", () => {
+          if (htmlEl.classList.contains("dark")) {
+            htmlEl.classList.remove("dark");
+            localStorage.setItem("theme", "light");
+          } else {
+            htmlEl.classList.add("dark");
+            localStorage.setItem("theme", "dark");
+          }
+          setThemeIcon();
+        });
+
+        // Tabs behavior
+        const tabs = document.querySelectorAll(".tab-link");
+        tabs.forEach((tab) => {
+          tab.addEventListener("click", (e) => {
+            e.preventDefault();
+            tabs.forEach((t) => t.classList.remove("tab-active"));
+            tab.classList.add("tab-active");
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>
