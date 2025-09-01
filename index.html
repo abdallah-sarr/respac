@@ -7,6 +7,17 @@
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'respac-red': '#ff4444',
+            }
+          }
+        }
+      }
+    </script>
 
     <!-- Font Awesome CDN -->
     <link
@@ -497,6 +508,13 @@
       /* Style global du texte */
       body {
         font-family: "Raleway", sans-serif;
+      }
+      
+      /* Style global des titres */
+      h1, h2, h3, h4, h5, h6,
+      .title-section-dark,
+      .film-info h3 {
+        color: #ff4444 !important;
       }
 
       /* Mise à jour du style des bordures de titre */
@@ -1307,7 +1325,7 @@
     >
       <div class="hero-content w-full md:w-1/2 max-w-3xl mx-auto">
         <h1
-          class="text-3xl md:text-4xl font-extrabold mb-6 border-b-4 border-[#DAA520] inline-block pb-2"
+          class="text-3xl md:text-4xl font-extrabold mb-6 border-b-4 border-[#DAA520] inline-block pb-2 text-[#ff4444]"
         >
           Le RESPAC
         </h1>
