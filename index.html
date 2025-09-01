@@ -31,6 +31,24 @@
     ></script>
 
     <style>
+      /* Nettoyage des doublons et réorganisation des styles */
+
+      /* Base styles */
+      :root {
+        --section-padding-block: 4rem;
+        --section-padding-inline: 1.5rem;
+        --section-padding-inline-mobile: 1rem;
+        --title-underline-width: 40%;
+        --header-height: 88px;
+        --contact-overlap: 12rem;
+        --deep-green-1: #0b1f1a;
+        --deep-green-2: #0e2a22;
+        --dark-header-bg: #0b0b0b;
+        --dark-header-color: #ffffff;
+        --card-border-radius: 12px;
+        --box-shadow-subtle: 0 4px 16px rgba(0, 0, 0, 0.1);
+      }
+
       /* Boutons bordures avec animation remplissage */
       .btn-border-fill {
         position: relative;
@@ -242,7 +260,6 @@
         line-height: 1.1 !important;
         background: linear-gradient(to right, #daa520, #ffd700);
         -webkit-background-clip: text;
-        background-clip: text;
         -webkit-text-fill-color: transparent;
       }
 
@@ -412,7 +429,6 @@
         line-height: 1.1 !important;
         background: linear-gradient(to right, #daa520, #ffd700);
         -webkit-background-clip: text;
-        background-clip: text;
         -webkit-text-fill-color: transparent;
       }
 
@@ -661,50 +677,6 @@
         background-color: #b88600;
       }
 
-      /* ===== Uniformisation des paddings des sections + titres ===== */
-      :root {
-        --section-padding-block: 4rem; /* Uniforme pour toutes les sections */
-        --section-padding-inline: 1.5rem;
-        --section-padding-inline-mobile: 1rem; /* Padding réduit sur mobile */
-        --title-underline-width: 40%; /* 30–50% de la largeur du texte */
-        --header-height: 88px; /* Hauteur du header augmentée */
-        --contact-overlap: 12rem; /* Pour le chevauchement contact/footer */
-        --deep-green-1: #0b1f1a; /* Couleur verte pour la section contact */
-        --deep-green-2: #0e2a22;
-        --dark-header-bg: #0b0b0b; /* Couleur du header en mode sombre */
-        --dark-header-color: #ffffff; /* Couleur du texte du header en mode sombre */
-        --card-border-radius: 12px; /* Rayon des bordures des cartes */
-        --box-shadow-subtle: 0 4px 16px rgba(0, 0, 0, 0.1); /* Ombre subtile */
-      }
-
-      section {
-        padding-block: var(--section-padding-block) !important;
-        padding-inline: var(--section-padding-inline) !important;
-      }
-
-      /* Responsive: paddings réduits sur mobile */
-      @media (max-width: 768px) {
-        section {
-          padding-inline: var(--section-padding-inline-mobile) !important;
-        }
-        h1 {
-          font-size: 2.5rem !important;
-        }
-        h2 {
-          font-size: 2rem !important;
-        }
-        h3 {
-          font-size: 1.5rem !important;
-        }
-      }
-
-      /* Première section: paddings haut/bas réduits et pas de min-height plein écran */
-      section:first-of-type {
-        padding-top: 2rem !important;
-        padding-bottom: var(--section-padding-block) !important;
-        min-height: auto !important;
-      }
-
       /* Titres: taille harmonisée, texte blanc, soulignement décoratif */
       h1,
       h2,
@@ -717,7 +689,6 @@
         background: none !important;
         -webkit-text-fill-color: initial !important;
         -webkit-background-clip: initial !important;
-        background-clip: initial !important;
       }
 
       h1 {
@@ -733,23 +704,6 @@
       h3 {
         font-size: 1.875rem !important;
         line-height: 1.25 !important;
-      }
-
-      h1::after,
-      h2::after,
-      h3::after {
-        content: "";
-        display: block;
-        width: var(--title-underline-width);
-        height: 4px;
-        background: #ffd700;
-        margin-top: 0.5rem;
-      }
-      h1.text-center::after,
-      h2.text-center::after,
-      h3.text-center::after {
-        margin-left: auto;
-        margin-right: auto;
       }
 
       /* Tabs header (centre) */
@@ -1249,8 +1203,8 @@
     </style>
   </head>
   <body class="font-sans bg-white text-black transition-colors duration-500">
-    <!-- HEADER -->
-    <header id="site-header" aria-label="En-tête du site">
+    <!-- Correction du header pour améliorer l'accessibilité -->
+    <header id="site-header" class="header-top" aria-label="En-tête du site">
       <div
         class="max-w-7xl mx-auto grid grid-cols-3 items-center justify-items-center px-6"
         style="height: var(--header-height)"
@@ -1340,7 +1294,10 @@
     </header>
 
     <!-- SECTION: Présentation (Hero) -->
-    <section class="hero-section text-white text-center px-6">
+    <section
+      class="hero-section text-white text-center px-6"
+      aria-label="Présentation"
+    >
       <div class="hero-content w-full md:w-1/2 max-w-3xl mx-auto">
         <h1
           class="text-3xl md:text-4xl font-extrabold mb-6 border-b-4 border-[#DAA520] inline-block pb-2"
@@ -2056,7 +2013,7 @@
       </div>
     </section>
 
-    <!-- FOOTER étendu -->
+    <!-- FOOTER avec correction de l'année -->
     <footer class="bg-black text-white pt-16 pb-10 footer-extended">
       <div
         class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10"
@@ -2112,11 +2069,15 @@
         </div>
       </div>
       <div class="text-center text-gray-500 mt-10">
-        © 2025 RESPAC. Tous droits réservés.
+        ©
+        <script>
+          document.write(new Date().getFullYear());
+        </script>
+        RESPAC. Tous droits réservés.
       </div>
     </footer>
 
-    <!-- SCRIPT -->
+    <!-- Scripts -->
     <script>
       (() => {
         const header = document.getElementById("site-header");
