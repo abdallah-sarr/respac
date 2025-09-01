@@ -134,10 +134,10 @@
         transition: all 0.4s ease;
         z-index: 100;
         will-change: transform;
-        background: rgba(0, 0, 0, 0.15);
+        background: rgba(255, 255, 255, 0.9);
         backdrop-filter: blur(12px) saturate(120%);
         -webkit-backdrop-filter: blur(12px) saturate(120%);
-        color: #ffffff;
+        color: #333333;
         position: fixed;
         top: 0;
         width: 100%;
@@ -267,7 +267,7 @@
       }
     </style>
   </head>
-  <body class="bg-gray-900 text-gray-100 font-sans">
+  <body class="bg-white text-gray-800 font-sans">
     <!-- HEADER -->
     <header id="site-header" aria-label="En-tête du site">
       <div
@@ -362,57 +362,50 @@
     <!-- Tailwind CDN (à retirer si tu compiles déjà Tailwind dans ton build) -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <section
-      class="w-full bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/70 border-b border-neutral-200"
-    >
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section class="w-full bg-white mt-[60px]">
+      <div class="mx-auto max-w-3xl px-6">
         <div
-          class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 py-6"
+          class="flex flex-col items-center text-center border rounded-2xl p-8 shadow-sm space-y-6"
         >
-          <!-- Bloc gauche : icône + textes -->
-          <div class="flex items-start gap-4">
-            <!-- Icône outlined dorée -->
-            <div class="shrink-0">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 48 48"
-                class="w-12 h-12"
+          <!-- Icône outlined dorée -->
+          <div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 48 48"
+              class="w-14 h-14"
+            >
+              <g
+                fill="none"
+                stroke="#CBA135"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
               >
-                <g
-                  fill="none"
-                  stroke="#CBA135"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <!-- Clapperboard outline -->
-                  <path d="M6 20h36v18a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4V20z" />
-                  <path d="M6 20l4-12h28l-4 12H6z" />
-                  <path d="M14 8l6 12M26 8l6 12" />
-                </g>
-              </svg>
-            </div>
-
-            <div class="space-y-1">
-              <h2
-                class="text-xl sm:text-2xl font-semibold tracking-tight text-neutral-900"
-              >
-                Adhérer au RESPAC
-              </h2>
-              <p class="text-sm sm:text-base text-neutral-600 max-w-2xl">
-                Rejoignez le Réseau des entreprises et sociétés de production
-                audiovisuelle et cinématographique du Sénégal pour renforcer vos
-                connexions, partager des ressources et gagner en visibilité dans
-                l’écosystème.
-              </p>
-            </div>
+                <path d="M6 20h36v18a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4V20z" />
+                <path d="M6 20l4-12h28l-4 12H6z" />
+                <path d="M14 8l6 12M26 8l6 12" />
+              </g>
+            </svg>
           </div>
 
-          <!-- CTA droite -->
-          <div class="w-full md:w-auto">
+          <!-- Texte -->
+          <div class="space-y-3">
+            <h2 class="text-2xl font-semibold tracking-tight text-neutral-900">
+              Adhérer au RESPAC
+            </h2>
+            <p class="text-base text-neutral-600 max-w-2xl">
+              Rejoignez le Réseau des entreprises et sociétés de production
+              audiovisuelle et cinématographique du Sénégal pour renforcer vos
+              connexions, partager des ressources et gagner en visibilité dans
+              l’écosystème.
+            </p>
+          </div>
+
+          <!-- CTA -->
+          <div>
             <a
               href="#adhesion"
-              class="group inline-flex items-center justify-center w-full md:w-auto h-12 px-6 rounded-2xl uppercase tracking-wide font-semibold text-white shadow-lg bg-gradient-to-b from-[#E50914] to-[#B20710] hover:from-[#FF0F1D] hover:to-[#D20A13] active:scale-[0.99] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-red-600"
+              class="group inline-flex items-center justify-center h-12 px-8 rounded-2xl uppercase tracking-wide font-semibold text-white shadow-lg bg-gradient-to-b from-[#E50914] to-[#B20710] hover:from-[#FF0F1D] hover:to-[#D20A13] active:scale-[0.99] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-red-600"
             >
               <!-- Icône gauche -->
               <svg
@@ -434,337 +427,339 @@
         </div>
       </div>
     </section>
-
     <!-- Main Content -->
     <div class="container mx-auto px-6 py-10">
-      <h2 class="text-2xl font-bold text-yellow-500 mb-6">
+      <h2 class="text-2xl font-bold text-[#ff4444] mb-6">
         Liste des entreprises
       </h2>
       <div
         class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6"
       >
+        <!-- Remplacement de tous les divs d'entreprises par le design clair -->
         <!-- LACME STUDIOS -->
         <div
           onclick="openModal('LACME STUDIOS', 'PAMELA DIOP', 'LS')"
-          class="bg-gray-800 rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-700 transition cursor-pointer"
+          class="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-50 transition cursor-pointer border border-gray-200"
         >
           <div
-            class="w-20 h-20 flex items-center justify-center bg-indigo-600 text-white text-2xl font-bold rounded-xl mb-3"
+            class="w-20 h-20 flex items-center justify-center bg-[#daa520] text-white text-2xl font-bold rounded-xl mb-3"
           >
             LS
           </div>
-          <h3 class="font-semibold text-gray-100">LACME STUDIOS</h3>
-          <p class="text-gray-400 text-sm">PAMELA DIOP</p>
+          <h3 class="font-semibold text-gray-800">LACME STUDIOS</h3>
+          <p class="text-gray-600 text-sm">PAMELA DIOP</p>
         </div>
 
         <!-- STUDIO SANKARA -->
         <div
           onclick="openModal('STUDIO SANKARA', 'MAGUY H. AWADI', 'SS')"
-          class="bg-gray-800 rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-700 transition cursor-pointer"
+          class="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-50 transition cursor-pointer border border-gray-200"
         >
           <div
-            class="w-20 h-20 flex items-center justify-center bg-indigo-600 text-white text-2xl font-bold rounded-xl mb-3"
+            class="w-20 h-20 flex items-center justify-center bg-[#daa520] text-white text-2xl font-bold rounded-xl mb-3"
           >
             SS
           </div>
-          <h3 class="font-semibold text-gray-100">STUDIO SANKARA</h3>
-          <p class="text-gray-400 text-sm">MAGUY H. AWADI</p>
+          <h3 class="font-semibold text-gray-800">STUDIO SANKARA</h3>
+          <p class="text-gray-600 text-sm">MAGUY H. AWADI</p>
         </div>
 
         <!-- CINEKAP -->
         <div
           onclick="openModal('CINEKAP', 'OMAR SALL', 'CK')"
-          class="bg-gray-800 rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-700 transition cursor-pointer"
+          class="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-50 transition cursor-pointer border border-gray-200"
         >
           <div
-            class="w-20 h-20 flex items-center justify-center bg-indigo-600 text-white text-2xl font-bold rounded-xl mb-3"
+            class="w-20 h-20 flex items-center justify-center bg-[#daa520] text-white text-2xl font-bold rounded-xl mb-3"
           >
             CK
           </div>
-          <h3 class="font-semibold text-gray-100">CINEKAP</h3>
-          <p class="text-gray-400 text-sm">OMAR SALL</p>
+          <h3 class="font-semibold text-gray-800">CINEKAP</h3>
+          <p class="text-gray-600 text-sm">OMAR SALL</p>
         </div>
 
         <!-- GIE DM MEDIA -->
         <div
           onclick="openModal('GIE DM MEDIA', 'DJIBRIL DRAME', 'DM')"
-          class="bg-gray-800 rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-700 transition cursor-pointer"
+          class="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-50 transition cursor-pointer border border-gray-200"
         >
           <div
-            class="w-20 h-20 flex items-center justify-center bg-indigo-600 text-white text-2xl font-bold rounded-xl mb-3"
+            class="w-20 h-20 flex items-center justify-center bg-[#daa520] text-white text-2xl font-bold rounded-xl mb-3"
           >
             DM
           </div>
-          <h3 class="font-semibold text-gray-100">GIE DM MEDIA</h3>
-          <p class="text-gray-400 text-sm">DJIBRIL DRAME</p>
+          <h3 class="font-semibold text-gray-800">GIE DM MEDIA</h3>
+          <p class="text-gray-600 text-sm">DJIBRIL DRAME</p>
         </div>
 
         <!-- MEDIATIK -->
         <div
           onclick="openModal('MEDIATIK', 'MOCTAR BA', 'MT')"
-          class="bg-gray-800 rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-700 transition cursor-pointer"
+          class="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-50 transition cursor-pointer border border-gray-200"
         >
           <div
-            class="w-20 h-20 flex items-center justify-center bg-indigo-600 text-white text-2xl font-bold rounded-xl mb-3"
+            class="w-20 h-20 flex items-center justify-center bg-[#daa520] text-white text-2xl font-bold rounded-xl mb-3"
           >
             MT
           </div>
-          <h3 class="font-semibold text-gray-100">MEDIATIK</h3>
-          <p class="text-gray-400 text-sm">MOCTAR BA</p>
+          <h3 class="font-semibold text-gray-800">MEDIATIK</h3>
+          <p class="text-gray-600 text-sm">MOCTAR BA</p>
         </div>
 
         <!-- CHOUETTE PROD -->
         <div
           onclick="openModal('CHOUETTE PROD', 'ZENA ZEIDAN', 'CP')"
-          class="bg-gray-800 rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-700 transition cursor-pointer"
+          class="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-50 transition cursor-pointer border border-gray-200"
         >
           <div
-            class="w-20 h-20 flex items-center justify-center bg-indigo-600 text-white text-2xl font-bold rounded-xl mb-3"
+            class="w-20 h-20 flex items-center justify-center bg-[#daa520] text-white text-2xl font-bold rounded-xl mb-3"
           >
             CP
           </div>
-          <h3 class="font-semibold text-gray-100">CHOUETTE PROD</h3>
-          <p class="text-gray-400 text-sm">ZENA ZEIDAN</p>
+          <h3 class="font-semibold text-gray-800">CHOUETTE PROD</h3>
+          <p class="text-gray-600 text-sm">ZENA ZEIDAN</p>
         </div>
 
         <!-- PROD-EVENTS -->
         <div
           onclick="openModal('PROD-EVENTS', 'BASSIROU NDIAYE', 'PE')"
-          class="bg-gray-800 rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-700 transition cursor-pointer"
+          class="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-50 transition cursor-pointer border border-gray-200"
         >
           <div
-            class="w-20 h-20 flex items-center justify-center bg-indigo-600 text-white text-2xl font-bold rounded-xl mb-3"
+            class="w-20 h-20 flex items-center justify-center bg-[#daa520] text-white text-2xl font-bold rounded-xl mb-3"
           >
             PE
           </div>
-          <h3 class="font-semibold text-gray-100">PROD-EVENTS</h3>
-          <p class="text-gray-400 text-sm">BASSIROU NDIAYE</p>
+          <h3 class="font-semibold text-gray-800">PROD-EVENTS</h3>
+          <p class="text-gray-600 text-sm">BASSIROU NDIAYE</p>
         </div>
 
         <!-- KARONINKA -->
         <div
           onclick="openModal('KARONINKA', 'ANGELE DIABANG', 'KA')"
-          class="bg-gray-800 rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-700 transition cursor-pointer"
+          class="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-50 transition cursor-pointer border border-gray-200"
         >
           <div
-            class="w-20 h-20 flex items-center justify-center bg-indigo-600 text-white text-2xl font-bold rounded-xl mb-3"
+            class="w-20 h-20 flex items-center justify-center bg-[#daa520] text-white text-2xl font-bold rounded-xl mb-3"
           >
             KA
           </div>
-          <h3 class="font-semibold text-gray-100">KARONINKA</h3>
-          <p class="text-gray-400 text-sm">ANGELE DIABANG</p>
+          <h3 class="font-semibold text-gray-800">KARONINKA</h3>
+          <p class="text-gray-600 text-sm">ANGELE DIABANG</p>
         </div>
 
         <!-- LES FILMS DE L'ATELIER -->
         <div
           onclick="openModal('LES FILMS DE L\'ATELIER', 'GORA SECK', 'FA')"
-          class="bg-gray-800 rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-700 transition cursor-pointer"
+          class="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-50 transition cursor-pointer border border-gray-200"
         >
           <div
-            class="w-20 h-20 flex items-center justify-center bg-indigo-600 text-white text-2xl font-bold rounded-xl mb-3"
+            class="w-20 h-20 flex items-center justify-center bg-[#daa520] text-white text-2xl font-bold rounded-xl mb-3"
           >
             FA
           </div>
-          <h3 class="font-semibold text-gray-100">LES FILMS DE L'ATELIER</h3>
-          <p class="text-gray-400 text-sm">GORA SECK</p>
+          <h3 class="font-semibold text-gray-800">LES FILMS DE L'ATELIER</h3>
+          <p class="text-gray-600 text-sm">GORA SECK</p>
         </div>
 
         <!-- THIELYFILM -->
         <div
           onclick="openModal('THIELYFILM', 'SOULEYMANE DIA', 'TF')"
-          class="bg-gray-800 rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-700 transition cursor-pointer"
+          class="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-50 transition cursor-pointer border border-gray-200"
         >
           <div
-            class="w-20 h-20 flex items-center justify-center bg-indigo-600 text-white text-2xl font-bold rounded-xl mb-3"
+            class="w-20 h-20 flex items-center justify-center bg-[#daa520] text-white text-2xl font-bold rounded-xl mb-3"
           >
             TF
           </div>
-          <h3 class="font-semibold text-gray-100">THIELYFILM</h3>
-          <p class="text-gray-400 text-sm">SOULEYMANE DIA</p>
+          <h3 class="font-semibold text-gray-800">THIELYFILM</h3>
+          <p class="text-gray-600 text-sm">SOULEYMANE DIA</p>
         </div>
 
         <!-- OXYGEN AFRICA -->
         <div
           onclick="openModal('OXYGEN AFRICA', 'JAM C', 'OA')"
-          class="bg-gray-800 rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-700 transition cursor-pointer"
+          class="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-50 transition cursor-pointer border border-gray-200"
         >
           <div
-            class="w-20 h-20 flex items-center justify-center bg-indigo-600 text-white text-2xl font-bold rounded-xl mb-3"
+            class="w-20 h-20 flex items-center justify-center bg-[#daa520] text-white text-2xl font-bold rounded-xl mb-3"
           >
             OA
           </div>
-          <h3 class="font-semibold text-gray-100">OXYGEN AFRICA</h3>
-          <p class="text-gray-400 text-sm">JAM C</p>
+          <h3 class="font-semibold text-gray-800">OXYGEN AFRICA</h3>
+          <p class="text-gray-600 text-sm">JAM C</p>
         </div>
 
         <!-- LYDEL COM -->
         <div
           onclick="openModal('LYDEL COM', 'TABARA LY', 'LC')"
-          class="bg-gray-800 rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-700 transition cursor-pointer"
+          class="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-50 transition cursor-pointer border border-gray-200"
         >
           <div
-            class="w-20 h-20 flex items-center justify-center bg-indigo-600 text-white text-2xl font-bold rounded-xl mb-3"
+            class="w-20 h-20 flex items-center justify-center bg-[#daa520] text-white text-2xl font-bold rounded-xl mb-3"
           >
             LC
           </div>
-          <h3 class="font-semibold text-gray-100">LYDEL COM</h3>
-          <p class="text-gray-400 text-sm">TABARA LY</p>
+          <h3 class="font-semibold text-gray-800">LYDEL COM</h3>
+          <p class="text-gray-600 text-sm">TABARA LY</p>
         </div>
 
         <!-- CHALLENGER FACTORY -->
         <div
           onclick="openModal('CHALLENGER FACTORY', 'OUSMANE FALL', 'CF')"
-          class="bg-gray-800 rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-700 transition cursor-pointer"
+          class="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-50 transition cursor-pointer border border-gray-200"
         >
           <div
-            class="w-20 h-20 flex items-center justify-center bg-indigo-600 text-white text-2xl font-bold rounded-xl mb-3"
+            class="w-20 h-20 flex items-center justify-center bg-[#daa520] text-white text-2xl font-bold rounded-xl mb-3"
           >
             CF
           </div>
-          <h3 class="font-semibold text-gray-100">CHALLENGER FACTORY</h3>
-          <p class="text-gray-400 text-sm">OUSMANE FALL</p>
+          <h3 class="font-semibold text-gray-800">CHALLENGER FACTORY</h3>
+          <p class="text-gray-600 text-sm">OUSMANE FALL</p>
         </div>
 
         <!-- KALISTA PRODUCTION -->
         <div
           onclick="openModal('KALISTA PRODUCTION', 'KALISTA', 'KP')"
-          class="bg-gray-800 rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-700 transition cursor-pointer"
+          class="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-50 transition cursor-pointer border border-gray-200"
         >
           <div
-            class="w-20 h-20 flex items-center justify-center bg-indigo-600 text-white text-2xl font-bold rounded-xl mb-3"
+            class="w-20 h-20 flex items-center justify-center bg-[#daa520] text-white text-2xl font-bold rounded-xl mb-3"
           >
             KP
           </div>
-          <h3 class="font-semibold text-gray-100">KALISTA PRODUCTION</h3>
-          <p class="text-gray-400 text-sm">KALISTA</p>
+          <h3 class="font-semibold text-gray-800">KALISTA PRODUCTION</h3>
+          <p class="text-gray-600 text-sm">KALISTA</p>
         </div>
 
         <!-- SUNUY FILMS -->
         <div
           onclick="openModal('SUNUY FILMS', 'SOULEYMANE KEBE', 'SF')"
-          class="bg-gray-800 rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-700 transition cursor-pointer"
+          class="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-50 transition cursor-pointer border border-gray-200"
         >
           <div
-            class="w-20 h-20 flex items-center justify-center bg-indigo-600 text-white text-2xl font-bold rounded-xl mb-3"
+            class="w-20 h-20 flex items-center justify-center bg-[#daa520] text-white text-2xl font-bold rounded-xl mb-3"
           >
             SF
           </div>
-          <h3 class="font-semibold text-gray-100">SUNUY FILMS</h3>
-          <p class="text-gray-400 text-sm">SOULEYMANE KEBE</p>
+          <h3 class="font-semibold text-gray-800">SUNUY FILMS</h3>
+          <p class="text-gray-600 text-sm">SOULEYMANE KEBE</p>
         </div>
 
         <!-- CATHY LENA KANE -->
         <div
           onclick="openModal('CATHY LENA KANE', 'CATHY LENA KANE', 'CL')"
-          class="bg-gray-800 rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-700 transition cursor-pointer"
+          class="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-50 transition cursor-pointer border border-gray-200"
         >
           <div
-            class="w-20 h-20 flex items-center justify-center bg-indigo-600 text-white text-2xl font-bold rounded-xl mb-3"
+            class="w-20 h-20 flex items-center justify-center bg-[#daa520] text-white text-2xl font-bold rounded-xl mb-3"
           >
             CL
           </div>
-          <h3 class="font-semibold text-gray-100">CATHY LENA KANE</h3>
-          <p class="text-gray-400 text-sm">CATHY LENA KANE</p>
+          <h3 class="font-semibold text-gray-800">CATHY LENA KANE</h3>
+          <p class="text-gray-600 text-sm">CATHY LENA KANE</p>
         </div>
 
         <!-- NAFI FILMS -->
         <div
           onclick="openModal('NAFI FILMS', 'YORO MBAYE', 'NF')"
-          class="bg-gray-800 rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-700 transition cursor-pointer"
+          class="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-50 transition cursor-pointer border border-gray-200"
         >
           <div
-            class="w-20 h-20 flex items-center justify-center bg-indigo-600 text-white text-2xl font-bold rounded-xl mb-3"
+            class="w-20 h-20 flex items-center justify-center bg-[#daa520] text-white text-2xl font-bold rounded-xl mb-3"
           >
             NF
           </div>
-          <h3 class="font-semibold text-gray-100">NAFI FILMS</h3>
-          <p class="text-gray-400 text-sm">YORO MBAYE</p>
+          <h3 class="font-semibold text-gray-800">NAFI FILMS</h3>
+          <p class="text-gray-600 text-sm">YORO MBAYE</p>
         </div>
 
         <!-- WARU STUDIO -->
         <div
           onclick="openModal('WARU STUDIO', 'FATOU KANDE', 'WS')"
-          class="bg-gray-800 rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-700 transition cursor-pointer"
+          class="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-50 transition cursor-pointer border border-gray-200"
         >
           <div
-            class="w-20 h-20 flex items-center justify-center bg-indigo-600 text-white text-2xl font-bold rounded-xl mb-3"
+            class="w-20 h-20 flex items-center justify-center bg-[#daa520] text-white text-2xl font-bold rounded-xl mb-3"
           >
             WS
           </div>
-          <h3 class="font-semibold text-gray-100">WARU STUDIO</h3>
-          <p class="text-gray-400 text-sm">FATOU KANDE</p>
+          <h3 class="font-semibold text-gray-800">WARU STUDIO</h3>
+          <p class="text-gray-600 text-sm">FATOU KANDE</p>
         </div>
 
         <!-- LADY BLUE PRODUCTION -->
         <div
           onclick="openModal('LADY BLUE PRODUCTION', 'BINETOU FAYE', 'LB')"
-          class="bg-gray-800 rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-700 transition cursor-pointer"
+          class="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-50 transition cursor-pointer border border-gray-200"
         >
           <div
-            class="w-20 h-20 flex items-center justify-center bg-indigo-600 text-white text-2xl font-bold rounded-xl mb-3"
+            class="w-20 h-20 flex items-center justify-center bg-[#daa520] text-white text-2xl font-bold rounded-xl mb-3"
           >
             LB
           </div>
-          <h3 class="font-semibold text-gray-100">LADY BLUE PRODUCTION</h3>
-          <p class="text-gray-400 text-sm">BINETOU FAYE</p>
+          <h3 class="font-semibold text-gray-800">LADY BLUE PRODUCTION</h3>
+          <p class="text-gray-600 text-sm">BINETOU FAYE</p>
         </div>
 
         <!-- KOURTRAJMÉ PRODUCTION -->
         <div
           onclick="openModal('KOURTRAJMÉ PRODUCTION', 'EMMA SANGHARÉ', 'KR')"
-          class="bg-gray-800 rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-700 transition cursor-pointer"
+          class="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-50 transition cursor-pointer border border-gray-200"
         >
           <div
-            class="w-20 h-20 flex items-center justify-center bg-indigo-600 text-white text-2xl font-bold rounded-xl mb-3"
+            class="w-20 h-20 flex items-center justify-center bg-[#daa520] text-white text-2xl font-bold rounded-xl mb-3"
           >
             KR
           </div>
-          <h3 class="font-semibold text-gray-100">KOURTRAJMÉ PRODUCTION</h3>
-          <p class="text-gray-400 text-sm">EMMA SANGHARÉ</p>
+          <h3 class="font-semibold text-gray-800">KOURTRAJMÉ PRODUCTION</h3>
+          <p class="text-gray-600 text-sm">EMMA SANGHARÉ</p>
         </div>
       </div>
     </div>
 
-    <!-- Modal -->
+    <!-- Modal en version claire -->
     <div
       id="modal"
-      class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-50"
+      class="hidden fixed inset-0 bg-black/30 flex items-center justify-center z-50"
     >
       <div
         id="modalContent"
         role="dialog"
         aria-modal="true"
-        class="bg-gray-800 rounded-2xl shadow-lg max-w-lg w-full p-6 relative text-center"
+        class="bg-white rounded-2xl shadow-lg max-w-lg w-full p-6 relative text-center"
       >
         <button
           onclick="closeModal()"
-          class="absolute top-3 right-3 text-gray-400 hover:text-gray-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 rounded-md"
+          class="absolute top-3 right-3 text-gray-500 hover:text-gray-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#daa520] rounded-md"
         >
           ✕
         </button>
         <div
           id="modalLogo"
-          class="w-24 h-24 mx-auto flex items-center justify-center bg-indigo-600 text-white text-3xl font-bold rounded-xl mb-4"
+          class="w-24 h-24 mx-auto flex items-center justify-center bg-[#daa520] text-white text-3xl font-bold rounded-xl mb-4"
         >
           LOGO
         </div>
-        <h2 id="modalTitle" class="text-xl font-bold mb-2">Nom entreprise</h2>
-        <p id="modalMember" class="text-sm text-gray-400 mb-4">Nom membre</p>
-        <p id="modalDescription" class="text-gray-300 mb-6">
-          Informations supplémentaires sur l’entreprise...
+        <h2 id="modalTitle" class="text-xl font-bold text-gray-800 mb-2">
+          Nom entreprise
+        </h2>
+        <p id="modalMember" class="text-sm text-gray-600 mb-4">Nom membre</p>
+        <p id="modalDescription" class="text-gray-700 mb-6">
+          Informations supplémentaires sur l'entreprise...
         </p>
 
-        <!-- Boutons sociaux (carrés, arrondis, icône outline + titre) -->
+        <!-- Boutons sociaux version claire -->
         <div class="flex justify-center gap-3 flex-wrap">
           <!-- Site web -->
           <a
             href="#"
             target="_blank"
-            class="group flex flex-col items-center justify-center w-20 h-20 bg-gray-700/70 rounded-xl ring-1 ring-white/10 hover:ring-white/30 hover:bg-gray-700 transition transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
+            class="group flex flex-col items-center justify-center w-20 h-20 bg-gray-50 rounded-xl ring-1 ring-gray-200 hover:ring-[#daa520] hover:bg-gray-100 transition transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#daa520]"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="w-6 h-6 mb-1 transition group-hover:scale-110"
+              class="w-6 h-6 mb-1 text-gray-600 transition group-hover:scale-110 group-hover:text-[#daa520]"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -781,14 +776,14 @@
                 d="M2.25 12h19.5M12 2.25c3.75 3.75 3.75 15.75 0 19.5M12 2.25c-3.75 3.75-3.75 15.75 0 19.5"
               />
             </svg>
-            <span class="text-[10px] leading-none">Site web</span>
+            <span class="text-[10px] leading-none text-gray-600">Site web</span>
           </a>
 
           <!-- Facebook -->
           <a
             href="#"
             target="_blank"
-            class="group flex flex-col items-center justify-center w-20 h-20 bg-gray-700/70 rounded-xl ring-1 ring-white/10 hover:ring-white/30 hover:bg-gray-700 transition transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
+            class="group flex flex-col items-center justify-center w-20 h-20 bg-gray-50 rounded-xl ring-1 ring-gray-200 hover:ring-[#daa520] hover:bg-gray-100 transition transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#daa520]"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -814,7 +809,7 @@
           <a
             href="#"
             target="_blank"
-            class="group flex flex-col items-center justify-center w-20 h-20 bg-gray-700/70 rounded-xl ring-1 ring-white/10 hover:ring-white/30 hover:bg-gray-700 transition transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
+            class="group flex flex-col items-center justify-center w-20 h-20 bg-gray-50 rounded-xl ring-1 ring-gray-200 hover:ring-[#daa520] hover:bg-gray-100 transition transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#daa520]"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -838,7 +833,7 @@
           <a
             href="#"
             target="_blank"
-            class="group flex flex-col items-center justify-center w-20 h-20 bg-gray-700/70 rounded-xl ring-1 ring-white/10 hover:ring-white/30 hover:bg-gray-700 transition transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
+            class="group flex flex-col items-center justify-center w-20 h-20 bg-gray-50 rounded-xl ring-1 ring-gray-200 hover:ring-[#daa520] hover:bg-gray-100 transition transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#daa520]"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -905,137 +900,129 @@
       </div>
     </footer>
 
+    <script src="../js/main.js"></script>
     <script>
-      const body = document.body;
-      const modal = document.getElementById("modal");
-      const modalContent = document.getElementById("modalContent");
+        // Initialize script loaded successfully
+        console.log('Main script loaded successfully');
 
-      function openModal(entreprise, membre, logo) {
-        document.getElementById("modalTitle").textContent = entreprise;
-        document.getElementById("modalMember").textContent = membre;
-        document.getElementById("modalLogo").textContent = logo;
-        document.getElementById(
-          "modalDescription"
-        ).textContent = `${entreprise} est une entreprise membre du RESPAC représentée par ${membre}.`;
-        modal.classList.remove("hidden");
-        body.classList.add("overflow-hidden");
-      }
-
-      function closeModal() {
-        modal.classList.add("hidden");
-        body.classList.remove("overflow-hidden");
-      }
-
-      // Fermer en cliquant à l’extérieur
-      modal.addEventListener("click", function (e) {
-        if (!modalContent.contains(e.target)) {
-          closeModal();
+        function closeModal() {
+          modal.classList.add("hidden");
+          body.classList.remove("overflow-hidden");
         }
-      });
 
-      // Fermer avec la touche Échap
-      window.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && !modal.classList.contains("hidden")) {
-          closeModal();
-        }
-      });
-
-      (() => {
-        const header = document.getElementById("site-header");
-        const firstSection = document.querySelector("body > section");
-        const rootStyles = getComputedStyle(document.documentElement);
-        const headerHeightVar = rootStyles
-          .getPropertyValue("--header-height")
-          .trim();
-        const headerHeight = parseInt(headerHeightVar || "88", 10) || 88;
-
-        let lastY = window.scrollY;
-        let currentY = lastY;
-        let ticking = false;
-
-        const updateHeader = () => {
-          const scrollingDown = currentY > lastY;
-          const heroBottom = firstSection
-            ? firstSection.offsetTop + firstSection.offsetHeight - headerHeight
-            : 10;
-
-          if (currentY <= 10) {
-            header.classList.add("header-top");
-          } else {
-            header.classList.remove("header-top");
+        // Fermer en cliquant à l’extérieur
+        modal.addEventListener("click", function (e) {
+          if (!modalContent.contains(e.target)) {
+            closeModal();
           }
+        });
 
-          if (currentY > heroBottom) {
-            header.classList.add("header-scrolled");
-          } else {
-            header.classList.remove("header-scrolled");
+        // Fermer avec la touche Échap
+        window.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+            closeModal();
           }
+        });
 
-          const hysteresis = 8;
-          if (currentY > heroBottom + hysteresis && scrollingDown) {
-            header.classList.add("hidden");
+        (() => {
+          const header = document.getElementById("site-header");
+          const firstSection = document.querySelector("body > section");
+          const rootStyles = getComputedStyle(document.documentElement);
+          const headerHeightVar = rootStyles.getPropertyValue("--header-height").trim();
+          const headerHeight = parseInt(headerHeightVar || "88", 10) || 88;
+          const htmlEl = document.documentElement;
+          const themeToggleBtn = document.getElementById("theme-toggle");
+
+          // Header scroll logic
+          let lastY = window.scrollY;
+          let currentY = lastY;
+          let ticking = false;
+
+          const updateHeader = () => {
+            const scrollingDown = currentY > lastY;
+            const heroBottom = firstSection
+              ? firstSection.offsetTop + firstSection.offsetHeight - headerHeight
+              : 10;
+
+            if (currentY <= 10) {
+              header.classList.add("header-top");
+            } else {
+              header.classList.remove("header-top");
+            }
+
+            if (currentY > heroBottom) {
+              header.classList.add("header-scrolled");
+            } else {
+              header.classList.remove("header-scrolled");
+            }
+
+            const hysteresis = 8;
+            if (currentY > heroBottom + hysteresis && scrollingDown) {
+              header.classList.add("hidden");
+            } else {
+              header.classList.remove("hidden");
+            }
+
+            header.classList.toggle("scrolling-down", scrollingDown);
+            header.classList.toggle("scrolling-up", !scrollingDown);
+
+            lastY = currentY;
+            ticking = false;
+          };
+
+          const onScroll = () => {
+            currentY = window.scrollY;
+            if (!ticking) {
+              requestAnimationFrame(updateHeader);
+              ticking = true;
+            }
+          };
+
+          window.addEventListener("scroll", onScroll, { passive: true });
+          updateHeader();
+
+          // Theme toggle functionality
+          const setThemeIcon = () => {
+            const isDark = htmlEl.classList.contains("dark");
+            themeToggleBtn.innerHTML = isDark
+              ? '<ion-icon name="sunny-outline"></ion-icon>'
+              : '<ion-icon name="moon-outline"></ion-icon>';
+          };
+
+          // Check initial theme
+          if (
+            localStorage.theme === 'dark' ||
+            (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+          ) {
+            htmlEl.classList.add('dark');
           } else {
-            header.classList.remove("hidden");
-          }
-
-          header.classList.toggle("scrolling-down", scrollingDown);
-          header.classList.toggle("scrolling-up", !scrollingDown);
-
-          lastY = currentY;
-          ticking = false;
-        };
-
-        const onScroll = () => {
-          currentY = window.scrollY;
-          if (!ticking) {
-            requestAnimationFrame(updateHeader);
-            ticking = true;
-          }
-        };
-
-        window.addEventListener("scroll", onScroll, { passive: true });
-        updateHeader();
-
-        // Theme toggle functionality
-        const htmlEl = document.documentElement;
-        const themeToggleBtn = document.getElementById("theme-toggle");
-
-        const setThemeIcon = () => {
-          const isDark = htmlEl.classList.contains("dark");
-          themeToggleBtn.innerHTML = isDark
-            ? '<ion-icon name="sunny-outline"></ion-icon>'
-            : '<ion-icon name="moon-outline"></ion-icon>';
-        };
-
-        if (
-          ("theme" in localStorage &&
-            localStorage.getItem("theme") === "dark") ||
-          window.matchMedia("(prefers-color-scheme: dark)").matches
-        ) {
-          htmlEl.classList.add("dark");
-        }
-        setThemeIcon();
-
-        themeToggleBtn.addEventListener("click", () => {
-          if (htmlEl.classList.contains("dark")) {
-            htmlEl.classList.remove("dark");
-            localStorage.setItem("theme", "light");
-          } else {
-            htmlEl.classList.add("dark");
-            localStorage.setItem("theme", "dark");
+            htmlEl.classList.remove('dark');
           }
           setThemeIcon();
-        });
 
-        // Tabs behavior
-        const tabs = document.querySelectorAll(".tab-link");
-        tabs.forEach((tab) => {
-          tab.addEventListener("click", (e) => {
-            e.preventDefault();
-            tabs.forEach((t) => t.classList.remove("tab-active"));
-            tab.classList.add("tab-active");
+          // Theme toggle click handler
+          themeToggleBtn.addEventListener("click", () => {
+            if (htmlEl.classList.contains("dark")) {
+              htmlEl.classList.remove("dark");
+              localStorage.theme = 'light';
+            } else {
+              htmlEl.classList.add("dark");
+              localStorage.theme = 'dark';
+            }
+            setThemeIcon();
           });
-        });
+
+          // Tabs behavior
+          const tabs = document.querySelectorAll(".tab-link");
+          tabs.forEach((tab) => {
+            tab.addEventListener("click", (e) => {
+              e.preventDefault();
+              tabs.forEach((t) => t.classList.remove("tab-active"));
+              tab.classList.add("tab-active");
+            });
+          });
+        })();
+
       })();
     </script>
   </body>
