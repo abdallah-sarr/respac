@@ -1,3 +1,20 @@
+/* Définition des variables CSS pour les thèmes clair et sombre */
+:root {
+  --background-color: #1a1a1a;
+  --text-color: #ffffff;
+  --primary-color: #66b3ff;
+  --secondary-color: #ff6666;
+  --cta-red: #ff4444;
+}
+
+[data-theme="light"] {
+  --background-color: #ffffff;
+  --text-color: #333333;
+  --primary-color: #0066cc;
+  --secondary-color: #ff4444;
+  --cta-red: #ff0000;
+}
+
 /* Styles de base pour le thème clair (par défaut) */
 body {
   background-color: var(--background-color);
