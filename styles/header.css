@@ -1,0 +1,35 @@
+/* Styles de base pour le thème clair (par défaut) */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Styles pour les en-têtes de sections */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--cta-red);
+}
+
+/* Style pour le dégradé des titres */
+.gradient-title {
+  background: linear-gradient(
+    to right,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Override pour réinitialiser le style de dégradé */
+.no-gradient {
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  -webkit-text-fill-color: initial !important;
+}

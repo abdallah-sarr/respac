@@ -1,11 +1,15 @@
 :root {
-  /* Couleurs */
+  /* Couleurs du thème clair (par défaut) */
   --primary-color: #daa520;
   --secondary-color: #ffd700;
   --cta-red: #e50914;
-  --dark-color: #111827;
+  --background-color: #ffffff;
+  --text-color: #111827;
   --light-color: #ffffff;
   --gray-light: #e0e0e0;
+
+  /* Autres couleurs de base */
+  --dark-color: #111827;
 
   /* Tailles de police */
   --font-size-base: 16px;
