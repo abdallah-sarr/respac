@@ -49,7 +49,8 @@
           <a href="#" class="tab-link tab-active" data-tab="home">
             <ion-icon class="tab-icon-outline" name="home-outline"></ion-icon>
             <ion-icon class="tab-icon-filled" name="home"></ion-icon>
-            <span>Accueil</span>
+            <span class="nav-text">Accueil</span>
+            <span class="nav-subtext">du site</span>
           </a>
           <a href="#" class="tab-link" data-tab="presentation">
             <ion-icon
@@ -60,25 +61,17 @@
               class="tab-icon-filled"
               name="information-circle"
             ></ion-icon>
-            <span>Présentation</span>
+            <span class="nav-text">Présentation</span>
+            <span class="nav-subtext">du RESPAC</span>
           </a>
-          <a href="#" class="tab-link" data-tab="actualite">
+          <a href="#" class="tab-link" data-tab="juridique">
             <ion-icon
               class="tab-icon-outline"
-              name="newspaper-outline"
+              name="document-text-outline"
             ></ion-icon>
-            <ion-icon class="tab-icon-filled" name="newspaper"></ion-icon>
-            <span>Actualité</span>
-          </a>
-          <a href="#" class="tab-link" data-tab="sorties">
-            <ion-icon class="tab-icon-outline" name="film-outline"></ion-icon>
-            <ion-icon class="tab-icon-filled" name="film"></ion-icon>
-            <span>Sortie en salle</span>
-          </a>
-          <a href="#" class="tab-link" data-tab="festival">
-            <ion-icon class="tab-icon-outline" name="ribbon-outline"></ion-icon>
-            <ion-icon class="tab-icon-filled" name="ribbon"></ion-icon>
-            <span>Festival</span>
+            <ion-icon class="tab-icon-filled" name="document-text"></ion-icon>
+            <span class="nav-text">Textes</span>
+            <span class="nav-subtext">juridiques</span>
           </a>
           <a href="#" class="tab-link" data-tab="tournages">
             <ion-icon
@@ -86,23 +79,40 @@
               name="videocam-outline"
             ></ion-icon>
             <ion-icon class="tab-icon-filled" name="videocam"></ion-icon>
-            <span>Tournages</span>
+            <span class="nav-text">Tourner au</span>
+            <span class="nav-subtext">Sénégal</span>
           </a>
-          <a href="#" class="tab-link" data-tab="intel-eco">
+          <a href="#" class="tab-link" data-tab="industrie">
             <ion-icon
               class="tab-icon-outline"
-              name="analytics-outline"
+              name="stats-chart-outline"
             ></ion-icon>
-            <ion-icon class="tab-icon-filled" name="analytics"></ion-icon>
-            <span>Économie</span>
+            <ion-icon class="tab-icon-filled" name="stats-chart"></ion-icon>
+            <span class="nav-text">Industrie &</span>
+            <span class="nav-subtext">Economie</span>
+          </a>
+          <a href="#" class="tab-link" data-tab="membres">
+            <ion-icon class="tab-icon-outline" name="people-outline"></ion-icon>
+            <ion-icon class="tab-icon-filled" name="people"></ion-icon>
+            <span class="nav-text">Nos</span>
+            <span class="nav-subtext">membres</span>
+          </a>
+          <a href="#" class="tab-link" data-tab="actualites">
+            <ion-icon
+              class="tab-icon-outline"
+              name="newspaper-outline"
+            ></ion-icon>
+            <ion-icon class="tab-icon-filled" name="newspaper"></ion-icon>
+            <span class="nav-text">Actualité</span>
+            <span class="nav-subtext">du secteur</span>
           </a>
         </nav>
         <div class="header-actions">
           <a href="./adherants/" class="btn-adherer">
-            <button class="cta-button" type="button">
-              <i class="fas fa-user-plus"></i>
+            <a href="./adherants/" class="cta-button">
+              <ion-icon name="person-add-outline"></ion-icon>
               Adhérer
-            </button>
+            </a>
           </a>
           <button
             id="theme-toggle"
@@ -126,10 +136,10 @@
           audiovisuelle et cinématographique au Sénégal, défend leurs intérêts
           et œuvre pour un écosystème créatif et compétitif.
         </p>
-        <button class="cta-button" type="button">
-          <i class="fas fa-arrow-right"></i>
+        <a href="#plus-info" class="cta-button">
+          <ion-icon name="arrow-forward-outline"></ion-icon>
           En savoir plus
-        </button>
+        </a>
       </div>
     </section>
 
@@ -147,10 +157,10 @@
           veille stratégique, nous construisons un écosystème durable et
           dynamique pour l'ensemble des acteurs du secteur.
         </p>
-        <button class="cta-button mission-cta" type="button">
-          <i class="fas fa-compass"></i>
+        <a href="#actions" class="cta-button mission-cta">
+          <ion-icon name="compass-outline"></ion-icon>
           Découvrir nos actions
-        </button>
+        </a>
       </div>
       <div class="mission-image">
         <img
@@ -380,7 +390,10 @@
                   culturels.
                 </p>
               </div>
-              <button class="cta-button mt-4 self-start">En savoir plus</button>
+              <a href="#" class="cta-button mt-4 self-start">
+                <ion-icon name="information-circle-outline"></ion-icon>
+                En savoir plus
+              </a>
             </div>
           </article>
 
@@ -404,7 +417,10 @@
                   enjeux contemporains de l'Afrique.
                 </p>
               </div>
-              <button class="cta-button mt-4 self-start">En savoir plus</button>
+              <a href="#" class="cta-button mt-4 self-start">
+                <ion-icon name="information-circle-outline"></ion-icon>
+                En savoir plus
+              </a>
             </div>
           </article>
 
@@ -428,7 +444,10 @@
                   cinéma sénégalais à travers le format court.
                 </p>
               </div>
-              <button class="cta-button mt-4 self-start">En savoir plus</button>
+              <a href="#" class="cta-button mt-4 self-start">
+                <ion-icon name="information-circle-outline"></ion-icon>
+                En savoir plus
+              </a>
             </div>
           </article>
         </div>
@@ -729,6 +748,7 @@
               </div>
               <div>
                 <button type="submit" class="cta-button">
+                  <ion-icon name="paper-plane-outline"></ion-icon>
                   Envoyer un message
                 </button>
               </div>
