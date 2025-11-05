@@ -13,6 +13,18 @@
 }
 
 /* Styles pour la section Festival */
+.festival-carousel {
+  width: 100%;
+  overflow-x: auto;
+  padding: 1rem 0;
+}
+
+.festival-container {
+  display: flex;
+  gap: 2rem;
+  padding: 0.5rem;
+}
+
 .festival-card {
   display: flex;
   min-width: calc(50% - 1rem);
@@ -20,39 +32,103 @@
   background: white;
   border-radius: 12px;
   overflow: hidden;
-  border: 1px solid #eee;
+  border: 1px solid var(--color-border);
   transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
 }
 
 @media (max-width: 768px) {
   .festival-card {
     min-width: 85%;
     max-width: 85%;
+    flex-direction: column;
+  }
+
+  .festival-card-header {
+    display: flex;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    padding-bottom: 0;
   }
 }
 
 .festival-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-lg);
 }
 
 .festival-image {
   width: 150px;
   min-width: 150px;
   height: 300px;
-  background-color: #e5e5e5;
+  background-color: var(--color-background-alt);
   object-fit: cover;
+}
+
+.festival-content {
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.festival-name {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.festival-date {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-md);
+  display: block;
+}
+
+.festival-description {
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--spacing-lg);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 @media (max-width: 640px) {
   .festival-image {
     width: 100px;
     min-width: 100px;
-    height: 200px;
+    height: 120px;
   }
-}
+  
+  .festival-content {
+    padding: var(--spacing-md);
+  }
 
-/* Base styles */
+  .festival-name {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .festival-header-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+  }
+
+  .festival-description {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .festival-card .cta-button {
+    width: 100%;
+    justify-content: center;
+  }
+}/* Base styles */
 *,
 *::before,
 *::after {
