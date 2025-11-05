@@ -37,6 +37,15 @@
     <!-- Correction du header pour améliorer l'accessibilité -->
     <header id="site-header" class="header-top" aria-label="En-tête du site">
       <div class="header-content">
+        <button
+          id="mobile-menu-toggle"
+          class="mobile-menu-toggle"
+          aria-label="Ouvrir le menu"
+          type="button"
+        >
+          <ion-icon name="menu-outline" class="menu-icon-outline"></ion-icon>
+          <ion-icon name="close-outline" class="menu-icon-close"></ion-icon>
+        </button>
         <div class="header-logo">
           <a href="#">
             <span class="logo-box">
@@ -108,11 +117,9 @@
           </a>
         </nav>
         <div class="header-actions">
-          <a href="./adherants/" class="btn-adherer">
-            <a href="./adherants/" class="cta-button">
-              <ion-icon name="person-add-outline"></ion-icon>
-              Adhérer
-            </a>
+          <a href="./adherants/" class="cta-button desktop-only">
+            <ion-icon name="person-add-outline"></ion-icon>
+            Adhérer
           </a>
           <button
             id="theme-toggle"
@@ -123,6 +130,60 @@
             <ion-icon name="moon-outline"></ion-icon>
           </button>
         </div>
+      </div>
+
+      <!-- Menu mobile -->
+      <div id="mobile-menu" class="mobile-menu" aria-label="Menu mobile">
+        <nav class="mobile-nav">
+          <a href="#" class="mobile-nav-item active" data-tab="home">
+            <ion-icon name="home-outline"></ion-icon>
+            <div class="mobile-nav-text">
+              <span class="mobile-nav-title">Accueil du site</span>
+            </div>
+          </a>
+          <a href="#" class="mobile-nav-item" data-tab="presentation">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            <div class="mobile-nav-text">
+              <span class="mobile-nav-title">Présentation RESPAC</span>
+            </div>
+          </a>
+          <a href="#" class="mobile-nav-item" data-tab="juridique">
+            <ion-icon name="document-text-outline"></ion-icon>
+            <div class="mobile-nav-text">
+              <span class="mobile-nav-title">Textes juridiques</span>
+            </div>
+          </a>
+          <a href="#" class="mobile-nav-item" data-tab="tournages">
+            <ion-icon name="videocam-outline"></ion-icon>
+            <div class="mobile-nav-text">
+              <span class="mobile-nav-title">Tourner au Sénégal</span>
+            </div>
+          </a>
+          <a href="#" class="mobile-nav-item" data-tab="industrie">
+            <ion-icon name="stats-chart-outline"></ion-icon>
+            <div class="mobile-nav-text">
+              <span class="mobile-nav-title">Industrie & Economie</span>
+            </div>
+          </a>
+          <a href="#" class="mobile-nav-item" data-tab="membres">
+            <ion-icon name="people-outline"></ion-icon>
+            <div class="mobile-nav-text">
+              <span class="mobile-nav-title">Nos membres</span>
+            </div>
+          </a>
+          <a href="#" class="mobile-nav-item" data-tab="actualites">
+            <ion-icon name="newspaper-outline"></ion-icon>
+            <div class="mobile-nav-text">
+              <span class="mobile-nav-title">Actualité du secteur</span>
+            </div>
+          </a>
+          <a href="./adherants/" class="mobile-nav-item mobile-cta">
+            <ion-icon name="person-add-outline"></ion-icon>
+            <div class="mobile-nav-text">
+              <span class="mobile-nav-title">Adhérer au RESPAC</span>
+            </div>
+          </a>
+        </nav>
       </div>
     </header>
 
@@ -823,6 +884,22 @@
     <!-- Scripts -->
     <script>
       (() => {
+        /* Gestion du menu mobile */
+        const menuToggle = document.getElementById("mobile-menu-toggle");
+        const body = document.body;
+
+        menuToggle.addEventListener("click", () => {
+          body.classList.toggle("menu-open");
+        });
+
+        /* Fermeture du menu au clic sur un lien */
+        const mobileNavLinks = document.querySelectorAll(".mobile-nav-item");
+        mobileNavLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            body.classList.remove("menu-open");
+          });
+        });
+
         const header = document.getElementById("site-header");
         const firstSection = document.querySelector("body > section");
         const rootStyles = getComputedStyle(document.documentElement);
