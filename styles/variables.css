@@ -1,34 +1,87 @@
 :root {
-  /* Couleurs du thème clair (par défaut) */
-  --primary-color: #daa520;
-  --secondary-color: #ffd700;
-  --cta-red: #e50914;
-  --background-color: #ffffff;
-  --text-color: #111827;
-  --light-color: #ffffff;
-  --gray-light: #e0e0e0;
+  /* Colors */
+  --primary-red: #e50914;
+  --primary-red-dark: #b20710;
+  --primary-red-light: #ff1a1a;
+  --primary-red-hover: #cc0812;
 
-  /* Autres couleurs de base */
-  --dark-color: #111827;
+  --color-primary: var(--primary-red);
+  --color-primary-dark: var(--primary-red-dark);
+  --color-primary-light: var(--primary-red-light);
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #4b5563;
+  --color-text-muted: #6b7280;
 
-  /* Tailles de police */
-  --font-size-base: 16px;
+  --color-background: #ffffff;
+  --color-background-alt: #f8f9fa;
+  --color-background-dark: #1a1a1a;
+
+  --color-border: #e5e7eb;
+  --color-border-light: #f3f4f6;
+  --color-border-dark: #374151;
+
+  /* Typography */
+  --font-primary: "Raleway", sans-serif;
+  --font-secondary: "Playfair Display", serif;
+
+  --font-size-xs: 0.875rem;
+  --font-size-sm: 1rem;
+  --font-size-md: 1.125rem;
   --font-size-lg: 1.25rem;
-  --font-size-xl: 2rem;
-  --font-size-xxl: 4.5rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --font-size-3xl: 2.5rem;
+  --font-size-4xl: 3rem;
 
-  /* Espacements */
+  /* Line Heights */
+  --line-height-tight: 1.1;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+
+  /* Font Weights */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
   --spacing-md: 1rem;
-  --spacing-lg: 2rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+  --spacing-4xl: 6rem;
 
-  /* Bordures et ombres */
-  --border-radius: 8px;
-  --box-shadow-subtle: 0 4px 16px rgba(0, 0, 0, 0.1);
-}
+  /* Layout */
+  --container-max-width: 80rem;
+  --header-height: 88px;
 
-h1,
-h2,
-h3 {
-  font-size: var(--font-size-xxl);
+  /* Borders & Shadows */
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 0.75rem;
+  --border-radius-xl: 1rem;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 300ms ease;
+  --transition-slow: 500ms ease;
+
+  /* Dark Mode Colors */
+  --dark-color-text-primary: #ffffff;
+  --dark-color-text-secondary: #d1d5db;
+  --dark-color-text-muted: #9ca3af;
+  --dark-color-background: #121212;
+  --dark-color-background-alt: #1a1a1a;
+  --dark-color-background-elevated: #262626;
+  --dark-color-border: #404040;
+  --dark-color-border-light: #333333;
 }
