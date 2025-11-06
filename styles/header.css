@@ -4,6 +4,9 @@
   top: 0;
   left: 0;
   right: 0;
+  width: 100%; /* full width, prevents layout shrink */
+  box-sizing: border-box;
+  overflow-x: hidden; /* prevent any horizontal overflow from children */
   height: var(--header-height);
   background-color: var(--color-background);
   border-bottom: 1px solid var(--color-border);
@@ -21,18 +24,26 @@
   align-items: center;
   justify-content: space-between;
   height: 100%;
-  padding: 0 var(--spacing-lg);
+  box-sizing: border-box;
+  padding: 0 var(--spacing-md);
+  max-width: 100%;
+  gap: var(--spacing-md);
 }
 
 .header__logo {
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
+  margin: 0;
 }
 
+/* Keep the logo very small on mobile and ensure it never overflows. */
 .header__logo img {
-  height: 2.5rem;
+  height: 1.5rem;
   width: auto;
+  max-width: 60vw;
+  object-fit: contain;
+  display: block;
 }
 
 .header__nav {
@@ -74,12 +85,17 @@
 
 /* Mobile menu button */
 .header__menu-button {
+  /* Default hidden on desktop, shown on mobile via media query */
   display: none;
-  padding: var(--spacing-xs);
   background: none;
   border: none;
   cursor: pointer;
   color: var(--color-text-primary);
+  padding: 0.25rem; /* small, consistent padding */
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Icon sizes */
@@ -118,25 +134,46 @@ ion-icon,
 
 /* Responsive styles */
 @media (max-width: 768px) {
+  /* Mobile-specific adjustments */
+  .header {
+    overflow-x: hidden;
+  }
+
+  .header__container {
+    padding: 0 var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+
+  .header__menu-button {
+    display: inline-flex;
+    margin: 0;
+    width: 44px;
+    height: 44px;
+    place-items: center;
+  }
+
+  /* Keep nav hidden by default on mobile (burger opens it via JS) */
   .header__nav {
     display: none;
   }
 
-  .header__menu-button {
-    display: block;
-  }
-
+  /* Keep any expanded mobile nav below the header and full width without overflow */
   .header__nav.mobile-active {
     display: flex;
     position: fixed;
     top: var(--header-height);
     left: 0;
     right: 0;
+    width: 100%;
     background-color: var(--color-background);
     padding: var(--spacing-lg);
-    flex-direction: column;
+    /* flex-direction: column; */
     align-items: stretch;
     border-bottom: 1px solid var(--color-border);
+    box-sizing: border-box;
+    overflow-x: hidden;
   }
 
   .header__nav-list {
@@ -147,5 +184,43 @@ ion-icon,
   [data-theme="dark"] .header__nav.mobile-active {
     background-color: var(--dark-color-background);
     border-color: var(--dark-color-border);
+  }
+
+  /* Position the logo next to the burger menu */
+  .header__logo {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    margin-left: -0.5rem; /* reduce gap with burger menu */
+  }
+
+  .header__logo img {
+    height: 1.25rem;
+    max-width: 40vw;
+    object-fit: contain;
+  }
+
+  /* Theme toggle styling */
+  .theme-toggle-square {
+    width: 44px;
+    height: 44px;
+    margin: 0;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+    justify-content: center;
+    grid-column: 3;
+    padding: 0;
+  }
+}
+    margin: 0;
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.125rem;
   }
 }
