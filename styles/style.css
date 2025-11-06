@@ -1267,16 +1267,20 @@ body.menu-open .mobile-menu {
 
 .partner-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   gap: 2rem;
   max-width: 80rem;
-  margin: 0 auto;
+  margin: 2rem auto 0;
 
   @media (min-width: 640px) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: 1280px) {
     grid-template-columns: repeat(4, 1fr);
   }
 }
@@ -1285,11 +1289,14 @@ body.menu-open .mobile-menu {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  justify-content: space-between;
+  text-align: center;
   padding: 1.5rem;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--color-border);
   border-radius: 0.5rem;
+  background: var(--color-background);
   transition: all 0.3s ease;
+  height: 100%;
 }
 
 .partner-card:hover {
@@ -1298,16 +1305,18 @@ body.menu-open .mobile-menu {
 }
 
 .partner-logo {
-  width: 80px;
+  width: 120px;
   height: 80px;
-  background: #f3f4f6;
-  border-radius: 50%;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
 }
 
 .partner-name {
   text-align: center;
   font-weight: 500;
-  color: #4b5563;
+  color: var(--color-text-primary);
+  font-size: 0.875rem;
+  line-height: 1.25;
 }
 
 /* Key Figures Section */
