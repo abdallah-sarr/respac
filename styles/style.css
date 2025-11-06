@@ -41,14 +41,6 @@
   .festival-card {
     min-width: 85%;
     max-width: 85%;
-    flex-direction: column;
-  }
-
-  .festival-card-header {
-    display: flex;
-    gap: var(--spacing-md);
-    padding: var(--spacing-md);
-    padding-bottom: 0;
   }
 }
 
@@ -92,7 +84,7 @@
   line-height: var(--line-height-relaxed);
   margin-bottom: var(--spacing-lg);
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  /* -webkit-line-clamp: 3; */
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -101,34 +93,15 @@
   .festival-image {
     width: 100px;
     min-width: 100px;
-    height: 120px;
+    height: 200px;
   }
-  
+
   .festival-content {
     padding: var(--spacing-md);
   }
+}
 
-  .festival-name {
-    font-size: var(--font-size-lg);
-    margin-bottom: var(--spacing-xs);
-  }
-
-  .festival-header-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex: 1;
-  }
-
-  .festival-description {
-    margin-bottom: var(--spacing-md);
-  }
-
-  .festival-card .cta-button {
-    width: 100%;
-    justify-content: center;
-  }
-}/* Base styles */
+/* Base styles */
 *,
 *::before,
 *::after {
