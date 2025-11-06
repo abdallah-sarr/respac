@@ -215,7 +215,7 @@ a:hover {
 }
 
 .section-title {
-  font-size: var(--font-size-2xl);
+  font-size: var(--font-size-3xl);
   font-weight: var(--font-weight-extrabold);
   margin-bottom: var(--spacing-2xl);
   position: relative;
