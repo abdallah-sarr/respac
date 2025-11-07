@@ -141,9 +141,9 @@ ion-icon,
 
   .header__container {
     padding: 0 var(--spacing-sm);
-    display: flex;
-    align-items: center;
-    gap: 0;
+    display: grid;
+    grid-template-columns: 44px 1fr 44px;
+    gap: var(--spacing-sm);
   }
 
   .header__menu-button {
@@ -186,12 +186,13 @@ ion-icon,
     border-color: var(--dark-color-border);
   }
 
-  /* Position the logo next to the burger menu */
+  /* Center the logo in the middle column */
   .header__logo {
     display: flex;
     align-items: center;
+    justify-content: center;
     margin: 0;
-    margin-left: -0.5rem; /* reduce gap with burger menu */
+    grid-column: 2;
   }
 
   .header__logo img {
@@ -205,11 +206,8 @@ ion-icon,
     width: 44px;
     height: 44px;
     margin: 0;
-    margin-left: auto;
     display: flex;
     align-items: center;
-    justify-content: center;
-  }
     justify-content: center;
     grid-column: 3;
     padding: 0;
