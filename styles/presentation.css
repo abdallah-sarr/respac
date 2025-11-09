@@ -1,8 +1,121 @@
 /* Layout global de la page */
 body {
-  background-color: var(--accent-color);
+  background-color: var(--bg-primary);
   margin: 0;
   padding: 0;
+}
+
+/* Mission Section */
+.mission-section {
+  min-height: calc(100vh - var(--header-height) - 4rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  margin-bottom: 2rem;
+  background-color: var(--bg-primary);
+}
+
+.mission-title {
+  font-family: "Playfair Display", serif;
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+}
+
+.mission-text {
+  max-width: 800px;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+/* Objectifs Section */
+.objectifs-section {
+  padding: 4rem 2rem;
+  background-color: var(--bg-secondary);
+}
+
+.section-title {
+  font-family: "Playfair Display", serif;
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.objectifs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.objectif-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background-color: var(--bg-primary);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.objectif-icon {
+  font-size: 2rem;
+  color: var(--primary-color);
+  flex-shrink: 0;
+}
+
+.objectif-content h3 {
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.objectif-content p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Organigramme Section */
+.organigramme-section {
+  padding: 4rem 2rem;
+  background-color: var(--bg-primary);
+}
+
+.organigramme-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.role-card {
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--primary-color);
+  border-radius: 8px;
+  color: white;
+  transition: transform 0.2s;
+}
+
+.role-card:hover {
+  transform: translateY(-5px);
+}
+
+.role-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.role-title {
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
 /* Container principal avec padding global */
