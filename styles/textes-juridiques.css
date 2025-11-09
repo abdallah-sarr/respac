@@ -1,0 +1,149 @@
+/* Définition des variables de design */
+:root {
+  --couleur-primaire: #005a9c; /* Un bleu institutionnel */
+  --couleur-texte: #333333;
+  --couleur-texte-secondaire: #666666;
+  --couleur-bordure: #e0e0e0;
+  --couleur-fond-page: #f9f9f9;
+  --couleur-fond-carte: #ffffff;
+  --radius-m: 8px; /* Rayon pour les coins arrondis */
+  --ombre-subtile: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --ombre-survol: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Réinitialisation et styles de base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+  background-color: var(--couleur-fond-page);
+  color: var(--color-text-primary);
+  padding: 2rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Conteneur principal */
+.conteneur-page {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 2.5rem;
+  background-color: var(--couleur-fond-carte);
+  border-radius: var(--radius-m);
+  box-shadow: var(--ombre-subtile);
+}
+
+/* Titres */
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-secondary);
+  letter-spacing: -0.02em;
+  line-height: var(--line-height-tight);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+h2 {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-2xl);
+  position: relative;
+  display: inline-block;
+  padding-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  h2 {
+    font-size: var(--font-size-3xl);
+  }
+}
+
+h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40%;
+  height: 4px;
+  background-color: var(--color-primary);
+  border-radius: 2px;
+}
+
+h3 {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  margin-top: var(--spacing-2xl);
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-primary);
+}
+
+@media (min-width: 768px) {
+  h3 {
+    font-size: var(--font-size-2xl);
+  }
+}
+
+/* Grille pour les documents */
+.grille-documents {
+  display: grid;
+  /* Crée une grille responsive qui s'adapte au contenu */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem; /* Espace entre les cartes */
+}
+
+/* Style de la carte-document */
+.carte-document {
+  display: flex;
+  align-items: flex-start; /* Aligne l'icône et le texte en haut */
+  padding: 1.5rem;
+  background-color: var(--couleur-fond-carte);
+  border: 1px solid var(--couleur-bordure);
+  border-radius: var(--radius-m);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.carte-document:hover {
+  transform: translateY(-5px); /* Effet de soulèvement */
+  box-shadow: var(--ombre-survol);
+  border-color: var(--couleur-primaire);
+}
+
+/* Style de l'icône Ion-icon */
+.carte-document ion-icon {
+  font-size: 2.5rem; /* 40px */
+  color: var(--couleur-primaire);
+  margin-right: 1rem;
+  flex-shrink: 0; /* Empêche l'icône de rétrécir */
+}
+
+/* Contenu de la carte (titre + sous-titre) */
+.carte-contenu {
+  display: flex;
+  flex-direction: column;
+}
+
+.carte-titre {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--couleur-texte);
+  line-height: 1.4;
+}
+
+.carte-sous-titre {
+  font-size: 0.9rem;
+  color: var(--couleur-texte-secondaire);
+  margin-top: 5px;
+}
+
