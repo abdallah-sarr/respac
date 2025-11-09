@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Présentation - RESPAC</title>
+
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&family=Elms+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Nos styles CSS -->
+    <link rel="stylesheet" href="styles/variables.css" />
+    <link rel="stylesheet" href="styles/header.css" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/presentation.css" />
+
+    <!-- Ionicons CDN -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </head>
+  <body class="font-sans bg-white text-black transition-colors duration-500">
+    <header id="site-header" class="header-top" aria-label="En-tête du site">
+      <div class="header-content">
+        <button
+          id="mobile-menu-toggle"
+          class="mobile-menu-toggle"
+          aria-label="Ouvrir le menu"
+          type="button"
+        >
+          <ion-icon name="menu-outline" class="menu-icon-outline"></ion-icon>
+          <ion-icon name="close-outline" class="menu-icon-close"></ion-icon>
+        </button>
+        <div class="header-logo">
+          <a href="index.html">
+            <span class="logo-box">
+              <img src="./logo_respac.jpg" alt="RESPAC" class="logo-img" />
+            </span>
+            <span class="sr-only">RESPAC</span>
+          </a>
+        </div>
+        <nav class="header-nav tabs">
+          <a href="index.html" class="tab-link" data-tab="home">
+            <ion-icon class="tab-icon-outline" name="home-outline"></ion-icon>
+            <ion-icon class="tab-icon-filled" name="home"></ion-icon>
+            <span class="nav-text">Accueil</span>
+            <span class="nav-subtext">du site</span>
+          </a>
+          <a href="presentation.html" class="tab-link tab-active" data-tab="presentation">
+            <ion-icon
+              class="tab-icon-outline"
+              name="information-circle-outline"
+            ></ion-icon>
+            <ion-icon
+              class="tab-icon-filled"
+              name="information-circle"
+            ></ion-icon>
+            <span class="nav-text">Présentation</span>
+            <span class="nav-subtext">du RESPAC</span>
+          </a>
+          <a href="#" class="tab-link" data-tab="juridique">
+            <ion-icon
+              class="tab-icon-outline"
+              name="document-text-outline"
+            ></ion-icon>
+            <ion-icon class="tab-icon-filled" name="document-text"></ion-icon>
+            <span class="nav-text">Textes</span>
+            <span class="nav-subtext">juridiques</span>
+          </a>
+          <a href="#" class="tab-link" data-tab="tournages">
+            <ion-icon
+              class="tab-icon-outline"
+              name="videocam-outline"
+            ></ion-icon>
+            <ion-icon class="tab-icon-filled" name="videocam"></ion-icon>
+            <span class="nav-text">Tourner au</span>
+            <span class="nav-subtext">Sénégal</span>
+          </a>
+          <a href="#" class="tab-link" data-tab="industrie">
+            <ion-icon
+              class="tab-icon-outline"
+              name="stats-chart-outline"
+            ></ion-icon>
+            <ion-icon class="tab-icon-filled" name="stats-chart"></ion-icon>
+            <span class="nav-text">Industrie &</span>
+            <span class="nav-subtext">Festivals</span>
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="presentation-container">
+        <article class="presentation-card">
+          <div class="card-content">
+            <h2 class="card-title">Notre mission</h2>
+            <p class="card-text">
+              Le RESPAC (Réseau des Professionnels de l'Audiovisuel et du
+              Cinéma) est un acteur central du paysage syndical, professionnel
+              et institutionnel sénégalais. Il fédère les sociétés de
+              production, les créateurs, les techniciens et autres
+              professionnels de la chaîne audiovisuelle et cinématographique, en
+              vue de défendre leurs droits, structurer leur environnement, et
+              accompagner la professionnalisation du secteur.
+            </p>
+          </div>
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1567604130959-7a3d4f9c3f9e?q=80&w=1000"
+                 alt="Réunion professionnelle illustrant la mission du RESPAC"
+                 style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+          </div>
+        </article>
+
+        <article class="presentation-card">
+          <div class="card-content">
+            <h2 class="card-title">Représentation & Défense</h2>
+            <p class="card-text">
+              En tant que porte-parole des professionnels, nous assurons une présence active
+              auprès des institutions publiques, privées et internationales. Notre engagement
+              se traduit par une participation constante aux instances clés comme la Commission
+              de la carte professionnelle, le FOPICA, et le FEPACI. Notre mission principale
+              est la défense des intérêts économiques, juridiques et sociaux de nos membres.
+            </p>
+          </div>
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1000"
+                 alt="Représentation professionnelle et défense des intérêts"
+                 style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+          </div>
+        </article>
+
+        <article class="presentation-card">
+          <div class="card-content">
+            <h2 class="card-title">Innovation & Création</h2>
+            <p class="card-text">
+              Nous soutenons activement la création et l'innovation dans le secteur audiovisuel.
+              Notre engagement se manifeste à travers l'accompagnement des sociétés de production,
+              l'appui aux nouvelles formes de narration (documentaire, web-séries, œuvres immersives),
+              et la valorisation des talents locaux et régionaux.
+            </p>
+          </div>
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=1000"
+                 alt="Innovation et création dans l'audiovisuel"
+                 style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+          </div>
+        </article>
+
+        <article class="presentation-card">
+          <div class="card-content">
+            <h2 class="card-title">Développement & Financement</h2>
+            <p class="card-text">
+              Nous facilitons l'accès aux financements et aux opportunités pour nos membres
+              à travers des conseils sur les mécanismes de financement nationaux et internationaux.
+              Nous encourageons la coproduction sud-sud et nord-sud, tout en œuvrant pour le
+              développement de la visibilité internationale des œuvres sénégalaises.
+            </p>
+          </div>
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1000"
+                 alt="Développement et financement de projets"
+                 style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+          </div>
+        </article>
+
+        <article class="presentation-card">
+          <div class="card-content">
+            <h2 class="card-title">Professionnalisation</h2>
+            <p class="card-text">
+              La structuration de la filière est au cœur de notre action, avec un focus particulier
+              sur la formation continue et le développement des compétences. Nous travaillons à la
+              standardisation des pratiques professionnelles et à la mise en place de certifications
+              et labels qualité pour garantir l'excellence de notre secteur.
+            </p>
+          </div>
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1000"
+                 alt="Formation et professionnalisation du secteur"
+                 style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="js/themeManager.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
+
+    <main>
+      <div class="conteneur-page">
+        <section id="presentation" class="section-presentation">
+          <h2>Présentation</h2>
+
+          <article class="bloc-mission">
+            <h3>Notre mission</h3>
+            <p>
+              Le RESPAC (Réseau des Professionnels de l’Audiovisuel et du
+              Cinéma) est un acteur central du paysage syndical, professionnel
+              et institutionnel sénégalais. Il fédère les sociétés de
+              production, les créateurs, les techniciens et autres
+              professionnels de la chaîne audiovisuelle et cinématographique, en
+              vue de défendre leurs droits, structurer leur environnement, et
+              accompagner la professionnalisation du secteur.
+            </p>
+          </article>
+
+          <article class="bloc-objectifs">
+            <h3>Objectifs principaux</h3>
+
+            <ol class="liste-objectifs">
+              <li>
+                <strong>Représenter et défendre la filière</strong>
+                <ul>
+                  <li>
+                    Porte-parole des professionnels auprès des institutions
+                    publiques, privées et internationales.
+                  </li>
+                  <li>
+                    Participation active aux instances clés : Commission de la
+                    carte professionnelle, FOPICA, FEPACI, etc.
+                  </li>
+                  <li>
+                    Défense des intérêts économiques, juridiques et sociaux des
+                    membres.
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <strong
+                  >Construire un cadre légal et professionnel stable</strong
+                >
+                <ul>
+                  <li>
+                    Négociation des textes législatifs et réglementaires
+                    encadrant la production, la création et la diffusion.
+                  </li>
+                  <li>Élaboration et suivi des conventions collectives.</li>
+                  <li>
+                    Accompagnement des réformes pour un écosystème sain et
+                    équitable.
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <strong
+                  >Soutenir la création, la production et l’innovation</strong
+                >
+                <ul>
+                  <li>
+                    Accompagnement des sociétés de production dans tous leurs
+                    projets.
+                  </li>
+                  <li>
+                    Appui aux nouvelles formes de narration (documentaire,
+                    web-séries, œuvres immersives).
+                  </li>
+                  <li>Valorisation des talents locaux et régionaux.</li>
+                </ul>
+              </li>
+
+              <li>
+                <strong
+                  >Favoriser l’accès aux financements et opportunités</strong
+                >
+                <ul>
+                  <li>
+                    Conseil sur les mécanismes de financement nationaux et
+                    internationaux.
+                  </li>
+                  <li>Soutien à la coproduction sud-sud et nord-sud.</li>
+                  <li>
+                    Développement de la visibilité internationale des œuvres
+                    sénégalaises.
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <strong>Professionnaliser et structurer la filière</strong>
+                <ul>
+                  <li>Formation continue et développement des compétences.</li>
+                  <li>Standardisation des pratiques professionnelles.</li>
+                  <li>Mise en place de certifications et labels qualité.</li>
+                </ul>
+              </li>
+            </ol>
+          </article>
+        </section>
+      </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="js/themeManager.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
+                    Renforcement des capacités (formations, ateliers, mentorat).
+                  </li>
+                  <li>
+                    Mise à disposition d’outils juridiques, économiques et
+                    techniques.
+                  </li>
+                  <li>
+                    Contribution à la cartographie et analyse économique du
+                    secteur.
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <strong
+                  >Promouvoir la culture et les savoir-faire sénégalais</strong
+                >
+                <ul>
+                  <li>
+                    Soutien à la diffusion des œuvres au Sénégal, en Afrique et
+                    à l’international.
+                  </li>
+                  <li>Valorisation du Sénégal comme terre de tournage.</li>
+                  <li>
+                    Partenariat avec festivals, marchés et plateformes de
+                    diffusion.
+                  </li>
+                </ul>
+              </li>
+            </ol>
+          </article>
+
+          <div class="bloc-organisation-representation">
+            <article class="bloc-organisation">
+              <h3>Organisation</h3>
+              <ul class="liste-organisation">
+                <li>Bureau</li>
+                <li>Membres</li>
+                <li>Fonctionnement et statuts</li>
+              </ul>
+            </article>
+
+            <article class="bloc-representation">
+              <h3>Représentation</h3>
+              <ul class="liste-representation">
+                <li>Commission de la carte professionnelle</li>
+                <li>FOPICA</li>
+                <li>FEPACI</li>
+                <li>
+                  Confédération Internationale des Producteurs Audiovisuels
+                </li>
+                <li>Autres comités et réseaux nationaux et internationaux</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
