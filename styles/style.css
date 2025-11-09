@@ -37,24 +37,21 @@
   box-shadow: var(--shadow-sm);
 }
 
-@media (max-width: 768px) {
-  .festival-card {
-    min-width: 85%;
-    max-width: 85%;
-  }
-}
 
 .festival-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
+  padding: 16px;
 }
 
 .festival-image {
-  width: 150px;
-  min-width: 150px;
-  height: 300px;
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  height: 150px;
   background-color: var(--color-background-alt);
   object-fit: cover;
+  display: none;
 }
 
 .festival-content {
@@ -63,6 +60,8 @@
   flex-direction: column;
   justify-content: space-between;
   flex: 1;
+  padding: 0;
+  margin: 0;]]
 }
 
 .festival-name {
