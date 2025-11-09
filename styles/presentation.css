@@ -1,51 +1,143 @@
 /* Layout global de la page */
 body {
-  background-color: var(--bg-primary);
+  background-color: var(--color-background);
   margin: 0;
   padding: 0;
 }
 
-/* Mission Section */
-.mission-section {
-  min-height: calc(100vh - var(--header-height) - 4rem);
+/* Container commun pour les sections */
+.section-container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--section-padding-x);
+}
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
+  background: linear-gradient(135deg, rgba(229, 9, 20, 0.9) 0%, rgba(178, 7, 16, 0.95) 100%),
+              url('https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=1920') center/cover no-repeat;
+  background-attachment: fixed;
+  color: white;
   text-align: center;
-  padding: 4rem 2rem;
-  margin-bottom: 2rem;
-  background-color: var(--bg-primary);
+  padding: calc(var(--header-height) + 2rem) 2rem 4rem;
+  overflow: hidden;
 }
 
-.mission-title {
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(229, 9, 20, 0.85) 0%, rgba(178, 7, 16, 0.9) 100%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.hero-title {
   font-family: "Playfair Display", serif;
-  font-size: var(--font-size-5xl);
+  font-size: clamp(3rem, 8vw, 5.5rem);
   font-weight: var(--font-weight-bold);
-  color: var(--primary-color);
-  margin-bottom: var(--spacing-xl);
-  text-align: center;
-  line-height: 1.2;
+  margin-bottom: var(--spacing-md);
+  line-height: 1.1;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: -0.02em;
 }
 
-.mission-text {
-  max-width: 800px;
-  font-size: var(--font-size-lg);
+.hero-subtitle {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--spacing-xl);
+  opacity: 0.95;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.hero-description {
+  font-size: clamp(1rem, 2vw, 1.25rem);
   line-height: 1.8;
-  color: var(--text-secondary);
+  max-width: 800px;
+  margin: 0 auto;
+  opacity: 0.9;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  animation: bounce 2s infinite;
+  cursor: pointer;
+  transition: opacity var(--transition-normal);
+}
+
+.hero-scroll-indicator:hover {
+  opacity: 1;
+}
+
+.hero-scroll-indicator ion-icon {
+  font-size: 2rem;
+  color: white;
+  opacity: 0.8;
+  transition: transform var(--transition-normal);
+}
+
+.hero-scroll-indicator:hover ion-icon {
+  transform: scale(1.2);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-5px);
+  }
 }
 
 /* Objectifs Section */
 .objectifs-section {
   padding: var(--section-padding-y) var(--section-padding-x);
-  background-color: var(--bg-secondary);
+  background-color: var(--color-background-alt);
+}
+
+.objectifs-section .section-container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
 }
 
 .section-title {
   font-family: "Playfair Display", serif;
-  font-size: var(--font-size-4xl);
+  font-size: clamp(2rem, 5vw, 3rem);
   font-weight: var(--font-weight-bold);
-  color: var(--primary-color);
+  color: var(--color-primary);
   margin-bottom: var(--spacing-2xl);
   text-align: center;
   line-height: 1.2;
@@ -53,166 +145,217 @@ body {
 
 .objectifs-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: var(--spacing-lg);
-  max-width: var(--container-max-width);
-  margin: 0 auto;
-  padding: 0 var(--section-padding-x);
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--spacing-xl);
 }
 
 .objectif-card {
   display: flex;
   align-items: flex-start;
-  gap: var(--spacing-md);
-  padding: var(--spacing-lg);
-  background-color: var(--bg-primary);
-  border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow-sm);
-  transition: all 0.3s ease;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-xl);
+  background-color: var(--color-background);
+  border-radius: var(--border-radius-xl);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-normal);
+  border: 1px solid var(--color-border);
 }
 
 .objectif-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary);
 }
 
 .objectif-icon {
-  font-size: var(--font-size-3xl);
-  color: var(--primary-color);
+  font-size: 2.5rem;
+  color: var(--color-primary);
   flex-shrink: 0;
-  transition: color 0.3s ease;
+  transition: transform var(--transition-normal);
+}
+
+.objectif-card:hover .objectif-icon {
+  transform: scale(1.1);
 }
 
 .objectif-content h3 {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-xl);
   font-weight: var(--font-weight-semibold);
-  color: var(--text-primary);
+  color: var(--color-text-primary);
   margin-bottom: var(--spacing-sm);
-  transition: color 0.3s ease;
+  line-height: 1.3;
 }
 
 .objectif-content p {
-  color: var(--text-secondary);
-  line-height: 1.6;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
   font-size: var(--font-size-base);
-  transition: color 0.3s ease;
 }
 
 /* Organigramme Section */
 .organigramme-section {
-  padding: 4rem 2rem;
-  background-color: var(--bg-primary);
+  padding: var(--section-padding-y) var(--section-padding-x);
+  background-color: var(--color-background);
 }
 
 .organigramme-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-xl);
+  max-width: var(--container-max-width);
   margin: 0 auto;
 }
 
 .role-card {
   text-align: center;
-  padding: var(--spacing-xl);
-  background-color: var(--primary-color);
-  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-2xl);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  border-radius: var(--border-radius-xl);
   color: white;
-  transition: all 0.3s ease;
-  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-md);
+  border: 2px solid transparent;
 }
 
 .role-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--shadow-xl);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .role-icon {
-  font-size: var(--font-size-4xl);
-  margin-bottom: var(--spacing-md);
-  opacity: 0.9;
+  font-size: 3rem;
+  margin-bottom: var(--spacing-lg);
+  opacity: 0.95;
+  transition: transform var(--transition-normal);
+}
+
+.role-card:hover .role-icon {
+  transform: scale(1.1) rotate(5deg);
 }
 
 .role-title {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-xl);
   font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.3;
 }
 
-/* Container principal avec padding global */
-.presentation-container {
-  --gap: 2rem;
-  padding: var(--gap);
-  padding-top: calc(var(--header-height) + var(--gap));
-  max-width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: var(--gap);
-}
-
-/* Style des cartes */
-.presentation-card {
-  background-color: var(--bg-primary);
-  border-radius: 12px;
-  padding: 3rem var(--gap);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  gap: 3rem;
-}
-
-/* Alternance de la disposition des cartes */
-.presentation-card:nth-child(even) {
-  flex-direction: row-reverse;
-}
-
-/* Contenu textuel des cartes */
-.card-content {
-  flex: 1;
-}
-
-.card-title {
-  font-family: "Playfair Display", serif;
-  font-size: 2.5rem;
-  color: var(--primary-color);
-  margin-bottom: 1.5rem;
-}
-
-.card-text {
-  font-size: 1.1rem;
+.role-description {
+  font-size: var(--font-size-sm);
+  opacity: 0.9;
   line-height: 1.6;
-  color: var(--text-secondary);
-  margin-bottom: 1.5rem;
+  margin-top: var(--spacing-sm);
 }
 
-/* Conteneur d'image */
-.card-image {
-  flex: 1;
-  min-height: 300px;
-  background-color: var(--bg-secondary);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-secondary);
-  font-size: 1.2rem;
-  text-align: center;
-  padding: 1rem;
+/* Dark Mode Support */
+[data-theme="dark"] .hero-section {
+  background: linear-gradient(135deg, rgba(229, 9, 20, 0.95) 0%, rgba(178, 7, 16, 1) 100%),
+              url('https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=1920') center/cover no-repeat;
 }
 
-/* Responsive */
+[data-theme="dark"] .hero-overlay {
+  background: linear-gradient(135deg, rgba(229, 9, 20, 0.9) 0%, rgba(178, 7, 16, 0.95) 100%);
+}
+
+[data-theme="dark"] .objectifs-section {
+  background-color: var(--dark-color-background-alt);
+}
+
+[data-theme="dark"] .organigramme-section {
+  background-color: var(--dark-color-background);
+}
+
+[data-theme="dark"] .objectif-card {
+  background-color: var(--dark-color-background-elevated);
+  border-color: var(--dark-color-border);
+}
+
+[data-theme="dark"] .objectif-card:hover {
+  border-color: var(--color-primary);
+  background-color: var(--dark-color-background-alt);
+}
+
+[data-theme="dark"] .objectif-content h3 {
+  color: var(--dark-color-text-primary);
+}
+
+[data-theme="dark"] .objectif-content p {
+  color: var(--dark-color-text-secondary);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .hero-section {
+    background-attachment: scroll;
+    min-height: 90vh;
+  }
+}
+
 @media (max-width: 768px) {
-  .presentation-card {
-    flex-direction: column !important;
-    padding: 2rem var(--gap);
-    gap: 2rem;
+  .hero-section {
+    padding: calc(var(--header-height) + 1rem) 1.5rem 3rem;
+    min-height: 85vh;
   }
 
-  .card-title {
+  .hero-title {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .hero-subtitle {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  .objectifs-section,
+  .organigramme-section {
+    padding: var(--spacing-2xl) var(--spacing-md);
+  }
+
+  .section-title {
+    margin-bottom: var(--spacing-xl);
     font-size: 2rem;
   }
 
-  .card-image {
-    width: 100%;
-    min-height: 200px;
+  .objectifs-grid,
+  .organigramme-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .objectif-card {
+    padding: var(--spacing-lg);
+  }
+
+  .role-card {
+    padding: var(--spacing-xl);
+  }
+
+  .objectif-icon {
+    font-size: 2rem;
+  }
+
+  .role-icon {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    min-height: 80vh;
+    padding: calc(var(--header-height) + 0.5rem) 1rem 2rem;
+  }
+
+  .objectifs-section,
+  .organigramme-section {
+    padding: var(--spacing-xl) var(--spacing-sm);
+  }
+
+  .objectif-card,
+  .role-card {
+    padding: var(--spacing-md);
   }
 }

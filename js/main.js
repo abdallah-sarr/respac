@@ -5,7 +5,7 @@ const modalContent = document.getElementById("modalContent");
 const htmlEl = document.documentElement;
 const themeToggleBtn = document.getElementById("theme-toggle");
 const header = document.getElementById("site-header");
-const firstSection = document.querySelector("body > section");
+const firstSection = document.querySelector(".hero-section") || document.querySelector("body > main > section") || document.querySelector("body > section");
 
 // Modal functions
 function openModal(entreprise, membre, logo) {
@@ -128,4 +128,30 @@ window.addEventListener("keydown", (e) => {
       tab.classList.add("tab-active");
     });
   });
+})();
+
+// Hero scroll indicator
+(() => {
+  const scrollIndicator = document.querySelector(".hero-scroll-indicator");
+  if (scrollIndicator) {
+    scrollIndicator.addEventListener("click", () => {
+      const heroSection = document.querySelector(".hero-section");
+      if (heroSection) {
+        const nextSection = heroSection.nextElementSibling;
+        if (nextSection) {
+          const headerHeight = parseInt(
+            getComputedStyle(document.documentElement)
+              .getPropertyValue("--header-height")
+              .trim() || "88",
+            10
+          ) || 88;
+          const targetPosition = nextSection.offsetTop - headerHeight;
+          window.scrollTo({
+            top: targetPosition,
+            behavior: "smooth",
+          });
+        }
+      }
+    });
+  }
 })();
