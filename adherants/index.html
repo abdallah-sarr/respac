@@ -1,38 +1,29 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RPSPAC – Liste des entreprises</title>
-
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              "respac-red": "#ff4444",
-            },
-          },
-        },
-      };
-    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RESPAC – Liste des entreprises</title>
 
     <!-- Font Awesome CDN -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="../styles/adherants.css" />
 
     <!-- Google Fonts -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&family=Elms+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
-    <!-- Ionicons CDN -->
+    <!-- Nos styles CSS -->
+    <link rel="stylesheet" href="../styles/variables.css" />
+    <link rel="stylesheet" href="../styles/header.css" />
+    <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="stylesheet" href="../styles/adherants.css" />
+
+    <!-- Ionicons CDN (Outlined & Filled icons) -->
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
@@ -42,110 +33,8 @@
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
 
-    <!-- Local CSS -->
-    <link rel="stylesheet" href="../styles/header.css" />
-
     <style>
-      :root {
-        --primary-color: #daa520;
-        --secondary-color: #111827;
-        --accent-color: #e50914;
-        --light-color: #ffffff;
-        --dark-color: #121212;
-        --background-color: #f9f9f9;
-        --header-height: 88px;
-        --dark-header-bg: #0b0b0b;
-        --dark-header-color: #ffffff;
-        --section-padding-block: 4rem;
-        --section-padding-inline: 1.5rem;
-        --section-padding-inline-mobile: 1rem;
-        --title-underline-width: 40%;
-        --card-border-radius: 12px;
-        --box-shadow-subtle: 0 4px 16px rgba(0, 0, 0, 0.1);
-      }
-
-      /* Style global des titres */
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        color: var(--accent-color);
-      }
-
-      /* Style global du texte */
-      body {
-        font-family: "Raleway", sans-serif;
-        background-color: var(--background-color);
-      }
-
-      h1,
-      h2 {
-        font-family: "Playfair Display", serif;
-        font-weight: 700;
-        text-align: center;
-        margin-bottom: 1.5rem;
-      }
-
-      h1 {
-        font-size: 2.5rem;
-        color: var(--primary-color);
-      }
-
-      h2 {
-        font-size: 2rem;
-        color: var(--secondary-color);
-      }
-
-      /* Boutons avec animation de remplissage */
-      .btn-border-fill {
-        position: relative;
-        overflow: hidden;
-        border: 2px solid var(--primary-color);
-        color: var(--primary-color);
-        background: transparent;
-        padding: 0.85rem 3rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        cursor: pointer;
-        transition: color 0.3s ease;
-        border-radius: 0;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        font-size: 1.1rem;
-      }
-
-      .btn-border-fill::before {
-        content: "";
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        height: 0;
-        background: var(--primary-color);
-        transition: all 0.3s ease;
-        z-index: -1;
-      }
-
-      .btn-border-fill:hover {
-        color: white;
-      }
-
-      .btn-border-fill:hover::before {
-        top: 0;
-        height: 100%;
-      }
-
-      .btn-border-fill:focus {
-        outline: none;
-        box-shadow: 0 0 0 3px rgba(218, 165, 32, 0.6);
-      }
-
-      /* Style des cartes entreprises */
+      /* Styles spécifiques à la page adhérents */
       .enterprise-card {
         background-color: white;
         border-radius: 1rem;
@@ -197,12 +86,7 @@
         font-size: 0.875rem;
       }
 
-      /* Dark mode */
-      .dark body {
-        background-color: var(--dark-color);
-        color: var(--light-color);
-      }
-
+      /* Dark mode pour les entreprises */
       .dark .enterprise-card {
         background-color: #1f2937;
         border-color: #374151;
@@ -223,66 +107,204 @@
       .dark .modal-content {
         background-color: #1f2937;
         color: white;
+        border-color: rgba(255, 255, 255, 0.1);
       }
 
-      .dark header {
-        background-color: var(--dark-header-bg);
-        color: var(--dark-header-color);
+      .dark .modal-content h2 {
+        color: #f9fafb;
       }
 
-      .dark header .tab-link {
-        color: rgba(255, 255, 255, 0.92);
+      .dark .modal-content #modalMember {
+        color: #d1d5db;
       }
 
-      .dark header .tab-link:hover {
-        color: #ffffff;
+      .dark .modal-content #modalDescription {
+        color: #e5e7eb;
       }
 
-      .dark header.header-scrolled {
-        background-color: var(--dark-header-bg);
+      .dark .modal-close {
+        background-color: #374151;
+        color: #d1d5db;
       }
 
-      /* Modal styles */
+      .dark .modal-close:hover {
+        background-color: #4b5563;
+        color: #f9fafb;
+      }
+
+      .dark .modal-social-link {
+        background-color: #374151;
+        border-color: #4b5563;
+        color: #d1d5db;
+      }
+
+      .dark .modal-social-link:hover {
+        background-color: #4b5563;
+        border-color: #daa520;
+      }
+
+      .dark .modal-social-link span {
+        color: #9ca3af;
+      }
+
+      .dark .modal-social-link:hover span {
+        color: #daa520;
+      }
+
+      /* Modal styles améliorés */
       .modal-overlay {
         position: fixed;
         inset: 0;
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 0.75);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
         display: flex;
         align-items: center;
         justify-content: center;
-        z-index: 50;
-        transition: opacity 0.3s ease;
+        z-index: 1000;
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        padding: 1rem;
+      }
+
+      .modal-overlay.hidden {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
       }
 
       .modal-content {
         background-color: white;
-        border-radius: 1rem;
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        max-width: 32rem;
+        border-radius: 1.5rem;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        max-width: 500px;
         width: 100%;
-        padding: 2rem;
+        padding: 2.5rem;
         position: relative;
         text-align: center;
-        transform: translateY(0);
-        transition: all 0.3s ease-out;
+        transform: scale(0.9) translateY(20px);
+        transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .modal-overlay:not(.hidden) .modal-content {
+        transform: scale(1) translateY(0);
+      }
+
+      .modal-overlay.hidden .modal-content {
+        transform: scale(0.9) translateY(20px);
       }
 
       .modal-close {
         position: absolute;
         top: 1rem;
         right: 1rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         color: #6b7280;
-        padding: 0.25rem;
-        border-radius: 9999px;
+        background-color: #f3f4f6;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 1.25rem;
+        line-height: 1;
+        transition: all 0.2s ease;
+        z-index: 10;
       }
 
       .modal-close:hover {
-        color: #374151;
+        color: #111827;
+        background-color: #e5e7eb;
+        transform: rotate(90deg);
       }
 
       .modal-close:focus {
         outline: none;
-        box-shadow: 0 0 0 2px #daa520;
+        box-shadow: 0 0 0 3px rgba(218, 165, 32, 0.3);
+      }
+
+      .modal-content .enterprise-logo {
+        margin: 0 auto 1.5rem;
+        width: 5rem;
+        height: 5rem;
+        font-size: 1.75rem;
+      }
+
+      .modal-content h2 {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: #111827;
+        margin-bottom: 0.5rem;
+        font-family: "Playfair Display", serif;
+      }
+
+      .modal-content #modalMember {
+        font-size: 1rem;
+        color: #6b7280;
+        margin-bottom: 1.5rem;
+        font-weight: 500;
+      }
+
+      .modal-content #modalDescription {
+        font-size: 0.95rem;
+        color: #4b5563;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+      }
+
+      .modal-social-links {
+        display: flex;
+        justify-content: center;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+        margin-top: 1.5rem;
+      }
+
+      .modal-social-link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 4.5rem;
+        height: 4.5rem;
+        background-color: #f9fafb;
+        border: 1px solid #e5e7eb;
+        border-radius: 0.75rem;
+        transition: all 0.2s ease;
+        text-decoration: none;
+        color: #4b5563;
+      }
+
+      .modal-social-link:hover {
+        background-color: #f3f4f6;
+        border-color: #daa520;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(218, 165, 32, 0.2);
+      }
+
+      .modal-social-link svg {
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-bottom: 0.25rem;
+        transition: transform 0.2s ease;
+      }
+
+      .modal-social-link:hover svg {
+        transform: scale(1.1);
+      }
+
+      .modal-social-link span {
+        font-size: 0.625rem;
+        font-weight: 500;
+        color: #6b7280;
+      }
+
+      .modal-social-link:hover span {
+        color: #daa520;
       }
 
       /* Responsive design */
@@ -301,205 +323,59 @@
         .enterprise-name {
           font-size: 1rem;
         }
+
+        .modal-content {
+          padding: 1.5rem;
+          max-width: 100%;
+          margin: 1rem;
+        }
+
+        .modal-content h2 {
+          font-size: 1.5rem;
+        }
+
+        .modal-social-links {
+          gap: 0.5rem;
+        }
+
+        .modal-social-link {
+          width: 4rem;
+          height: 4rem;
+        }
       }
 
-      .section {
-        padding: var(--section-padding-block) var(--section-padding-inline);
-      }
 
-      .card {
-        background-color: var(--light-color);
-        border-radius: var(--card-border-radius);
-        box-shadow: var(--box-shadow-subtle);
-        padding: 1.5rem;
-        text-align: center;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-      }
-
-      .card-title {
-        font-size: 1.25rem;
-        font-weight: 600;
-        color: var(--secondary-color);
-        margin-bottom: 0.5rem;
-      }
-
-      .card-subtitle {
-        font-size: 1rem;
-        color: #7f8c8d;
-      }
-
-      /* Header moderne */
-      header {
-        transition: all 0.4s ease;
-        z-index: 100;
-        will-change: transform;
-        background: rgba(255, 255, 255, 0.9);
-        backdrop-filter: blur(12px) saturate(120%);
-        -webkit-backdrop-filter: blur(12px) saturate(120%);
-        color: #333333;
-        position: fixed;
-        top: 0;
-        width: 100%;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06),
-          0 10px 24px rgba(0, 0, 0, 0.15);
-        height: var(--header-height, 72px);
-      }
-
-      header::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: #ffffff;
-        transform: translateY(-100%);
-        transition: transform 0.35s ease;
-        z-index: -1;
-      }
-
-      header.hidden {
-        transform: translateY(-100%);
-      }
-
-      /* Tabs header */
-      .tabs {
-        gap: 1rem;
-      }
-      .tab-link {
-        display: inline-flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 0.25rem;
-        padding: 0.375rem 0.5rem;
-        color: rgba(255, 255, 255, 0.92);
-        text-align: center;
-        position: relative;
-        white-space: nowrap;
-      }
-      .tab-link:hover {
-        color: #ffffff;
-      }
-      .tab-link ion-icon {
-        font-size: 1.35rem;
-        line-height: 1;
-      }
-      .tab-link span {
-        font-size: 0.8rem;
-        font-weight: 600;
-        letter-spacing: 0.02em;
-      }
-      .tab-link::after {
-        content: "";
-        position: absolute;
-        bottom: -6px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 40%;
-        height: 3px;
-        background: #ffd700;
-        border-radius: 999px;
-        opacity: 0;
-        transition: opacity 0.2s ease;
-      }
-      .tab-active {
-        color: #ffffff;
-      }
-      .tab-active::after {
-        opacity: 1;
-      }
-      .tab-icon-filled {
-        display: none;
-      }
-      .tab-active .tab-icon-filled {
-        display: inline-block;
-      }
-      .tab-active .tab-icon-outline {
-        display: none;
-      }
-
-      /* Header scrolled state */
-      header.header-scrolled {
-        color: #111827 !important;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
-      }
-      header.header-scrolled::before {
-        transform: translateY(0);
-      }
-      header.header-scrolled .tab-link {
-        color: rgba(17, 24, 39, 0.85);
-      }
-      header.header-scrolled .tab-active {
-        color: #111827;
-      }
-
-      /* Logo styles */
-      .logo-box {
-        background: #ffffff;
-        padding: 0 3px;
-        border-radius: 8px;
-        display: inline-flex;
-        align-items: center;
-        height: 90%;
-      }
-      .logo-img {
-        height: 100%;
-        width: auto;
-        display: block;
-      }
-
-      /* Dark mode header */
-      .dark header {
-        color: #ffffff !important;
-      }
-      .dark header.header-scrolled {
-        background: var(--dark-header-bg) !important;
-      }
-      .dark header.header-scrolled .tab-link {
-        color: rgba(255, 255, 255, 0.92) !important;
-      }
-      .dark header.header-scrolled .tab-active {
-        color: #ffffff !important;
-      }
-      .dark .logo-box {
-        background: #ffffff !important;
-      }
     </style>
   </head>
-  <body class="bg-white text-gray-800 font-sans">
-    <!-- HEADER -->
-    <header id="site-header" aria-label="En-tête du site">
-      <div
-        class="max-w-7xl mx-auto grid grid-cols-3 items-center justify-items-center px-6"
-        style="height: var(--header-height)"
-      >
-        <div
-          class="text-2xl font-extrabold tracking-wide select-none justify-self-start"
+  <body class="font-sans bg-white text-black transition-colors duration-500">
+    <!-- Correction du header pour améliorer l'accessibilité -->
+    <header id="site-header" class="header-top" aria-label="En-tête du site">
+      <div class="header-content">
+        <button
+          id="mobile-menu-toggle"
+          class="mobile-menu-toggle"
+          aria-label="Ouvrir le menu"
+          type="button"
         >
-          <a href="#" class="flex items-center gap-3 h-[var(--header-height)]">
-            <span class="logo-box"
-              ><img
-                src="../logo_respac.jpg"
-                alt="RESPAC"
-                class="logo-img rounded-sm"
-            /></span>
+          <ion-icon name="menu-outline" class="menu-icon-outline"></ion-icon>
+          <ion-icon name="close-outline" class="menu-icon-close"></ion-icon>
+        </button>
+        <div class="header-logo">
+          <a href="../index.html">
+            <span class="logo-box">
+              <img src="../logo_respac.jpg" alt="RESPAC" class="logo-img" />
+            </span>
             <span class="sr-only">RESPAC</span>
           </a>
         </div>
-        <nav
-          class="tabs flex items-center justify-center font-medium justify-self-center"
-        >
-          <a href="#" class="tab-link tab-active" data-tab="home">
+        <nav class="header-nav tabs">
+          <a href="../index.html" class="tab-link" data-tab="home">
             <ion-icon class="tab-icon-outline" name="home-outline"></ion-icon>
             <ion-icon class="tab-icon-filled" name="home"></ion-icon>
-            <span>Accueil</span>
+            <span class="nav-text">Accueil</span>
+            <span class="nav-subtext">du site</span>
           </a>
-          <a href="#" class="tab-link" data-tab="presentation">
+          <a href="../presentation.html" class="tab-link" data-tab="presentation">
             <ion-icon
               class="tab-icon-outline"
               name="information-circle-outline"
@@ -508,45 +384,54 @@
               class="tab-icon-filled"
               name="information-circle"
             ></ion-icon>
-            <span>Présentation</span>
+            <span class="nav-text">Présentation</span>
+            <span class="nav-subtext">du RESPAC</span>
           </a>
-          <a href="#" class="tab-link" data-tab="actualite">
+          <a href="#" class="tab-link" data-tab="juridique">
             <ion-icon
               class="tab-icon-outline"
-              name="newspaper-outline"
+              name="document-text-outline"
             ></ion-icon>
-            <ion-icon class="tab-icon-filled" name="newspaper"></ion-icon>
-            <span>Actualité</span>
+            <ion-icon class="tab-icon-filled" name="document-text"></ion-icon>
+            <span class="nav-text">Textes</span>
+            <span class="nav-subtext">juridiques</span>
           </a>
-          <a href="#" class="tab-link" data-tab="sorties">
-            <ion-icon class="tab-icon-outline" name="film-outline"></ion-icon>
-            <ion-icon class="tab-icon-filled" name="film"></ion-icon>
-            <span>Sortie en salle</span>
-          </a>
-          <a href="#" class="tab-link" data-tab="festival">
-            <ion-icon class="tab-icon-outline" name="ribbon-outline"></ion-icon>
-            <ion-icon class="tab-icon-filled" name="ribbon"></ion-icon>
-            <span>Festival</span>
-          </a>
-          <a href="#" class="tab-link" data-tab="tournages">
+          <a href="../tourner-senegal.html" class="tab-link" data-tab="tournages">
             <ion-icon
               class="tab-icon-outline"
               name="videocam-outline"
             ></ion-icon>
             <ion-icon class="tab-icon-filled" name="videocam"></ion-icon>
-            <span>Tournages</span>
+            <span class="nav-text">Tourner au</span>
+            <span class="nav-subtext">Sénégal</span>
           </a>
-          <a href="#" class="tab-link" data-tab="intel-eco">
+          <a href="#" class="tab-link" data-tab="industrie">
             <ion-icon
               class="tab-icon-outline"
-              name="analytics-outline"
+              name="stats-chart-outline"
             ></ion-icon>
-            <ion-icon class="tab-icon-filled" name="analytics"></ion-icon>
-            <span>Économie</span>
+            <ion-icon class="tab-icon-filled" name="stats-chart"></ion-icon>
+            <span class="nav-text">Industrie &</span>
+            <span class="nav-subtext">Economie</span>
+          </a>
+          <a href="#" class="tab-link" data-tab="membres">
+            <ion-icon class="tab-icon-outline" name="people-outline"></ion-icon>
+            <ion-icon class="tab-icon-filled" name="people"></ion-icon>
+            <span class="nav-text">Nos</span>
+            <span class="nav-subtext">membres</span>
+          </a>
+          <a href="#" class="tab-link" data-tab="actualites">
+            <ion-icon
+              class="tab-icon-outline"
+              name="newspaper-outline"
+            ></ion-icon>
+            <ion-icon class="tab-icon-filled" name="newspaper"></ion-icon>
+            <span class="nav-text">Actualité</span>
+            <span class="nav-subtext">du secteur</span>
           </a>
         </nav>
-        <div class="flex items-center justify-end gap-3 justify-self-end">
-          <a href="#adhesion" class="cta-button">
+        <div class="header-actions">
+          <a href="./" class="cta-button desktop-only">
             <ion-icon name="person-add-outline"></ion-icon>
             Adhérer
           </a>
@@ -560,88 +445,81 @@
           </button>
         </div>
       </div>
+
+      <!-- Menu mobile -->
+      <div id="mobile-menu" class="mobile-menu" aria-label="Menu mobile">
+        <nav class="mobile-nav">
+          <a href="../index.html" class="mobile-nav-item" data-tab="home">
+            <ion-icon name="home-outline"></ion-icon>
+            <div class="mobile-nav-text">
+              <span class="mobile-nav-title">Accueil du site</span>
+            </div>
+          </a>
+          <a href="../presentation.html" class="mobile-nav-item" data-tab="presentation">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            <div class="mobile-nav-text">
+              <span class="mobile-nav-title">Présentation RESPAC</span>
+            </div>
+          </a>
+          <a href="#" class="mobile-nav-item" data-tab="juridique">
+            <ion-icon name="document-text-outline"></ion-icon>
+            <div class="mobile-nav-text">
+              <span class="mobile-nav-title">Textes juridiques</span>
+            </div>
+          </a>
+          <a href="../tourner-senegal.html" class="mobile-nav-item" data-tab="tournages">
+            <ion-icon name="videocam-outline"></ion-icon>
+            <div class="mobile-nav-text">
+              <span class="mobile-nav-title">Tourner au Sénégal</span>
+            </div>
+          </a>
+          <a href="#" class="mobile-nav-item" data-tab="industrie">
+            <ion-icon name="stats-chart-outline"></ion-icon>
+            <div class="mobile-nav-text">
+              <span class="mobile-nav-title">Industrie & Economie</span>
+            </div>
+          </a>
+          <a href="#" class="mobile-nav-item" data-tab="membres">
+            <ion-icon name="people-outline"></ion-icon>
+            <div class="mobile-nav-text">
+              <span class="mobile-nav-title">Nos membres</span>
+            </div>
+          </a>
+          <a href="#" class="mobile-nav-item" data-tab="actualites">
+            <ion-icon name="newspaper-outline"></ion-icon>
+            <div class="mobile-nav-text">
+              <span class="mobile-nav-title">Actualité du secteur</span>
+            </div>
+          </a>
+          <a href="./" class="mobile-nav-item mobile-cta">
+            <ion-icon name="person-add-outline"></ion-icon>
+            <div class="mobile-nav-text">
+              <span class="mobile-nav-title">Adhérer au RESPAC</span>
+            </div>
+          </a>
+        </nav>
+      </div>
     </header>
 
-    <!-- Bannière en haut de la page -->
-    <!-- Tailwind CDN (à retirer si tu compiles déjà Tailwind dans ton build) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <section class="w-full bg-white mt-[60px]">
-      <div class="mx-auto max-w-3xl px-6">
-        <div
-          class="flex flex-col items-center text-center border rounded-2xl p-8 shadow-sm space-y-6"
-        >
-          <!-- Icône outlined dorée -->
-          <div>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 48 48"
-              class="w-14 h-14"
-            >
-              <g
-                fill="none"
-                stroke="#CBA135"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M6 20h36v18a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4V20z" />
-                <path d="M6 20l4-12h28l-4 12H6z" />
-                <path d="M14 8l6 12M26 8l6 12" />
-              </g>
-            </svg>
-          </div>
-
-          <!-- Texte -->
-          <div class="space-y-3">
-            <h2 class="text-2xl font-semibold tracking-tight text-neutral-900">
-              Adhérer au RESPAC
-            </h2>
-            <p class="text-base text-neutral-600 max-w-2xl">
-              Rejoignez le Réseau des entreprises et sociétés de production
-              audiovisuelle et cinématographique du Sénégal pour renforcer vos
-              connexions, partager des ressources et gagner en visibilité dans
-              l’écosystème.
-            </p>
-          </div>
-
-          <!-- CTA -->
-          <div>
-            <a
-              href="#adhesion"
-              class="group inline-flex items-center justify-center h-12 px-8 rounded-2xl uppercase tracking-wide font-semibold text-white shadow-lg bg-gradient-to-b from-[#E50914] to-[#B20710] hover:from-[#FF0F1D] hover:to-[#D20A13] active:scale-[0.99] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-red-600"
-            >
-              <!-- Icône gauche -->
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                class="w-5 h-5 mr-2 opacity-90 group-hover:opacity-100"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M5 12h14" />
-                <path d="M12 5l7 7-7 7" />
-              </svg>
-              Adhérer maintenant
-            </a>
-          </div>
-        </div>
+    <!-- SECTION: Hero Adhésion -->
+    <section class="section-hero" aria-label="Adhérer au RESPAC" style="margin-top: var(--header-height);">
+      <div class="container">
+        <h1>Adhérer au RESPAC</h1>
+        <p>
+          Rejoignez le Réseau des entreprises et sociétés de production
+          audiovisuelle et cinématographique du Sénégal pour renforcer vos
+          connexions, partager des ressources et gagner en visibilité dans
+          l'écosystème.
+        </p>
       </div>
     </section>
-    <!-- Main Content -->
-    <div class="container mx-auto px-6 py-10">
-      <h2 class="text-3xl font-bold text-respac-red mb-8 relative">
+
+    <!-- SECTION: Liste des entreprises -->
+    <section class="container" style="padding: var(--section-padding-y) var(--section-padding-x);">
+      <h2 class="section-title" style="text-align: center; margin-bottom: 3rem;">
         Liste des entreprises
-        <div
-          class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-[#daa520] rounded-full mt-2"
-        ></div>
       </h2>
-      <div
-        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-6"
-      >
+      <div class="enterprises-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1.5rem; padding: 0;">
         <!-- Remplacement de tous les divs d'entreprises par le design clair -->
         <!-- LACME STUDIOS -->
         <div
@@ -656,566 +534,532 @@
         <!-- STUDIO SANKARA -->
         <div
           onclick="openModal('STUDIO SANKARA', 'MAGUY H. AWADI', 'SS')"
-          class="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-50 transition cursor-pointer border border-gray-200"
+          class="enterprise-card"
         >
-          <div
-            class="w-20 h-20 flex items-center justify-center bg-[#daa520] text-white text-2xl font-bold rounded-xl mb-3"
-          >
-            SS
-          </div>
-          <h3 class="font-semibold text-gray-800">STUDIO SANKARA</h3>
-          <p class="text-gray-600 text-sm">MAGUY H. AWADI</p>
+          <div class="enterprise-logo">SS</div>
+          <h3 class="enterprise-name">STUDIO SANKARA</h3>
+          <p class="enterprise-member">MAGUY H. AWADI</p>
         </div>
 
         <!-- CINEKAP -->
         <div
           onclick="openModal('CINEKAP', 'OMAR SALL', 'CK')"
-          class="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-50 transition cursor-pointer border border-gray-200"
+          class="enterprise-card"
         >
-          <div
-            class="w-20 h-20 flex items-center justify-center bg-[#daa520] text-white text-2xl font-bold rounded-xl mb-3"
-          >
+          <div class="enterprise-logo">
             CK
           </div>
-          <h3 class="font-semibold text-gray-800">CINEKAP</h3>
-          <p class="text-gray-600 text-sm">OMAR SALL</p>
+          <h3 class="enterprise-name">CINEKAP</h3>
+          <p class="enterprise-member">OMAR SALL</p>
         </div>
 
         <!-- GIE DM MEDIA -->
         <div
           onclick="openModal('GIE DM MEDIA', 'DJIBRIL DRAME', 'DM')"
-          class="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-50 transition cursor-pointer border border-gray-200"
+          class="enterprise-card"
         >
-          <div
-            class="w-20 h-20 flex items-center justify-center bg-[#daa520] text-white text-2xl font-bold rounded-xl mb-3"
-          >
+          <div class="enterprise-logo">
             DM
           </div>
-          <h3 class="font-semibold text-gray-800">GIE DM MEDIA</h3>
-          <p class="text-gray-600 text-sm">DJIBRIL DRAME</p>
+          <h3 class="enterprise-name">GIE DM MEDIA</h3>
+          <p class="enterprise-member">DJIBRIL DRAME</p>
         </div>
 
         <!-- MEDIATIK -->
         <div
           onclick="openModal('MEDIATIK', 'MOCTAR BA', 'MT')"
-          class="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-50 transition cursor-pointer border border-gray-200"
+          class="enterprise-card"
         >
-          <div
-            class="w-20 h-20 flex items-center justify-center bg-[#daa520] text-white text-2xl font-bold rounded-xl mb-3"
-          >
+          <div class="enterprise-logo">
             MT
           </div>
-          <h3 class="font-semibold text-gray-800">MEDIATIK</h3>
-          <p class="text-gray-600 text-sm">MOCTAR BA</p>
+          <h3 class="enterprise-name">MEDIATIK</h3>
+          <p class="enterprise-member">MOCTAR BA</p>
         </div>
 
         <!-- CHOUETTE PROD -->
         <div
           onclick="openModal('CHOUETTE PROD', 'ZENA ZEIDAN', 'CP')"
-          class="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-50 transition cursor-pointer border border-gray-200"
+          class="enterprise-card"
         >
-          <div
-            class="w-20 h-20 flex items-center justify-center bg-[#daa520] text-white text-2xl font-bold rounded-xl mb-3"
-          >
+          <div class="enterprise-logo">
             CP
           </div>
-          <h3 class="font-semibold text-gray-800">CHOUETTE PROD</h3>
-          <p class="text-gray-600 text-sm">ZENA ZEIDAN</p>
+          <h3 class="enterprise-name">CHOUETTE PROD</h3>
+          <p class="enterprise-member">ZENA ZEIDAN</p>
         </div>
 
         <!-- PROD-EVENTS -->
         <div
           onclick="openModal('PROD-EVENTS', 'BASSIROU NDIAYE', 'PE')"
-          class="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-50 transition cursor-pointer border border-gray-200"
+          class="enterprise-card"
         >
-          <div
-            class="w-20 h-20 flex items-center justify-center bg-[#daa520] text-white text-2xl font-bold rounded-xl mb-3"
-          >
+          <div class="enterprise-logo">
             PE
           </div>
-          <h3 class="font-semibold text-gray-800">PROD-EVENTS</h3>
-          <p class="text-gray-600 text-sm">BASSIROU NDIAYE</p>
+          <h3 class="enterprise-name">PROD-EVENTS</h3>
+          <p class="enterprise-member">BASSIROU NDIAYE</p>
         </div>
 
         <!-- KARONINKA -->
         <div
           onclick="openModal('KARONINKA', 'ANGELE DIABANG', 'KA')"
-          class="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-50 transition cursor-pointer border border-gray-200"
+          class="enterprise-card"
         >
-          <div
-            class="w-20 h-20 flex items-center justify-center bg-[#daa520] text-white text-2xl font-bold rounded-xl mb-3"
-          >
+          <div class="enterprise-logo">
             KA
           </div>
-          <h3 class="font-semibold text-gray-800">KARONINKA</h3>
-          <p class="text-gray-600 text-sm">ANGELE DIABANG</p>
+          <h3 class="enterprise-name">KARONINKA</h3>
+          <p class="enterprise-member">ANGELE DIABANG</p>
         </div>
 
         <!-- LES FILMS DE L'ATELIER -->
         <div
           onclick="openModal('LES FILMS DE L\'ATELIER', 'GORA SECK', 'FA')"
-          class="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-50 transition cursor-pointer border border-gray-200"
+          class="enterprise-card"
         >
-          <div
-            class="w-20 h-20 flex items-center justify-center bg-[#daa520] text-white text-2xl font-bold rounded-xl mb-3"
-          >
+          <div class="enterprise-logo">
             FA
           </div>
-          <h3 class="font-semibold text-gray-800">LES FILMS DE L'ATELIER</h3>
-          <p class="text-gray-600 text-sm">GORA SECK</p>
+          <h3 class="enterprise-name">LES FILMS DE L'ATELIER</h3>
+          <p class="enterprise-member">GORA SECK</p>
         </div>
 
         <!-- THIELYFILM -->
         <div
           onclick="openModal('THIELYFILM', 'SOULEYMANE DIA', 'TF')"
-          class="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-50 transition cursor-pointer border border-gray-200"
+          class="enterprise-card"
         >
-          <div
-            class="w-20 h-20 flex items-center justify-center bg-[#daa520] text-white text-2xl font-bold rounded-xl mb-3"
-          >
+          <div class="enterprise-logo">
             TF
           </div>
-          <h3 class="font-semibold text-gray-800">THIELYFILM</h3>
-          <p class="text-gray-600 text-sm">SOULEYMANE DIA</p>
+          <h3 class="enterprise-name">THIELYFILM</h3>
+          <p class="enterprise-member">SOULEYMANE DIA</p>
         </div>
 
         <!-- OXYGEN AFRICA -->
         <div
           onclick="openModal('OXYGEN AFRICA', 'JAM C', 'OA')"
-          class="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-50 transition cursor-pointer border border-gray-200"
+          class="enterprise-card"
         >
-          <div
-            class="w-20 h-20 flex items-center justify-center bg-[#daa520] text-white text-2xl font-bold rounded-xl mb-3"
-          >
+          <div class="enterprise-logo">
             OA
           </div>
-          <h3 class="font-semibold text-gray-800">OXYGEN AFRICA</h3>
-          <p class="text-gray-600 text-sm">JAM C</p>
+          <h3 class="enterprise-name">OXYGEN AFRICA</h3>
+          <p class="enterprise-member">JAM C</p>
         </div>
 
         <!-- LYDEL COM -->
         <div
           onclick="openModal('LYDEL COM', 'TABARA LY', 'LC')"
-          class="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-50 transition cursor-pointer border border-gray-200"
+          class="enterprise-card"
         >
-          <div
-            class="w-20 h-20 flex items-center justify-center bg-[#daa520] text-white text-2xl font-bold rounded-xl mb-3"
-          >
+          <div class="enterprise-logo">
             LC
           </div>
-          <h3 class="font-semibold text-gray-800">LYDEL COM</h3>
-          <p class="text-gray-600 text-sm">TABARA LY</p>
+          <h3 class="enterprise-name">LYDEL COM</h3>
+          <p class="enterprise-member">TABARA LY</p>
         </div>
 
         <!-- CHALLENGER FACTORY -->
         <div
           onclick="openModal('CHALLENGER FACTORY', 'OUSMANE FALL', 'CF')"
-          class="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-50 transition cursor-pointer border border-gray-200"
+          class="enterprise-card"
         >
-          <div
-            class="w-20 h-20 flex items-center justify-center bg-[#daa520] text-white text-2xl font-bold rounded-xl mb-3"
-          >
+          <div class="enterprise-logo">
             CF
           </div>
-          <h3 class="font-semibold text-gray-800">CHALLENGER FACTORY</h3>
-          <p class="text-gray-600 text-sm">OUSMANE FALL</p>
+          <h3 class="enterprise-name">CHALLENGER FACTORY</h3>
+          <p class="enterprise-member">OUSMANE FALL</p>
         </div>
 
         <!-- KALISTA PRODUCTION -->
         <div
           onclick="openModal('KALISTA PRODUCTION', 'KALISTA', 'KP')"
-          class="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-50 transition cursor-pointer border border-gray-200"
+          class="enterprise-card"
         >
-          <div
-            class="w-20 h-20 flex items-center justify-center bg-[#daa520] text-white text-2xl font-bold rounded-xl mb-3"
-          >
+          <div class="enterprise-logo">
             KP
           </div>
-          <h3 class="font-semibold text-gray-800">KALISTA PRODUCTION</h3>
-          <p class="text-gray-600 text-sm">KALISTA</p>
+          <h3 class="enterprise-name">KALISTA PRODUCTION</h3>
+          <p class="enterprise-member">KALISTA</p>
         </div>
 
         <!-- SUNUY FILMS -->
         <div
           onclick="openModal('SUNUY FILMS', 'SOULEYMANE KEBE', 'SF')"
-          class="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-50 transition cursor-pointer border border-gray-200"
+          class="enterprise-card"
         >
-          <div
-            class="w-20 h-20 flex items-center justify-center bg-[#daa520] text-white text-2xl font-bold rounded-xl mb-3"
-          >
+          <div class="enterprise-logo">
             SF
           </div>
-          <h3 class="font-semibold text-gray-800">SUNUY FILMS</h3>
-          <p class="text-gray-600 text-sm">SOULEYMANE KEBE</p>
+          <h3 class="enterprise-name">SUNUY FILMS</h3>
+          <p class="enterprise-member">SOULEYMANE KEBE</p>
         </div>
 
         <!-- CATHY LENA KANE -->
         <div
           onclick="openModal('CATHY LENA KANE', 'CATHY LENA KANE', 'CL')"
-          class="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-50 transition cursor-pointer border border-gray-200"
+          class="enterprise-card"
         >
-          <div
-            class="w-20 h-20 flex items-center justify-center bg-[#daa520] text-white text-2xl font-bold rounded-xl mb-3"
-          >
+          <div class="enterprise-logo">
             CL
           </div>
-          <h3 class="font-semibold text-gray-800">CATHY LENA KANE</h3>
-          <p class="text-gray-600 text-sm">CATHY LENA KANE</p>
+          <h3 class="enterprise-name">CATHY LENA KANE</h3>
+          <p class="enterprise-member">CATHY LENA KANE</p>
         </div>
 
         <!-- NAFI FILMS -->
         <div
           onclick="openModal('NAFI FILMS', 'YORO MBAYE', 'NF')"
-          class="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-50 transition cursor-pointer border border-gray-200"
+          class="enterprise-card"
         >
-          <div
-            class="w-20 h-20 flex items-center justify-center bg-[#daa520] text-white text-2xl font-bold rounded-xl mb-3"
-          >
+          <div class="enterprise-logo">
             NF
           </div>
-          <h3 class="font-semibold text-gray-800">NAFI FILMS</h3>
-          <p class="text-gray-600 text-sm">YORO MBAYE</p>
+          <h3 class="enterprise-name">NAFI FILMS</h3>
+          <p class="enterprise-member">YORO MBAYE</p>
         </div>
 
         <!-- WARU STUDIO -->
         <div
           onclick="openModal('WARU STUDIO', 'FATOU KANDE', 'WS')"
-          class="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-50 transition cursor-pointer border border-gray-200"
+          class="enterprise-card"
         >
-          <div
-            class="w-20 h-20 flex items-center justify-center bg-[#daa520] text-white text-2xl font-bold rounded-xl mb-3"
-          >
+          <div class="enterprise-logo">
             WS
           </div>
-          <h3 class="font-semibold text-gray-800">WARU STUDIO</h3>
-          <p class="text-gray-600 text-sm">FATOU KANDE</p>
+          <h3 class="enterprise-name">WARU STUDIO</h3>
+          <p class="enterprise-member">FATOU KANDE</p>
         </div>
 
         <!-- LADY BLUE PRODUCTION -->
         <div
           onclick="openModal('LADY BLUE PRODUCTION', 'BINETOU FAYE', 'LB')"
-          class="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-50 transition cursor-pointer border border-gray-200"
+          class="enterprise-card"
         >
-          <div
-            class="w-20 h-20 flex items-center justify-center bg-[#daa520] text-white text-2xl font-bold rounded-xl mb-3"
-          >
+          <div class="enterprise-logo">
             LB
           </div>
-          <h3 class="font-semibold text-gray-800">LADY BLUE PRODUCTION</h3>
-          <p class="text-gray-600 text-sm">BINETOU FAYE</p>
+          <h3 class="enterprise-name">LADY BLUE PRODUCTION</h3>
+          <p class="enterprise-member">BINETOU FAYE</p>
         </div>
 
         <!-- KOURTRAJMÉ PRODUCTION -->
         <div
           onclick="openModal('KOURTRAJMÉ PRODUCTION', 'EMMA SANGHARÉ', 'KR')"
-          class="bg-white rounded-2xl shadow-md p-4 flex flex-col items-center text-center hover:bg-gray-50 transition cursor-pointer border border-gray-200"
+          class="enterprise-card"
         >
-          <div
-            class="w-20 h-20 flex items-center justify-center bg-[#daa520] text-white text-2xl font-bold rounded-xl mb-3"
-          >
+          <div class="enterprise-logo">
             KR
           </div>
-          <h3 class="font-semibold text-gray-800">KOURTRAJMÉ PRODUCTION</h3>
-          <p class="text-gray-600 text-sm">EMMA SANGHARÉ</p>
+          <h3 class="enterprise-name">KOURTRAJMÉ PRODUCTION</h3>
+          <p class="enterprise-member">EMMA SANGHARÉ</p>
         </div>
       </div>
     </div>
 
-    <!-- Modal -->
-    <div id="modal" class="modal-overlay hidden">
-      <div
-        id="modalContent"
-        role="dialog"
-        aria-modal="true"
-        class="modal-content"
-      >
-        <button onclick="closeModal()" class="modal-close">✕</button>
-        <div id="modalLogo" class="enterprise-logo mx-auto">LOGO</div>
-        <h2 id="modalTitle" class="text-2xl font-bold mb-2">Nom entreprise</h2>
-        <p
-          id="modalMember"
-          class="text-sm text-gray-600 dark:text-gray-400 mb-4"
-        >
-          Nom membre
-        </p>
-        <p id="modalDescription" class="text-gray-700 dark:text-gray-300 mb-6">
-          Informations supplémentaires sur l'entreprise...
+    <!-- Modal amélioré -->
+    <div id="modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div id="modalContent" class="modal-content">
+        <button onclick="closeModal()" class="modal-close" aria-label="Fermer le modal">
+          <ion-icon name="close-outline"></ion-icon>
+        </button>
+        
+        <div id="modalLogo" class="enterprise-logo">LOGO</div>
+        
+        <h2 id="modalTitle">Nom entreprise</h2>
+        
+        <p id="modalMember">Nom membre</p>
+        
+        <p id="modalDescription">
+          Informations supplémentaires sur l'entreprise et ses activités dans le secteur audiovisuel et cinématographique.
         </p>
 
-        <!-- Boutons sociaux version claire -->
-        <div class="flex justify-center gap-3 flex-wrap">
+        <!-- Boutons sociaux améliorés -->
+        <div class="modal-social-links">
           <!-- Site web -->
-          <a
-            href="#"
-            target="_blank"
-            class="group flex flex-col items-center justify-center w-20 h-20 bg-gray-50 rounded-xl ring-1 ring-gray-200 hover:ring-[#daa520] hover:bg-gray-100 transition transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#daa520]"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="w-6 h-6 mb-1 text-gray-600 transition group-hover:scale-110 group-hover:text-[#daa520]"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="1.5"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M12 21a9 9 0 100-18 9 9 0 000 18z"
-              />
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M2.25 12h19.5M12 2.25c3.75 3.75 3.75 15.75 0 19.5M12 2.25c-3.75 3.75-3.75 15.75 0 19.5"
-              />
+          <a href="#" target="_blank" rel="noopener noreferrer" class="modal-social-link" aria-label="Visiter le site web">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 100-18 9 9 0 000 18z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.25 12h19.5M12 2.25c3.75 3.75 3.75 15.75 0 19.5M12 2.25c-3.75 3.75-3.75 15.75 0 19.5" />
             </svg>
-            <span class="text-[10px] leading-none text-gray-600">Site web</span>
+            <span>Site web</span>
           </a>
 
           <!-- Facebook -->
-          <a
-            href="#"
-            target="_blank"
-            class="group flex flex-col items-center justify-center w-20 h-20 bg-gray-50 rounded-xl ring-1 ring-gray-200 hover:ring-[#daa520] hover:bg-gray-100 transition transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#daa520]"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="w-6 h-6 mb-1 transition group-hover:scale-110"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-            >
-              <!-- carré arrondi -->
-              <rect x="3" y="3" width="18" height="18" rx="4" ry="4"></rect>
-              <!-- f stylisée -->
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M13 7h2.5M13 7c-1.2 0-2 .8-2 2v2H9.5v2H11v5h2.5v-5h2l.5-2H13V9c0-.6.4-1 1-1h1.5V7H13z"
-              />
+          <a href="#" target="_blank" rel="noopener noreferrer" class="modal-social-link" aria-label="Visiter Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <rect x="3" y="3" width="18" height="18" rx="4" ry="4" stroke-width="2" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h2.5M13 7c-1.2 0-2 .8-2 2v2H9.5v2H11v5h2.5v-5h2l.5-2H13V9c0-.6.4-1 1-1h1.5V7H13z" />
             </svg>
-            <span class="text-[10px] leading-none">Facebook</span>
+            <span>Facebook</span>
           </a>
 
           <!-- YouTube -->
-          <a
-            href="#"
-            target="_blank"
-            class="group flex flex-col items-center justify-center w-20 h-20 bg-gray-50 rounded-xl ring-1 ring-gray-200 hover:ring-[#daa520] hover:bg-gray-100 transition transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#daa520]"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="w-6 h-6 mb-1 transition group-hover:scale-110"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-            >
-              <rect x="3" y="6" width="18" height="12" rx="3" ry="3"></rect>
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M10 9l6 3-6 3V9z"
-              />
+          <a href="#" target="_blank" rel="noopener noreferrer" class="modal-social-link" aria-label="Visiter YouTube">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <rect x="3" y="6" width="18" height="12" rx="3" ry="3" stroke-width="2" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9l6 3-6 3V9z" />
             </svg>
-            <span class="text-[10px] leading-none">YouTube</span>
+            <span>YouTube</span>
           </a>
 
           <!-- Instagram -->
-          <a
-            href="#"
-            target="_blank"
-            class="group flex flex-col items-center justify-center w-20 h-20 bg-gray-50 rounded-xl ring-1 ring-gray-200 hover:ring-[#daa520] hover:bg-gray-100 transition transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#daa520]"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="w-6 h-6 mb-1 transition group-hover:scale-110"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-            >
-              <rect x="3" y="3" width="18" height="18" rx="5" ry="5"></rect>
-              <circle cx="12" cy="12" r="3"></circle>
-              <circle cx="17.25" cy="6.75" r=".75" fill="currentColor"></circle>
+          <a href="#" target="_blank" rel="noopener noreferrer" class="modal-social-link" aria-label="Visiter Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <rect x="3" y="3" width="18" height="18" rx="5" ry="5" stroke-width="2" />
+              <circle cx="12" cy="12" r="3" stroke-width="2" />
+              <circle cx="17.25" cy="6.75" r=".75" fill="currentColor" />
             </svg>
-            <span class="text-[10px] leading-none">Instagram</span>
+            <span>Instagram</span>
           </a>
         </div>
       </div>
     </div>
 
     <!-- FOOTER -->
-    <footer class="bg-black text-white pt-16 pb-10 footer-extended">
-      <div
-        class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10"
-      >
+    <footer class="footer-extended">
+      <div class="footer-grid">
+        <!-- Col 1: Présentation -->
         <div>
-          <h3 class="text-lg font-bold mb-4">À propos</h3>
-          <p class="text-sm text-gray-400">
-            Le RESPAC est un réseau d'entreprises...
+          <div class="footer-logo">
+            <span class="text-[#DAA520]">RES</span>PAC
+          </div>
+          <p class="footer-description">
+            Réseau des Entreprises Sénégalaises de Production Audiovisuelle et
+            Cinématographique. Nous fédérons, accompagnons et promouvons les
+            acteurs du secteur.
           </p>
         </div>
+        <!-- Col 2: Liens rapides -->
         <div>
-          <h3 class="text-lg font-bold mb-4">Liens rapides</h3>
-          <ul class="space-y-2">
-            <li>
-              <a href="#" class="text-sm text-gray-400 hover:text-white"
-                >Accueil</a
-              >
-            </li>
-            <li>
-              <a href="#" class="text-sm text-gray-400 hover:text-white"
-                >Présentation</a
-              >
-            </li>
+          <h4 class="footer-title">Liens rapides</h4>
+          <ul class="footer-links">
+            <li><a href="../index.html" class="footer-link">Accueil</a></li>
+            <li><a href="../presentation.html" class="footer-link">Présentation</a></li>
+            <li><a href="#" class="footer-link">Actualité</a></li>
+            <li><a href="#" class="footer-link">Sortie en salle</a></li>
+            <li><a href="#" class="footer-link">Festival</a></li>
           </ul>
         </div>
+        <!-- Col 3: Coordonnées -->
         <div>
-          <h3 class="text-lg font-bold mb-4">Contact</h3>
-          <p class="text-sm text-gray-400">contact@respac.sn</p>
+          <h4 class="footer-title">Coordonnées</h4>
+          <ul class="footer-links">
+            <li class="footer-link">contact@respac.sn</li>
+            <li class="footer-link">+221 00 000 00 00</li>
+            <li class="footer-link">Dakar, Sénégal</li>
+          </ul>
         </div>
+        <!-- Col 4: Réseaux sociaux -->
         <div>
-          <h3 class="text-lg font-bold mb-4">Suivez-nous</h3>
-          <div class="flex space-x-4">
-            <a href="#" class="text-gray-400 hover:text-white"
-              ><i class="fab fa-facebook-f"></i
-            ></a>
-            <a href="#" class="text-gray-400 hover:text-white"
-              ><i class="fab fa-twitter"></i
-            ></a>
+          <h4 class="footer-title">Suivez-nous</h4>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+            <a href="#" aria-label="Twitter">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+            <a href="#" aria-label="YouTube">
+              <ion-icon name="logo-youtube"></ion-icon>
+            </a>
           </div>
         </div>
       </div>
-      <div class="text-center text-gray-500 mt-10">
-        &copy; 2025 RESPAC. Tous droits réservés.
+      <div class="footer-copyright">
+        © <span id="currentYear"></span> RESPAC. Tous droits réservés.
+        <script>
+          document.getElementById("currentYear").textContent =
+            new Date().getFullYear();
+        </script>
       </div>
     </footer>
 
-    <script src="../js/main.js"></script>
+    <!-- Scripts -->
     <script>
-        // Initialize script loaded successfully
-        console.log('Main script loaded successfully');
+      (() => {
+        /* Gestion du menu mobile */
+        const menuToggle = document.getElementById("mobile-menu-toggle");
+        const body = document.body;
 
-        function closeModal() {
-          modal.classList.add("hidden");
-          body.classList.remove("overflow-hidden");
+        if (menuToggle) {
+          menuToggle.addEventListener("click", () => {
+            body.classList.toggle("menu-open");
+          });
+
+          /* Fermeture du menu au clic sur un lien */
+          const mobileNavLinks = document.querySelectorAll(".mobile-nav-item");
+          mobileNavLinks.forEach((link) => {
+            link.addEventListener("click", () => {
+              body.classList.remove("menu-open");
+            });
+          });
         }
 
-        // Fermer en cliquant à l’extérieur
-        modal.addEventListener("click", function (e) {
-          if (!modalContent.contains(e.target)) {
-            closeModal();
+        /* Gestion du header scroll */
+        const header = document.getElementById("site-header");
+        const firstSection = document.querySelector("body > section");
+        const rootStyles = getComputedStyle(document.documentElement);
+        const headerHeightVar = rootStyles
+          .getPropertyValue("--header-height")
+          .trim();
+        const headerHeight = parseInt(headerHeightVar || "88", 10) || 88;
+
+        let lastY = window.scrollY;
+        let currentY = lastY;
+        let ticking = false;
+
+        const updateHeader = () => {
+          const scrollingDown = currentY > lastY;
+          const heroBottom = firstSection
+            ? firstSection.offsetTop + firstSection.offsetHeight - headerHeight
+            : 10;
+
+          // Top transparent state
+          if (currentY <= 10) {
+            header.classList.add("header-top");
+          } else {
+            header.classList.remove("header-top");
           }
-        });
 
-        // Fermer avec la touche Échap
-        window.addEventListener("keydown", (e) => {
-          if (e.key === "Escape" && !modal.classList.contains("hidden")) {
-            closeModal();
+          // Solid background past hero
+          if (currentY > heroBottom) {
+            header.classList.add("header-scrolled");
+          } else {
+            header.classList.remove("header-scrolled");
           }
-        });
 
-        (() => {
-          const header = document.getElementById("site-header");
-          const firstSection = document.querySelector("body > section");
-          const rootStyles = getComputedStyle(document.documentElement);
-          const headerHeightVar = rootStyles.getPropertyValue("--header-height").trim();
-          const headerHeight = parseInt(headerHeightVar || "88", 10) || 88;
-          const htmlEl = document.documentElement;
-          const themeToggleBtn = document.getElementById("theme-toggle");
+          // Hide on scroll down only after hero; show on scroll up or before hero
+          const hysteresis = 8; // reduce flicker
+          if (currentY > heroBottom + hysteresis && scrollingDown) {
+            header.classList.add("hidden");
+          } else {
+            header.classList.remove("hidden");
+          }
 
-          // Header scroll logic
-          let lastY = window.scrollY;
-          let currentY = lastY;
-          let ticking = false;
+          header.classList.toggle("scrolling-down", scrollingDown);
+          header.classList.toggle("scrolling-up", !scrollingDown);
 
-          const updateHeader = () => {
-            const scrollingDown = currentY > lastY;
-            const heroBottom = firstSection
-              ? firstSection.offsetTop + firstSection.offsetHeight - headerHeight
-              : 10;
+          lastY = currentY;
+          ticking = false;
+        };
 
-            if (currentY <= 10) {
-              header.classList.add("header-top");
-            } else {
-              header.classList.remove("header-top");
-            }
+        const onScroll = () => {
+          currentY = window.scrollY;
+          if (!ticking) {
+            requestAnimationFrame(updateHeader);
+            ticking = true;
+          }
+        };
 
-            if (currentY > heroBottom) {
-              header.classList.add("header-scrolled");
-            } else {
-              header.classList.remove("header-scrolled");
-            }
+        window.addEventListener("scroll", onScroll, { passive: true });
+        updateHeader();
 
-            const hysteresis = 8;
-            if (currentY > heroBottom + hysteresis && scrollingDown) {
-              header.classList.add("hidden");
-            } else {
-              header.classList.remove("hidden");
-            }
+        /* Gestion du thème */
+        const htmlEl = document.documentElement;
+        const themeToggleBtn = document.getElementById("theme-toggle");
 
-            header.classList.toggle("scrolling-down", scrollingDown);
-            header.classList.toggle("scrolling-up", !scrollingDown);
-
-            lastY = currentY;
-            ticking = false;
-          };
-
-          const onScroll = () => {
-            currentY = window.scrollY;
-            if (!ticking) {
-              requestAnimationFrame(updateHeader);
-              ticking = true;
-            }
-          };
-
-          window.addEventListener("scroll", onScroll, { passive: true });
-          updateHeader();
-
-          // Theme toggle functionality
-          const setThemeIcon = () => {
-            const isDark = htmlEl.classList.contains("dark");
+        // Init theme icon
+        const setThemeIcon = () => {
+          const isDark = htmlEl.classList.contains("dark");
+          if (themeToggleBtn) {
             themeToggleBtn.innerHTML = isDark
               ? '<ion-icon name="sunny-outline"></ion-icon>'
               : '<ion-icon name="moon-outline"></ion-icon>';
-          };
-
-          // Check initial theme
-          if (
-            localStorage.theme === 'dark' ||
-            (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-          ) {
-            htmlEl.classList.add('dark');
-          } else {
-            htmlEl.classList.remove('dark');
           }
-          setThemeIcon();
+        };
 
-          // Theme toggle click handler
+        if (
+          ("theme" in localStorage &&
+            localStorage.getItem("theme") === "dark") ||
+          window.matchMedia("(prefers-color-scheme: dark)").matches
+        ) {
+          htmlEl.classList.add("dark");
+        }
+        setThemeIcon();
+
+        if (themeToggleBtn) {
           themeToggleBtn.addEventListener("click", () => {
             if (htmlEl.classList.contains("dark")) {
               htmlEl.classList.remove("dark");
-              localStorage.theme = 'light';
+              localStorage.setItem("theme", "light");
             } else {
               htmlEl.classList.add("dark");
-              localStorage.theme = 'dark';
+              localStorage.setItem("theme", "dark");
             }
             setThemeIcon();
           });
+        }
 
-          // Tabs behavior
-          const tabs = document.querySelectorAll(".tab-link");
-          tabs.forEach((tab) => {
-            tab.addEventListener("click", (e) => {
-              e.preventDefault();
-              tabs.forEach((t) => t.classList.remove("tab-active"));
-              tab.classList.add("tab-active");
-            });
+        // Tabs behavior
+        const tabs = document.querySelectorAll(".tab-link");
+        tabs.forEach((tab) => {
+          tab.addEventListener("click", (e) => {
+            e.preventDefault();
+            tabs.forEach((t) => t.classList.remove("tab-active"));
+            tab.classList.add("tab-active");
           });
-        })();
+        });
 
+        /* Gestion du modal améliorée */
+        const modal = document.getElementById("modal");
+        const modalContent = document.getElementById("modalContent");
+
+        function openModal(name, member, logo) {
+          if (modal && modalContent) {
+            const modalTitle = document.getElementById("modalTitle");
+            const modalMember = document.getElementById("modalMember");
+            const modalLogo = document.getElementById("modalLogo");
+            
+            if (modalTitle) modalTitle.textContent = name;
+            if (modalMember) modalMember.textContent = member;
+            if (modalLogo) modalLogo.textContent = logo;
+            
+            modal.classList.remove("hidden");
+            document.body.classList.add("overflow-hidden");
+            
+            // Focus sur le modal pour l'accessibilité
+            modalContent.setAttribute("tabindex", "-1");
+            modalContent.focus();
+          }
+        }
+
+        function closeModal() {
+          if (modal) {
+            modal.classList.add("hidden");
+            document.body.classList.remove("overflow-hidden");
+          }
+        }
+
+        // Exposer les fonctions globalement
+        window.openModal = openModal;
+        window.closeModal = closeModal;
+
+        if (modal && modalContent) {
+          // Fermer en cliquant à l'extérieur (sur l'overlay)
+          modal.addEventListener("click", function (e) {
+            if (e.target === modal) {
+              closeModal();
+            }
+          });
+
+          // Fermer avec la touche Échap
+          document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && modal && !modal.classList.contains("hidden")) {
+              closeModal();
+            }
+          });
+
+          // Empêcher la propagation des clics à l'intérieur du modal
+          modalContent.addEventListener("click", function (e) {
+            e.stopPropagation();
+          });
+        }
       })();
     </script>
   </body>
