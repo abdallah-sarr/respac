@@ -1216,6 +1216,15 @@ body.menu-open .mobile-menu {
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
 }
 
+.festival-media {
+  flex-shrink: 0;
+  display: flex;
+}
+
+.festival-media picture {
+  display: flex;
+}
+
 .festival-image {
   width: 150px;
   min-width: 150px;

@@ -47,7 +47,7 @@
           <ion-icon name="close-outline" class="menu-icon-close"></ion-icon>
         </button>
         <div class="header-logo">
-          <a href="#">
+          <a href="index.html">
             <span class="logo-box">
               <img src="./logo_respac.jpg" alt="RESPAC" class="logo-img" />
             </span>
@@ -55,7 +55,7 @@
           </a>
         </div>
         <nav class="header-nav tabs">
-          <a href="#" class="tab-link tab-active" data-tab="home">
+          <a href="index.html" class="tab-link tab-active" data-tab="home">
             <ion-icon class="tab-icon-outline" name="home-outline"></ion-icon>
             <ion-icon class="tab-icon-filled" name="home"></ion-icon>
             <span class="nav-text">Accueil</span>
@@ -143,7 +143,7 @@
       <!-- Menu mobile -->
       <div id="mobile-menu" class="mobile-menu" aria-label="Menu mobile">
         <nav class="mobile-nav">
-          <a href="#" class="mobile-nav-item active" data-tab="home">
+          <a href="index.html" class="mobile-nav-item active" data-tab="home">
             <ion-icon name="home-outline"></ion-icon>
             <div class="mobile-nav-text">
               <span class="mobile-nav-title">Accueil du site</span>
@@ -458,11 +458,22 @@
         <div class="festival-container scrollbar-hide">
           <!-- Festival 1 -->
           <article class="festival-card">
-            <img
-              src="https://images.unsplash.com/photo-1515281239448-2abe329fe5e1?auto=format&fit=crop&w=300&q=70"
-              alt="Festival International du Film de Dakar"
-              class="festival-image"
-            />
+            <div class="festival-media">
+              <picture>
+                <source
+                  srcset="
+                    https://images.unsplash.com/photo-1515281239448-2abe329fe5e1?auto=format&fit=crop&w=450&q=70&fm=webp
+                  "
+                  type="image/webp"
+                />
+                <img
+                  src="https://images.unsplash.com/photo-1515281239448-2abe329fe5e1?auto=format&fit=crop&w=450&q=70"
+                  alt="Festival International du Film de Dakar"
+                  class="festival-image"
+                  loading="lazy"
+                />
+              </picture>
+            </div>
             <div class="festival-content">
               <div>
                 <h3 class="festival-name">
@@ -484,11 +495,22 @@
 
           <!-- Festival 2 -->
           <article class="festival-card">
-            <img
-              src="https://images.unsplash.com/photo-1464375117522-1311d6a5b81f?auto=format&fit=crop&w=300&q=70"
-              alt="Festival des Films Documentaires"
-              class="festival-image"
-            />
+            <div class="festival-media">
+              <picture>
+                <source
+                  srcset="
+                    https://images.unsplash.com/photo-1464375117522-1311d6a5b81f?auto=format&fit=crop&w=450&q=70&fm=webp
+                  "
+                  type="image/webp"
+                />
+                <img
+                  src="https://images.unsplash.com/photo-1464375117522-1311d6a5b81f?auto=format&fit=crop&w=450&q=70"
+                  alt="Festival des Films Documentaires"
+                  class="festival-image"
+                  loading="lazy"
+                />
+              </picture>
+            </div>
             <div class="festival-content">
               <div>
                 <h3 class="festival-name">Festival des Films Documentaires</h3>
@@ -508,11 +530,22 @@
 
           <!-- Festival 3 -->
           <article class="festival-card">
-            <img
-              src="https://images.unsplash.com/photo-1485841890310-6a055c88698a?auto=format&fit=crop&w=300&q=70"
-              alt="Festival du Court Métrage"
-              class="festival-image"
-            />
+            <div class="festival-media">
+              <picture>
+                <source
+                  srcset="
+                    https://images.unsplash.com/photo-1485841890310-6a055c88698a?auto=format&fit=crop&w=450&q=70&fm=webp
+                  "
+                  type="image/webp"
+                />
+                <img
+                  src="https://images.unsplash.com/photo-1485841890310-6a055c88698a?auto=format&fit=crop&w=450&q=70"
+                  alt="Festival du Court Métrage"
+                  class="festival-image"
+                  loading="lazy"
+                />
+              </picture>
+            </div>
             <div class="festival-content">
               <div>
                 <h3 class="festival-name">Festival du Court Métrage</h3>
