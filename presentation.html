@@ -99,7 +99,11 @@
             <span class="nav-text">Tourner au</span>
             <span class="nav-subtext">Sénégal</span>
           </a>
-          <a href="industrie-economie.html" class="tab-link" data-tab="industrie">
+          <a
+            href="industrie-economie.html"
+            class="tab-link"
+            data-tab="industrie"
+          >
             <ion-icon
               class="tab-icon-outline"
               name="stats-chart-outline"
@@ -169,13 +173,21 @@
               <span class="mobile-nav-title">Textes juridiques</span>
             </div>
           </a>
-          <a href="tourner-senegal.html" class="mobile-nav-item" data-tab="tournages">
+          <a
+            href="tourner-senegal.html"
+            class="mobile-nav-item"
+            data-tab="tournages"
+          >
             <ion-icon name="videocam-outline"></ion-icon>
             <div class="mobile-nav-text">
               <span class="mobile-nav-title">Tourner au Sénégal</span>
             </div>
           </a>
-          <a href="industrie-economie.html" class="mobile-nav-item" data-tab="industrie">
+          <a
+            href="industrie-economie.html"
+            class="mobile-nav-item"
+            data-tab="industrie"
+          >
             <ion-icon name="stats-chart-outline"></ion-icon>
             <div class="mobile-nav-text">
               <span class="mobile-nav-title">Industrie & Economie</span>
@@ -187,7 +199,11 @@
               <span class="mobile-nav-title">Nos membres</span>
             </div>
           </a>
-          <a href="actualites.html" class="mobile-nav-item" data-tab="actualites">
+          <a
+            href="actualites.html"
+            class="mobile-nav-item"
+            data-tab="actualites"
+          >
             <ion-icon name="newspaper-outline"></ion-icon>
             <div class="mobile-nav-text">
               <span class="mobile-nav-title">Actualité du secteur</span>
@@ -516,13 +532,16 @@
           setThemeIcon();
         });
 
-        // Tabs behavior
+        // Tabs behavior (only block placeholder links)
         const tabs = document.querySelectorAll(".tab-link");
         tabs.forEach((tab) => {
           tab.addEventListener("click", (e) => {
-            e.preventDefault();
-            tabs.forEach((t) => t.classList.remove("tab-active"));
-            tab.classList.add("tab-active");
+            const href = tab.getAttribute("href");
+            if (!href || href === "#") {
+              e.preventDefault();
+              tabs.forEach((t) => t.classList.remove("tab-active"));
+              tab.classList.add("tab-active");
+            }
           });
         });
 

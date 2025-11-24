@@ -767,7 +767,8 @@
         // Tabs fallback
         document.querySelectorAll(".tab-link").forEach((tab) => {
           tab.addEventListener("click", (e) => {
-            if (tab.getAttribute("href") === "#") {
+            const href = tab.getAttribute("href");
+            if (!href || href === "#") {
               e.preventDefault();
               document
                 .querySelectorAll(".tab-link")

@@ -937,7 +937,8 @@
         const tabs = document.querySelectorAll(".tab-link");
         tabs.forEach((tab) => {
           tab.addEventListener("click", (e) => {
-            if (tab.getAttribute("href") === "#") {
+            const href = tab.getAttribute("href");
+            if (!href || href === "#") {
               e.preventDefault();
               tabs.forEach((t) => t.classList.remove("tab-active"));
               tab.classList.add("tab-active");

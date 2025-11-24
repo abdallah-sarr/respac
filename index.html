@@ -1072,13 +1072,16 @@
           setThemeIcon();
         });
 
-        // Tabs behavior
+        // Tabs behavior (only intercept placeholders)
         const tabs = document.querySelectorAll(".tab-link");
         tabs.forEach((tab) => {
           tab.addEventListener("click", (e) => {
-            e.preventDefault();
-            tabs.forEach((t) => t.classList.remove("tab-active"));
-            tab.classList.add("tab-active");
+            const href = tab.getAttribute("href");
+            if (!href || href === "#") {
+              e.preventDefault();
+              tabs.forEach((t) => t.classList.remove("tab-active"));
+              tab.classList.add("tab-active");
+            }
           });
         });
       })();
