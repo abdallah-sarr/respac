@@ -18,6 +18,37 @@
     <link rel="stylesheet" href="styles/style.css" />
     <link rel="stylesheet" href="styles/industrie-economie.css" />
 
+    <!-- Styles spécifiques à cette page : titres des cards plus petits, hero plus sombre -->
+    <style>
+      /* Réduire la taille des titres dans les cartes pour cette page */
+      .doc-card h3,
+      .panorama-card h3,
+      .financing-card h3,
+      .actor-card strong {
+        font-size: 1.05rem;
+        line-height: 1.25;
+      }
+
+      /* Hero avec image de fond plus sombre (overlay) pour meilleur contraste */
+      .industry-hero {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.55),
+            rgba(0, 0, 0, 0.55)
+          ),
+          url("https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=1600&q=80");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: #fff;
+      }
+
+      .industry-hero .hero-content h1,
+      .industry-hero .hero-content p,
+      .industry-hero .hero-content .section-eyebrow {
+        color: #fff;
+      }
+    </style>
+
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
