@@ -1495,15 +1495,16 @@ body.menu-open .mobile-menu {
   }
 }
 
+
 .benefit-card {
-  background: white;
-  padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
+  background: var(--color-background);
+  padding: 1.5rem;
+  border-radius: var(--border-radius-xl);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
   position: relative;
   overflow: hidden;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--color-border);
 }
 
 .benefit-card::before {
@@ -1513,14 +1514,14 @@ body.menu-open .mobile-menu {
   left: 0;
   width: 4px;
   height: 100%;
-  background: #daa520;
+  background: var(--section-title-color);
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity var(--transition-normal);
 }
 
 .benefit-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
 }
 
 .benefit-card:hover::before {
@@ -1528,42 +1529,45 @@ body.menu-open .mobile-menu {
 }
 
 .benefit-icon {
-  font-size: 2.25rem;
-  color: #daa520;
-  margin-bottom: 1.25rem;
-  transition: transform 0.3s ease;
+  font-size: 1.9rem;
+  color: var(--section-title-color);
+  margin-bottom: 1rem;
+  transition: transform var(--transition-normal);
 }
 
 .benefit-card:hover .benefit-icon {
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 
 .benefit-title {
   font-size: var(--card-title-size-lg);
   font-weight: var(--card-title-weight);
   color: var(--card-title-color);
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .benefit-list {
   list-style: none;
   padding: 0;
   margin: 0;
-  color: #4b5563;
+  color: var(--card-meta-color);
+  font-size: var(--font-size-sm);
 }
 
 .benefit-list li {
-  margin-bottom: 0.75rem;
-  padding-left: 1.5rem;
+  margin-bottom: 0.6rem;
+  padding-left: 1.75rem;
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
-.benefit-list li::before {
-  content: "•";
+.benefit-list-icon {
   position: absolute;
   left: 0;
-  color: #daa520;
-  font-weight: bold;
+  font-size: 1.1rem;
+  color: var(--section-title-color);
+  flex-shrink: 0;
 }
 
 .cta-member {
