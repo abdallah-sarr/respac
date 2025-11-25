@@ -103,3 +103,22 @@
   --dark-color-border: #404040;
   --dark-color-border-light: #333333;
 }
+
+/* When the page is in dark mode (html.dark), map common variables to dark variants */
+.dark,
+:root.dark {
+  --color-text-primary: var(--dark-color-text-primary);
+  --color-text-secondary: var(--dark-color-text-secondary);
+  --color-text-muted: var(--dark-color-text-muted);
+
+  --color-background: var(--dark-color-background);
+  --color-background-alt: var(--dark-color-background-alt);
+  --color-background-elevated: var(--dark-color-background-elevated);
+
+  --color-border: var(--dark-color-border);
+  --color-border-light: var(--dark-color-border-light);
+
+  /* CTAs: make them slightly brighter on dark */
+  --cta-bg: linear-gradient(115deg, #ff6b74, #ff3b3b);
+  --cta-bg-hover: linear-gradient(115deg, #ff8a90, #e94a4a);
+}

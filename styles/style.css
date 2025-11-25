@@ -93,6 +93,12 @@
   padding: 0;
 }
 
+/* Prevent horizontal overflow site-wide (fixes lateral page overflow) */
+html,
+body {
+  overflow-x: hidden;
+}
+
 body {
   font-family: var(--font-primary);
   font-size: var(--font-size-sm);
