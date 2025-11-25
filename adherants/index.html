@@ -33,6 +33,9 @@
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
 
+    <!-- Gestionnaire de thème centralisé -->
+    <script src="../js/themeManager.js"></script>
+
     <style>
       /* Styles spécifiques à la page adhérents */
       .enterprise-card {
@@ -962,41 +965,7 @@
         window.addEventListener("scroll", onScroll, { passive: true });
         updateHeader();
 
-        /* Gestion du thème */
-        const htmlEl = document.documentElement;
-        const themeToggleBtn = document.getElementById("theme-toggle");
-
-        // Init theme icon
-        const setThemeIcon = () => {
-          const isDark = htmlEl.classList.contains("dark");
-          if (themeToggleBtn) {
-            themeToggleBtn.innerHTML = isDark
-              ? '<ion-icon name="sunny-outline"></ion-icon>'
-              : '<ion-icon name="moon-outline"></ion-icon>';
-          }
-        };
-
-        if (
-          ("theme" in localStorage &&
-            localStorage.getItem("theme") === "dark") ||
-          window.matchMedia("(prefers-color-scheme: dark)").matches
-        ) {
-          htmlEl.classList.add("dark");
-        }
-        setThemeIcon();
-
-        if (themeToggleBtn) {
-          themeToggleBtn.addEventListener("click", () => {
-            if (htmlEl.classList.contains("dark")) {
-              htmlEl.classList.remove("dark");
-              localStorage.setItem("theme", "light");
-            } else {
-              htmlEl.classList.add("dark");
-              localStorage.setItem("theme", "dark");
-            }
-            setThemeIcon();
-          });
-        }
+        // Le thème est géré centralement par `js/themeManager.js`
 
         // Tabs behavior (prevent only placeholder)
         const tabs = document.querySelectorAll(".tab-link");

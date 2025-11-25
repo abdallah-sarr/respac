@@ -20,6 +20,12 @@
   width: 100%;
   overflow-x: auto;
   padding: 1rem 0;
+  /* padding-inline to create lateral space for the slider on wide screens */
+  padding-inline: var(--section-padding-x);
+
+  @media (min-width: 768px) {
+    padding-inline: var(--section-padding-x-desktop);
+  }
 }
 
 .festival-container {

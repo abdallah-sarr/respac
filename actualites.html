@@ -26,6 +26,9 @@
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
+
+    <!-- Gestionnaire de thème centralisé -->
+    <script src="js/themeManager.js"></script>
   </head>
   <body class="font-sans bg-white text-black transition-colors duration-500">
     <header id="site-header" class="header-top" aria-label="En-tête du site">
@@ -933,30 +936,7 @@
         window.addEventListener("scroll", onScroll, { passive: true });
         updateHeader();
 
-        const htmlEl = document.documentElement;
-        const themeToggleBtn = document.getElementById("theme-toggle");
-        const setThemeIcon = () => {
-          const isDark = htmlEl.classList.contains("dark");
-          themeToggleBtn.innerHTML = isDark
-            ? '<ion-icon name="sunny-outline"></ion-icon>'
-            : '<ion-icon name="moon-outline"></ion-icon>';
-        };
-        if (
-          ("theme" in localStorage &&
-            localStorage.getItem("theme") === "dark") ||
-          window.matchMedia("(prefers-color-scheme: dark)").matches
-        ) {
-          htmlEl.classList.add("dark");
-        }
-        setThemeIcon();
-        themeToggleBtn.addEventListener("click", () => {
-          htmlEl.classList.toggle("dark");
-          localStorage.setItem(
-            "theme",
-            htmlEl.classList.contains("dark") ? "dark" : "light"
-          );
-          setThemeIcon();
-        });
+        // Le thème est géré centralement par `js/themeManager.js`
 
         document.querySelectorAll(".tab-link").forEach((tab) => {
           tab.addEventListener("click", (e) => {

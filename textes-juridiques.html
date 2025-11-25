@@ -32,6 +32,9 @@
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
+
+    <!-- Gestionnaire de thème centralisé -->
+    <script src="js/themeManager.js"></script>
   </head>
   <body class="font-sans bg-white text-black transition-colors duration-500">
     <!-- Header -->
@@ -123,7 +126,6 @@
             <span class="nav-text">Nos</span>
             <span class="nav-subtext">membres</span>
           </a>
-
         </nav>
         <div class="header-actions">
           <a href="./adherants/" class="cta-button desktop-only">
@@ -212,7 +214,6 @@
               <span class="mobile-nav-title">Adhérer au RESPAC</span>
             </div>
           </a>
-
         </nav>
       </div>
     </header>
@@ -542,36 +543,7 @@
         window.addEventListener("scroll", onScroll, { passive: true });
         updateHeader();
 
-        const htmlEl = document.documentElement;
-        const themeToggleBtn = document.getElementById("theme-toggle");
-
-        // Init theme icon
-        const setThemeIcon = () => {
-          const isDark = htmlEl.classList.contains("dark");
-          themeToggleBtn.innerHTML = isDark
-            ? '<ion-icon name="sunny-outline"></ion-icon>'
-            : '<ion-icon name="moon-outline"></ion-icon>';
-        };
-
-        if (
-          ("theme" in localStorage &&
-            localStorage.getItem("theme") === "dark") ||
-          window.matchMedia("(prefers-color-scheme: dark)").matches
-        ) {
-          htmlEl.classList.add("dark");
-        }
-        setThemeIcon();
-
-        themeToggleBtn.addEventListener("click", () => {
-          if (htmlEl.classList.contains("dark")) {
-            htmlEl.classList.remove("dark");
-            localStorage.setItem("theme", "light");
-          } else {
-            htmlEl.classList.add("dark");
-            localStorage.setItem("theme", "dark");
-          }
-          setThemeIcon();
-        });
+        // Le thème est géré centralement par `js/themeManager.js`
 
         // Tabs behavior (prevent default only for placeholders)
         const tabs = document.querySelectorAll(".tab-link");
