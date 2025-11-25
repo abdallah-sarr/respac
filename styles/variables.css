@@ -38,7 +38,7 @@
   --section-title-color: var(--primary-red);
   --section-description-size: 1rem;
   --card-title-size: clamp(1.05rem, 2vw, 1.3rem);
-  --card-title-size-lg: clamp(1.2rem, 2.25vw, 1.5rem);
+  --card-title-size-lg: clamp(1.5rem, 2.75vw, 1.95rem);
   --card-title-color: #111827;
   --card-title-weight: var(--font-weight-semibold);
   --card-meta-color: var(--color-text-muted);
