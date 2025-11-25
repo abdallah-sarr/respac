@@ -226,7 +226,8 @@ a:hover {
 }
 
 .section-title {
-  font-size: var(--section-title-size);
+  /* Utiliser la même taille que le titre principal (hero h1) */
+  font-size: var(--font-size-3xl);
   font-weight: var(--font-weight-extrabold);
   line-height: var(--line-height-tight);
   margin: 0 0 var(--spacing-2xl);
@@ -240,6 +241,12 @@ a:hover {
 .section-title::after {
   display: none;
   content: none;
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: var(--font-size-4xl);
+  }
 }
 
 .section-description {
