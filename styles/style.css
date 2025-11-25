@@ -2285,3 +2285,55 @@ body > .section-hero .icon {
 .section-hero * {
   z-index: 0;
 }
+
+/* Success Stories styles */
+.success-stories-section {
+  padding: var(--spacing-3xl) 0;
+  background: var(--color-background-alt);
+}
+
+.success-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.success-card {
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: var(--spacing-lg);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.success-icon i {
+  font-size: 1.6rem;
+  color: var(--section-title-color);
+  margin-bottom: var(--spacing-sm);
+}
+
+.success-value {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-extrabold);
+  color: var(--section-title-color);
+}
+
+.success-label {
+  color: var(--color-text-secondary);
+  margin-top: var(--spacing-xs);
+  font-size: var(--font-size-sm);
+}
+
+@media (max-width: 900px) {
+  .success-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .success-grid {
+    grid-template-columns: 1fr;
+  }
+}
