@@ -490,21 +490,33 @@
   box-shadow: var(--shadow-lg);
 }
 
+/* Netflix-inspired FAQ Styles */
 .faq-accordion {
-  border-radius: var(--border-radius-xl);
-  border: 1px solid var(--color-border);
-  box-shadow: var(--shadow-md);
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 900px;
+}
+
+.faq-item {
+  border: none;
+  border-radius: var(--border-radius-md);
+  background: var(--color-background-alt);
+  transition: all var(--transition-normal);
+}
+
+.faq-item:hover {
+  background-color: var(--color-background-elevated, rgba(255, 255, 255, 0.08));
 }
 
 .faq-item + .faq-item {
-  border-top: 1px solid var(--color-border-light);
+  border-top: none;
 }
 
 .faq-button {
   width: 100%;
-  background: var(--color-background);
-  padding: 1.25rem 1.5rem;
+  background: transparent;
+  padding: 1.5rem;
   text-align: left;
   border: none;
   font-size: 1rem;
@@ -514,10 +526,20 @@
   align-items: center;
   cursor: pointer;
   color: var(--color-text-primary);
+  gap: 1rem;
+  transition: all var(--transition-normal);
+}
+
+.faq-button:hover {
+  color: var(--color-primary);
 }
 
 .faq-button ion-icon {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
   transition: transform var(--transition-normal);
+  color: var(--color-primary);
 }
 
 .faq-button[aria-expanded="true"] ion-icon {
@@ -528,12 +550,34 @@
   max-height: 0;
   overflow: hidden;
   transition: max-height var(--transition-slow);
-  background-color: var(--color-background-alt);
+  background-color: transparent;
 }
 
 .faq-panel-content {
   padding: 0 1.5rem 1.5rem;
   color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+/* Dark mode optimizations */
+.dark .faq-item {
+  background: var(--dark-color-background-alt);
+}
+
+.dark .faq-item:hover {
+  background-color: var(--dark-color-background-elevated);
+}
+
+.dark .faq-button {
+  color: var(--dark-color-text-primary);
+}
+
+.dark .faq-button:hover {
+  color: var(--color-primary);
+}
+
+.dark .faq-panel-content {
+  color: var(--dark-color-text-secondary);
 }
 
 @media (max-width: 1024px) {

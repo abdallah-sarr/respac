@@ -65,3 +65,46 @@
     justify-content: center;
   }
 }
+
+/* Force cards/sections to follow theme variables so they switch in dark mode */
+.checklist,
+.delays-card,
+.contact-card,
+.guide-panel,
+.poster-card,
+.hero-meta .cta-button,
+.faq-item,
+.faq-panel-content,
+.realisations-gallery article,
+.locations-grid .location-card {
+  background-color: var(--color-background) !important;
+  color: var(--color-text-primary) !important;
+  border-color: var(--color-border) !important;
+}
+
+/* Elevated surfaces use elevated background in dark mode */
+.dark .checklist,
+.dark .delays-card,
+.dark .contact-card,
+.dark .guide-panel,
+.dark .poster-card,
+.dark .hero-meta .cta-button,
+.dark .faq-item,
+.dark .realisations-gallery article,
+.dark .locations-grid .location-card {
+  background-color: var(--color-background-elevated) !important;
+  color: var(--color-text-primary) !important;
+  border-color: var(--color-border) !important;
+}
+
+/* CTA on hero: keep white on image but adapt when in other contexts */
+.hero-meta .cta-button {
+  background-color: var(--color-background) !important;
+  color: var(--color-text-primary) !important;
+}
+
+.dark .tourner-hero .hero-meta .cta-button {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  color: #fff !important;
+  border-color: rgba(255, 255, 255, 0.16) !important;
+}

@@ -51,12 +51,13 @@
 }
 
 .hero-stat-card {
-  background: #fff;
+  background-color: var(--color-background);
   border-radius: var(--border-radius-xl);
   padding: 1.5rem;
   box-shadow: var(--shadow-md);
   border: 1px solid var(--color-border-light);
-  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  transition: transform var(--transition-normal),
+    box-shadow var(--transition-normal);
 }
 
 .hero-stat-card:hover {
@@ -76,11 +77,11 @@
   margin-bottom: 2.5rem;
 }
 
-
 .reveal-on-scroll {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity var(--transition-normal), transform var(--transition-normal);
+  transition: opacity var(--transition-normal),
+    transform var(--transition-normal);
 }
 
 .reveal-on-scroll.is-visible {
@@ -97,7 +98,7 @@
 .panorama-card {
   padding: 1.5rem;
   border-radius: var(--border-radius-xl);
-  background: #fff;
+  background-color: var(--color-background);
   border: 1px solid var(--color-border-light);
   box-shadow: var(--shadow-sm);
   position: relative;
@@ -122,7 +123,7 @@
 .evolution-line {
   margin-top: 2rem;
   border-radius: var(--border-radius-lg);
-  background: #fff;
+  background-color: var(--color-background);
   padding: 1.5rem;
   box-shadow: var(--shadow-md);
   border: 1px solid var(--color-border-light);
@@ -151,7 +152,7 @@
 }
 
 .doc-card {
-  background: #fff;
+  background-color: var(--color-background);
   border-radius: var(--border-radius-xl);
   padding: 1.5rem;
   border: 1px solid var(--color-border-light);
@@ -159,7 +160,8 @@
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  transition: transform var(--transition-normal),
+    box-shadow var(--transition-normal);
 }
 
 .doc-card:hover {
@@ -192,11 +194,12 @@
 
 .financing-card {
   border-radius: var(--border-radius-xl);
-  background: #fff;
+  background-color: var(--color-background);
   border: 1px solid var(--color-border-light);
   padding: 1.5rem;
   box-shadow: var(--shadow-sm);
-  transition: transform var(--transition-normal), border-color var(--transition-normal);
+  transition: transform var(--transition-normal),
+    border-color var(--transition-normal);
 }
 
 .financing-card.active {
@@ -214,7 +217,7 @@
 }
 
 .value-chain {
-  background: #fff;
+  background-color: var(--color-background);
   border-radius: var(--border-radius-xl);
   padding: 2rem;
   border: 1px solid var(--color-border-light);
@@ -250,12 +253,16 @@
   border-radius: var(--border-radius-lg);
   border: 1px solid var(--color-border-light);
   padding: 1.25rem;
-  background: #fff;
+  background-color: var(--color-background);
   box-shadow: var(--shadow-sm);
 }
 
 .download-highlight {
-  background: linear-gradient(120deg, rgba(229, 9, 20, 0.9), rgba(229, 9, 20, 0.75));
+  background: linear-gradient(
+    120deg,
+    rgba(229, 9, 20, 0.9),
+    rgba(229, 9, 20, 0.75)
+  );
   color: #fff;
   border-radius: var(--border-radius-2xl, 1.5rem);
   padding: 2rem;
@@ -273,7 +280,7 @@
 }
 
 .download-buttons a {
-  background: #fff;
+  background-color: var(--color-background);
   color: var(--color-text-primary);
   padding: 0.9rem 1.5rem;
   border-radius: var(--border-radius-lg);
@@ -283,40 +290,82 @@
   gap: 0.5rem;
 }
 
+/* Dark-mode surface overrides for elevated elements on this page */
+.dark .hero-stat-card,
+.dark .panorama-card,
+.dark .evolution-line,
+.dark .doc-card,
+.dark .financing-card,
+.dark .value-chain,
+.dark .actor-card,
+.dark .download-buttons a {
+  background-color: var(--color-background-elevated) !important;
+  border-color: var(--color-border) !important;
+  color: var(--color-text-primary) !important;
+}
+
+/* Netflix-inspired FAQ Styles */
 .faq-accordion {
-  border-radius: var(--border-radius-xl);
-  border: 1px solid var(--color-border);
-  box-shadow: var(--shadow-md);
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 900px;
+}
+
+.faq-item {
+  border: none;
+  border-radius: var(--border-radius-md);
+  background: var(--color-background-alt);
+  transition: all var(--transition-normal);
+}
+
+.faq-item:hover {
+  background-color: var(--color-background-elevated, rgba(255, 255, 255, 0.08));
 }
 
 .faq-item + .faq-item {
-  border-top: 1px solid var(--color-border-light);
+  border-top: none;
 }
 
 .faq-button {
   width: 100%;
-  background: #fff;
+  background: transparent;
   border: none;
-  padding: 1.25rem 1.5rem;
+  padding: 1.5rem;
   text-align: left;
   font-weight: var(--font-weight-semibold);
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  color: var(--color-text-primary);
+  gap: 1rem;
+  transition: all var(--transition-normal);
+}
+
+.faq-button:hover {
+  color: var(--color-primary);
+}
+
+.faq-button ion-icon {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  transition: transform var(--transition-normal);
+  color: var(--color-primary);
 }
 
 .faq-panel {
   max-height: 0;
   overflow: hidden;
   transition: max-height var(--transition-slow);
-  background: var(--color-background-alt);
+  background: transparent;
 }
 
 .faq-panel-content {
   padding: 0 1.5rem 1.5rem;
   color: var(--color-text-secondary);
+  line-height: 1.6;
 }
 
 .faq-button ion-icon {
@@ -325,6 +374,27 @@
 
 .faq-button[aria-expanded="true"] ion-icon {
   transform: rotate(180deg);
+}
+
+/* Dark mode optimizations */
+.dark .faq-item {
+  background: var(--dark-color-background-alt);
+}
+
+.dark .faq-item:hover {
+  background-color: var(--dark-color-background-elevated);
+}
+
+.dark .faq-button {
+  color: var(--dark-color-text-primary);
+}
+
+.dark .faq-button:hover {
+  color: var(--color-primary);
+}
+
+.dark .faq-panel-content {
+  color: var(--dark-color-text-secondary);
 }
 
 @media (max-width: 768px) {
@@ -348,4 +418,3 @@
     transition: none !important;
   }
 }
-
