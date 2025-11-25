@@ -97,11 +97,15 @@
   --dark-color-text-primary: #ffffff;
   --dark-color-text-secondary: #d1d5db;
   --dark-color-text-muted: #9ca3af;
-  --dark-color-background: #121212;
-  --dark-color-background-alt: #1a1a1a;
-  --dark-color-background-elevated: #262626;
-  --dark-color-border: #404040;
-  --dark-color-border-light: #333333;
+  --dark-color-background: #0f1419;
+  --dark-color-background-alt: #1a1f2e;
+  --dark-color-background-elevated: #262f3f;
+  --dark-color-border: #2d3748;
+  --dark-color-border-light: #1e293b;
+  --dark-card-title-color: #f1f5f9;
+  --dark-card-bg: rgba(30, 41, 59, 0.6);
+  --dark-card-border: rgba(71, 85, 105, 0.2);
+  --dark-news-muted: rgba(226, 232, 240, 0.65);
 }
 
 /* When the page is in dark mode (html.dark), map common variables to dark variants */
@@ -117,6 +121,7 @@
 
   --color-border: var(--dark-color-border);
   --color-border-light: var(--dark-color-border-light);
+  --card-title-color: var(--dark-card-title-color);
 
   /* CTAs: make them slightly brighter on dark */
   --cta-bg: linear-gradient(115deg, #ff6b74, #ff3b3b);

@@ -1,3 +1,55 @@
+/* Amélioration des cards accélérateurs de croissance */
+.guide-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.guide-card {
+  background: #fff;
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+  display: flex;
+  align-items: flex-start;
+  padding: 2rem 1.5rem;
+  transition: box-shadow 0.2s;
+  border: 1px solid #f3f3f3;
+}
+.guide-card:hover {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.13);
+  border-color: #e0e0e0;
+}
+.guide-icon {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, #f7e7c1 60%, #ffe6b3 100%);
+  border-radius: 50%;
+  margin-right: 1.2rem;
+  box-shadow: 0 2px 8px rgba(218, 165, 32, 0.08);
+}
+.guide-icon ion-icon {
+  font-size: 2rem;
+  color: #daa520;
+}
+.guide-card-content {
+  flex: 1 1 auto;
+}
+.guide-card-content strong {
+  font-size: 1.15rem;
+  color: #222;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+  display: block;
+}
+.guide-card-content p {
+  font-size: 1rem;
+  color: #444;
+  margin: 0.2rem 0 0 0;
+}
 /* Overrides and dark-mode tweaks specific to the "Tourner au Sénégal" page */
 
 /* Ensure hero secondary CTA is visible on dark overlay */
