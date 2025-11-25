@@ -2223,3 +2223,65 @@ body.menu-open .mobile-menu {
     color: #ddd;
   }
 }
+
+/* Forcer la première section (hero) en sombre quel que soit le thème */
+body > section.section-hero,
+body > .section-hero {
+  background-color: #0b1220; /* couleur sombre neutre */
+  color: #ffffff;
+  position: relative;
+  min-height: 520px;
+  padding-top: calc(var(--header-height) + 3rem);
+  padding-bottom: calc(var(--spacing-4xl) + 2rem);
+}
+
+body > section.section-hero h1,
+body > .section-hero h1 {
+  color: var(--section-title-color);
+  text-shadow: 0 1px 0 rgba(0,0,0,0.45);
+}
+
+body > section.section-hero p,
+body > .section-hero p {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Boutons dans le hero : inverse pour lisibilité */
+body > section.section-hero .cta-button,
+body > .section-hero .cta-button,
+body > section.section-hero .primary-button,
+body > .section-hero .primary-button {
+  background: rgba(255,255,255,0.08);
+  color: #ffffff;
+  border-color: rgba(255,255,255,0.12);
+}
+
+body > section.section-hero .secondary-button,
+body > .section-hero .secondary-button {
+  color: #ffffff;
+  border-color: rgba(255,255,255,0.18);
+}
+
+/* Assurer que les icônes et éléments within hero restent visibles */
+body > section.section-hero ion-icon,
+body > .section-hero i,
+body > section.section-hero .icon,
+body > .section-hero .icon {
+  color: #ffffff;
+}
+
+/* Si des images de fond sont utilisées, ajouter un overlay sombre */
+.section-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(2,6,23,0.45), rgba(2,6,23,0.45));
+  pointer-events: none;
+  border-radius: 0;
+}
+
+/* S'assurer que le hero reste au-dessus des éléments et conserve son style */
+.section-hero,
+.section-hero * {
+  z-index: 0;
+}
