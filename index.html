@@ -777,7 +777,7 @@
 
     <!-- SECTION: Contact -->
     <section class="relative">
-      <div class="contact-card contact-overlap">
+      <div class="contact-card contact-overlap contact-card--dark">
         <div class="contact-grid">
           <!-- Colonne gauche: infos contact -->
           <div class="contact-info">
@@ -855,42 +855,31 @@
               </a>
             </div>
           </div>
-          <!-- Colonne droite: formulaire -->
-          <div>
-            <form class="contact-form" aria-label="Formulaire de contact">
-              <div>
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Nom"
-                  required
-                  aria-label="Votre nom"
-                />
+          <!-- Colonne droite: actions & horaires (formulaire retiré) -->
+          <div class="contact-actions">
+            <div class="contact-cta">
+              <p class="contact-cta-text">
+                Pour toute demande, proposition ou partenariat, contactez-nous
+                directement par email ou par téléphone. Notre équipe répond sous
+                48 heures.
+              </p>
+              <div class="contact-cta-buttons">
+                <a href="mailto:contact@respac.sn" class="cta-button">
+                  <ion-icon name="mail-outline"></ion-icon>
+                  Envoyer un email
+                </a>
+                <a href="tel:+221000000000" class="cta-button button-secondary">
+                  <ion-icon name="call-outline"></ion-icon>
+                  Appeler
+                </a>
               </div>
-              <div>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email (optionnel)"
-                  aria-label="Votre email (optionnel)"
-                />
-              </div>
-              <div>
-                <textarea
-                  name="message"
-                  rows="5"
-                  placeholder="Message"
-                  required
-                  aria-label="Votre message"
-                ></textarea>
-              </div>
-              <div>
-                <button type="submit" class="cta-button">
-                  <ion-icon name="paper-plane-outline"></ion-icon>
-                  Envoyer un message
-                </button>
-              </div>
-            </form>
+            </div>
+
+            <div class="contact-hours">
+              <h3 class="contact-hours-title">Horaires</h3>
+              <p class="contact-hours-list">Lundi — Vendredi: 09:00 — 17:00</p>
+              <p class="contact-hours-note">Fermé le week-end</p>
+            </div>
           </div>
         </div>
       </div>

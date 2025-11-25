@@ -4,6 +4,7 @@
   --section-padding-x: var(--spacing-lg);
   --section-padding-x-desktop: var(--spacing-3xl);
   --contact-overlap: 12rem;
+  --footer-base-pt: 5rem;
 }
 
 @media (max-width: 768px) {
@@ -231,18 +232,14 @@ a:hover {
   margin: 0 0 var(--spacing-2xl);
   position: relative;
   display: inline-block;
-  color: var(--section-title-color);
+  /* Utiliser la couleur principale (CTA) pour les titres de section */
+  color: var(--color-primary);
 }
 
+/* Retirer le trait de soulignement décoratif pour les titres principaux */
 .section-title::after {
-  content: "";
-  position: absolute;
-  bottom: -0.5rem;
-  left: 0;
-  width: var(--title-underline-width, 48%);
-  height: 4px;
-  background-color: currentColor;
-  border-radius: 2px;
+  display: none;
+  content: none;
 }
 
 .section-description {
@@ -1613,17 +1610,23 @@ body.menu-open .mobile-menu {
   background: white;
   border-radius: 1.5rem;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  padding: 3rem 2rem;
+  padding: 4rem 2.5rem; /* padding-top augmenté */
   margin-top: calc(-1 * var(--contact-overlap));
   margin-bottom: 3rem;
   position: relative;
   z-index: 10;
-  max-width: 80rem;
+  max-width: 72rem; /* largeur légèrement augmentée */
+  width: calc(100% - 2rem);
   margin-left: auto;
   margin-right: auto;
 
   @media (min-width: 768px) {
-    padding: 4rem;
+    padding: 5rem 3rem; /* padding-top plus grand sur desktop */
+    width: calc(100% - 4rem);
+  }
+
+  @media (min-width: 1200px) {
+    width: 72rem; /* fixe la largeur max sur grands écrans */
   }
 }
 
@@ -1810,11 +1813,107 @@ body.menu-open .mobile-menu {
   box-shadow: 0 0 0 4px rgba(218, 165, 32, 0.15);
 }
 
+/* Variante sombre pour la section contact (utilisée sur la page d'accueil) */
+.contact-card--dark {
+  background: #0b1220;
+  color: #f8fafc;
+  box-shadow: 0 30px 60px rgba(2, 6, 23, 0.6);
+  position: relative;
+  z-index: 30;
+  margin-bottom: calc(-1 * (var(--contact-overlap) / 2));
+  overflow: visible; /* laisser la forme dépasser */
+}
+
+.contact-card--dark::before {
+  /* Forme géométrique en haut avec une 'coupe' diagonale */
+  content: "";
+  position: absolute;
+  top: -2.4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% + 6rem);
+  height: 3.2rem;
+  background: linear-gradient(90deg, #daa520 0%, #b8860b 50%, #7a4b00 100%);
+  clip-path: polygon(0 100%, 6% 0, 94% 0, 100% 100%);
+  border-radius: 10px;
+  box-shadow: 0 18px 36px rgba(2, 6, 23, 0.6);
+}
+
+.contact-card--dark::after {
+  /* Petite ombre sous la forme pour accentuer la découpe */
+  content: "";
+  position: absolute;
+  top: -0.6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% + 6rem);
+  height: 1.2rem;
+  background: rgba(0,0,0,0.18);
+  filter: blur(8px);
+  clip-path: polygon(0 100%, 6% 0, 94% 0, 100% 100%);
+  border-radius: 10px;
+  z-index: 5;
+}
+
+.contact-card--dark .contact-left-title,
+.contact-card--dark .contact-item-title {
+  color: #ffffff;
+}
+
+.contact-card--dark .contact-left-desc,
+.contact-card--dark .contact-item-sub,
+.contact-card--dark .contact-cta-text,
+.contact-card--dark .contact-hours-list,
+.contact-card--dark .contact-hours-note {
+  color: #d1d5db;
+}
+
+.contact-card--dark .contact-item:hover {
+  background: rgba(255,255,255,0.02);
+  border-color: rgba(255,255,255,0.04);
+}
+
+.contact-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.contact-cta-text {
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+
+.contact-cta-buttons {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.contact-hours-title {
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+
+.contact-hours-list,
+.contact-hours-note {
+  margin: 0.25rem 0;
+}
+
+/* Forcer le footer à rester sous la section tout en laissant la section empiéter */
+.footer-extended {
+  position: relative;
+  z-index: 10;
+}
+
 /* Footer */
 .footer-extended {
   background: black;
   color: white;
-  padding-top: 4rem;
+  /* Prendre en compte l'empiètement de la section contact pour harmoniser
+     l'espacement entre la section et le footer. Utilise une valeur de base
+     (4rem) et ajoute la moitié de l'overlap par défaut. */
+  padding-top: calc(var(--footer-base-pt, 4rem) + (var(--contact-overlap) / 2));
   padding-bottom: 2.5rem;
 }
 
