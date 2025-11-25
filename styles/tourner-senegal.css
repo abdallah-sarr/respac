@@ -123,25 +123,6 @@
   margin-bottom: 2rem;
 }
 
-.section-eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-size: 0.85rem;
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-primary);
-}
-
-.section-title {
-  font-size: clamp(2rem, 3vw, 3rem);
-  font-weight: var(--font-weight-extrabold);
-  color: var(--color-text-primary);
-}
-
-.section-description {
-  font-size: 1.05rem;
-  color: var(--color-text-secondary);
-  max-width: 720px;
-}
 
 .locations-grid {
   display: grid;

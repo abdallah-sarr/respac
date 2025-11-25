@@ -76,25 +76,6 @@
   margin-bottom: 2.5rem;
 }
 
-.section-eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  font-size: 0.85rem;
-  color: var(--color-primary);
-  font-weight: var(--font-weight-semibold);
-}
-
-.section-title {
-  font-size: clamp(2rem, 3vw, 3rem);
-  font-weight: var(--font-weight-extrabold);
-  margin-top: 0.5rem;
-}
-
-.section-description {
-  margin-top: 0.5rem;
-  font-size: 1.05rem;
-  color: var(--color-text-secondary);
-}
 
 .reveal-on-scroll {
   opacity: 0;

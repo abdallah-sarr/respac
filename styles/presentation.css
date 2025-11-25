@@ -39,9 +39,9 @@ body {
 }
 
 .section-title {
-  font-family: "Playfair Display", serif;
-  font-size: 2.5rem;
-  color: var(--primary-color);
+  font-family: var(--font-secondary);
+  font-size: var(--section-title-size);
+  color: var(--section-title-color);
   margin-bottom: 3rem;
   text-align: center;
 }
@@ -71,8 +71,9 @@ body {
 }
 
 .objectif-content h3 {
-  font-size: 1.25rem;
-  color: var(--text-primary);
+  font-size: var(--card-title-size);
+  color: var(--card-title-color);
+  font-weight: var(--card-title-weight);
   margin-bottom: 0.75rem;
 }
 
@@ -151,10 +152,11 @@ body {
 }
 
 .card-title {
-  font-family: "Playfair Display", serif;
-  font-size: 2.5rem;
-  color: var(--primary-color);
+  font-family: var(--font-secondary);
+  font-size: var(--card-title-size-lg);
+  color: var(--card-title-color);
   margin-bottom: 1.5rem;
+  font-weight: var(--card-title-weight);
 }
 
 .card-text {

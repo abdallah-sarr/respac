@@ -295,10 +295,11 @@
 }
 
 .news-card-content h3 {
-  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  font-size: var(--card-title-size);
   line-height: 1.3;
   margin: 0;
-  color: #111827;
+  color: var(--card-title-color);
+  font-weight: var(--card-title-weight);
 }
 
 .news-card-content p {
@@ -362,7 +363,9 @@
 
 .sidebar-card h3 {
   margin: 0 0 1rem;
-  font-size: 1.05rem;
+  font-size: var(--card-title-size);
+  font-weight: var(--card-title-weight);
+  color: var(--card-title-color);
 }
 
 .boxoffice-list,
@@ -388,17 +391,10 @@
   margin-bottom: 2.5rem;
 }
 
-.section-eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 0.25em;
-  font-size: 0.75rem;
-  color: rgba(15, 23, 42, 0.6);
-}
-
 .section-title {
-  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-size: var(--section-title-size);
   margin: 0.35rem 0 0.75rem;
-  color: #c1121f;
+  color: var(--section-title-color);
 }
 
 .section-description {
@@ -451,7 +447,9 @@
 
 .focus-card-content h3 {
   margin: 0;
-  font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+  font-size: var(--card-title-size-lg);
+  font-weight: var(--card-title-weight);
+  color: var(--card-title-color);
 }
 
 .press-grid {
@@ -479,7 +477,9 @@
 
 .press-card h4 {
   margin: 0;
-  font-size: 1.05rem;
+  font-size: var(--card-title-size);
+  font-weight: var(--card-title-weight);
+  color: var(--card-title-color);
 }
 
 .social-feed-wrapper {
@@ -497,8 +497,10 @@
 }
 
 .social-feed h3 {
-  font-size: 1.35rem;
-  color: #c1121f;
+  font-size: var(--card-title-size-lg);
+  color: var(--section-title-color);
+  font-weight: var(--card-title-weight);
+  margin: 0;
 }
 
 .load-more {

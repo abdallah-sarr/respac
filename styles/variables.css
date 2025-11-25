@@ -32,6 +32,16 @@
   --font-size-2xl: 2.5rem;
   --font-size-3xl: 3rem;
   --font-size-4xl: 3.75rem;
+  --section-eyebrow-size: 0.875rem;
+  --section-eyebrow-letter-spacing: 0.24em;
+  --section-title-size: clamp(1.8rem, 3.1vw, 2.6rem);
+  --section-title-color: var(--primary-red);
+  --section-description-size: 1rem;
+  --card-title-size: clamp(1.05rem, 2vw, 1.3rem);
+  --card-title-size-lg: clamp(1.2rem, 2.25vw, 1.5rem);
+  --card-title-color: #111827;
+  --card-title-weight: var(--font-weight-semibold);
+  --card-meta-color: var(--color-text-muted);
 
   /* Line Heights */
   --line-height-tight: 1.1;
@@ -69,11 +79,19 @@
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
   --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+  --cta-shadow: 0 18px 30px rgba(197, 8, 22, 0.28);
 
   /* Transitions */
   --transition-fast: 150ms ease;
   --transition-normal: 300ms ease;
   --transition-slow: 500ms ease;
+
+  /* CTA */
+  --cta-bg: linear-gradient(115deg, #ff5a63, #e50914);
+  --cta-bg-hover: linear-gradient(115deg, #ff737c, #c20b18);
+  --cta-text-color: #ffffff;
+  --cta-border-color: transparent;
+  --cta-radius: 999px;
 
   /* Dark Mode Colors */
   --dark-color-text-primary: #ffffff;
