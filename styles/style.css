@@ -2299,41 +2299,83 @@ body > .section-hero .icon {
   margin-top: var(--spacing-md);
 }
 
-.success-card {
-  background: var(--color-background);
-  border: 1px solid var(--color-border);
-  border-radius: 10px;
-  padding: var(--spacing-lg);
+/* Success Stories - redesigned to match global design */
+.success-stories-section .container {
   text-align: center;
-  box-shadow: var(--shadow-sm);
 }
 
-.success-icon i {
-  font-size: 1.6rem;
-  color: var(--section-title-color);
+.success-grid {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  margin-top: var(--spacing-md);
+}
+
+.success-card {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  min-width: 180px;
+  max-width: 260px;
+  flex: 1 1 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 999px;
+  background: transparent;
   margin-bottom: var(--spacing-sm);
 }
 
-.success-value {
-  font-size: var(--font-size-2xl);
-  font-weight: var(--font-weight-extrabold);
+.success-icon ion-icon {
+  font-size: 1.9rem;
   color: var(--section-title-color);
+}
+
+.success-value {
+  font-size: 2.75rem;
+  font-weight: var(--font-weight-extrabold);
+  color: var(--color-primary);
+  margin-top: 0.25rem;
+  line-height: 1;
 }
 
 .success-label {
   color: var(--color-text-secondary);
-  margin-top: var(--spacing-xs);
-  font-size: var(--font-size-sm);
+  margin-top: var(--spacing-2xs);
+  font-size: 0.95rem;
 }
 
 @media (max-width: 900px) {
-  .success-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .success-card {
+    flex: 1 1 45%;
+    max-width: 48%;
   }
 }
 
 @media (max-width: 480px) {
-  .success-grid {
-    grid-template-columns: 1fr;
+  .success-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+  .success-value {
+    font-size: 2rem;
+  }
+  .success-icon {
+    width: 56px;
+    height: 56px;
   }
 }
