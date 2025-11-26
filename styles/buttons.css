@@ -14,24 +14,25 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--spacing-xs);
-  padding: 0 var(--spacing-lg);
+  gap: 0.5rem;
+  padding: 0 var(--spacing-xl);
   font-family: var(--font-primary);
-  font-size: var(--md-label-large);
+  font-size: var(--cta-font-size);
   font-weight: var(--font-weight-medium);
   letter-spacing: 0.01em;
-  line-height: 1;
+  line-height: 1.5;
   text-align: center;
   text-decoration: none;
   white-space: nowrap;
   background-color: var(--md-primary);
-  color: var(--md-on-primary);
+  color: #ffffff !important; /* Force white text on primary buttons */
   border: none;
   border-radius: var(--border-radius-full);
   cursor: pointer;
-  transition: box-shadow var(--transition-normal), transform var(--transition-fast);
+  transition: box-shadow var(--transition-normal),
+    transform var(--transition-fast);
   user-select: none;
-  min-height: 40px;
+  min-height: 48px;
   width: fit-content;
   box-shadow: var(--md-elevation-0);
 }
@@ -74,8 +75,9 @@
 .button ion-icon,
 .cta-button ion-icon,
 .primary-button ion-icon {
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   transition: transform var(--transition-fast);
+  display: block; /* Ensure icon behaves correctly in flex */
 }
 
 .button:hover ion-icon,
@@ -92,13 +94,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--spacing-xs);
-  padding: 0 var(--spacing-lg);
+  gap: 0.5rem;
+  padding: 0 var(--spacing-xl);
   font-family: var(--font-primary);
-  font-size: var(--md-label-large);
+  font-size: var(--cta-font-size);
   font-weight: var(--font-weight-medium);
   letter-spacing: 0.01em;
-  line-height: 1;
+  line-height: 1.5;
   text-align: center;
   text-decoration: none;
   white-space: nowrap;
@@ -107,9 +109,10 @@
   border: 1px solid var(--md-outline);
   border-radius: var(--border-radius-full);
   cursor: pointer;
-  transition: background-color var(--transition-fast), border-color var(--transition-fast);
+  transition: background-color var(--transition-fast),
+    border-color var(--transition-fast);
   user-select: none;
-  min-height: 40px;
+  min-height: 48px;
   width: fit-content;
   box-shadow: none;
 }
