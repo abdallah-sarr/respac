@@ -64,7 +64,7 @@ header.scrolled {
   border-radius: var(--border-radius-sm);
   display: inline-flex;
   align-items: center;
-  height: 70%;
+  height: 85%;
 }
 
 .logo-img {
@@ -132,7 +132,20 @@ header.scrolled {
 
 .tab-active {
   color: var(--md-primary);
-  background: rgba(229, 9, 20, 0.08);
+  background: transparent;
+}
+
+.tab-active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 3px;
+  background-color: var(--md-primary);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
 }
 
 .tab-active:hover {
@@ -159,6 +172,15 @@ header.scrolled {
   align-items: center;
   justify-content: flex-end;
   gap: var(--spacing-xs);
+}
+
+.header-actions .cta-button {
+  min-width: 180px;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 /* ========================================
@@ -358,7 +380,12 @@ body.menu-open .mobile-menu {
 
 .dark .tab-active {
   color: var(--md-primary-light);
-  background: rgba(229, 9, 20, 0.12);
+  background: transparent;
+  border-bottom: none;
+}
+
+.dark .tab-active::after {
+  background-color: var(--md-primary-light);
 }
 
 .dark .mobile-menu {
@@ -367,6 +394,11 @@ body.menu-open .mobile-menu {
 
 .dark .mobile-nav-item {
   color: var(--md-on-surface);
+}
+
+.dark .mobile-nav-item.mobile-cta {
+  color: var(--md-on-primary);
+  background-color: var(--md-primary);
 }
 
 .dark .mobile-nav-item:hover {

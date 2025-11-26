@@ -138,7 +138,7 @@
      ======================================== */
   --container-max-width: 80rem;
   --container-padding: var(--spacing-md);
-  --header-height: 64px; /* Material Design standard */
+  --header-height: 88px; /* Increased from 64px */
   --section-padding-y: var(--spacing-4xl);
   --section-padding-x: var(--spacing-md);
 

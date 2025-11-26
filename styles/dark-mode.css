@@ -92,8 +92,10 @@
    BUTTONS DARK MODE
    ======================================== */
 .dark .button,
-.dark .cta-button {
+.dark .cta-button,
+.dark .primary-button {
   background-color: var(--color-primary);
+  color: #ffffff !important;
   box-shadow: 0 4px 12px rgba(229, 9, 20, 0.4);
 }
 
