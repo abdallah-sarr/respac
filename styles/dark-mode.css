@@ -1,0 +1,187 @@
+/**
+ * RESPAC - Dark Mode Styles
+ * =========================
+ * All dark mode specific overrides
+ */
+
+/* ========================================
+   BASE DARK MODE
+   ======================================== */
+.dark {
+  color: var(--color-text-primary);
+  background-color: var(--color-background);
+}
+
+.dark body {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+.dark section {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+/* ========================================
+   HEADER DARK MODE
+   ======================================== */
+.dark header {
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dark .tab-link {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.dark .tab-link:hover {
+  color: #ffffff;
+}
+
+.dark .tab-active {
+  color: #ffffff;
+}
+
+.dark .theme-toggle-square {
+  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+.dark .theme-toggle-square:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.dark .mobile-menu-toggle {
+  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+.dark .mobile-menu-toggle:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Logo stays white background in dark mode */
+.dark .logo-box {
+  background: #ffffff;
+}
+
+/* ========================================
+   TYPOGRAPHY DARK MODE
+   ======================================== */
+.dark h1,
+.dark .h1 {
+  color: var(--color-primary);
+  text-shadow: 0 2px 4px rgba(229, 9, 20, 0.2);
+}
+
+.dark h3 {
+  color: #fff;
+}
+
+.dark a {
+  color: var(--color-primary);
+}
+
+.dark a:hover {
+  color: #ff4444;
+}
+
+/* ========================================
+   BUTTONS DARK MODE
+   ======================================== */
+.dark .button,
+.dark .cta-button {
+  background-color: var(--color-primary);
+  box-shadow: 0 4px 12px rgba(229, 9, 20, 0.4);
+}
+
+.dark .button:hover:not(:disabled),
+.dark .cta-button:hover:not(:disabled) {
+  background-color: var(--color-primary-hover);
+  box-shadow: 0 8px 24px rgba(229, 9, 20, 0.5);
+}
+
+/* ========================================
+   SECTION TITLES DARK MODE
+   ======================================== */
+.dark .section-title {
+  color: var(--color-primary);
+  text-shadow: 0 2px 4px rgba(229, 9, 20, 0.2);
+}
+
+.dark .section-subtitle {
+  color: var(--color-text-secondary);
+}
+
+/* ========================================
+   CARDS DARK MODE
+   ======================================== */
+.dark article {
+  background-color: #1e1e1e;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark article p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.dark article time {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.dark .social-box {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: #1e1e1e;
+  color: #e0e0e0;
+}
+
+.dark .social-username {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.dark .sortie-film-card {
+  background-color: #1e1e1e;
+  color: #fff;
+}
+
+/* ========================================
+   BENEFITS SECTION DARK MODE
+   ======================================== */
+.dark .member-benefits-section {
+  background: #1a1a1a;
+}
+
+.dark .benefits-title {
+  color: #ffffff;
+}
+
+.dark .benefits-description {
+  color: #d1d5db;
+}
+
+.dark .benefit-card {
+  background: #262626;
+  border-color: #404040;
+}
+
+.dark .benefit-title {
+  color: #ffffff;
+}
+
+.dark .benefit-list {
+  color: #9ca3af;
+}
+
+.dark .benefit-card:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* ========================================
+   MISC DARK MODE
+   ======================================== */
+.dark .placeholder {
+  background-color: #444;
+  color: #ddd;
+}

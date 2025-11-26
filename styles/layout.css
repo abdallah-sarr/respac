@@ -1,0 +1,146 @@
+/**
+ * RESPAC - Layout Styles
+ * ======================
+ * Container, Grid, and Layout Components
+ */
+
+/* ========================================
+   CONTAINER
+   ======================================== */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* ========================================
+   SECTIONS
+   ======================================== */
+.section {
+  padding: var(--section-padding-y) 0;
+  background-color: var(--color-background);
+}
+
+.section-alt {
+  background-color: var(--color-background-alt);
+}
+
+/* ========================================
+   SECTION HEADER
+   ======================================== */
+.section-eyebrow {
+  font-size: var(--section-eyebrow-size);
+  text-transform: uppercase;
+  letter-spacing: var(--section-eyebrow-letter-spacing);
+  color: var(--section-title-color);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-xs);
+}
+
+.section-title {
+  font-size: var(--section-title-size);
+  font-weight: var(--font-weight-extrabold);
+  line-height: var(--line-height-tight);
+  margin: 0 0 var(--spacing-2xl);
+  color: var(--color-primary);
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  display: none;
+}
+
+.section-description {
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+  margin: 0 auto var(--spacing-xl);
+  max-width: 640px;
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: var(--font-size-4xl);
+  }
+}
+
+/* ========================================
+   GRID SYSTEM
+   ======================================== */
+.grid {
+  display: grid;
+  gap: var(--spacing-lg);
+}
+
+.grid-2 {
+  grid-template-columns: 1fr;
+}
+
+.grid-3 {
+  grid-template-columns: 1fr;
+}
+
+.grid-4 {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ========================================
+   FLEXBOX UTILITIES
+   ======================================== */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-sm {
+  gap: var(--spacing-sm);
+}
+
+.gap-md {
+  gap: var(--spacing-md);
+}
+
+.gap-lg {
+  gap: var(--spacing-lg);
+}
+
+.gap-xl {
+  gap: var(--spacing-xl);
+}

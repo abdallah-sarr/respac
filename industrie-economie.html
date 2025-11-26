@@ -13,14 +13,12 @@
       href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&family=Elms+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles/variables.css" />
-    <link rel="stylesheet" href="styles/header.css" />
-    <link rel="stylesheet" href="styles/style.css" />
+    <!-- Styles CSS modulaires -->
+    <link rel="stylesheet" href="styles/main.css" />
     <link rel="stylesheet" href="styles/industrie-economie.css" />
 
-    <!-- Styles spécifiques à cette page : titres des cards plus petits, hero plus sombre -->
+    <!-- Styles spécifiques à cette page -->
     <style>
-      /* Réduire la taille des titres dans les cartes pour cette page */
       .doc-card h3,
       .panorama-card h3,
       .financing-card h3,
@@ -29,7 +27,6 @@
         line-height: 1.25;
       }
 
-      /* Hero avec image de fond plus sombre (overlay) pour meilleur contraste */
       .industry-hero {
         background-image: linear-gradient(
             rgba(0, 0, 0, 0.55),
@@ -38,7 +35,6 @@
           url("https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=1600&q=80");
         background-size: cover;
         background-position: center;
-        background-repeat: no-repeat;
         color: #fff;
       }
 
@@ -64,8 +60,12 @@
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
 
-    <!-- Gestionnaire de thème centralisé -->
+    <!-- Scripts JS modulaires -->
+    <script src="js/utils.js"></script>
     <script src="js/themeManager.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/main.js" defer></script>
   </head>
   <body class="font-sans bg-white text-black transition-colors duration-500">
     <header id="site-header" class="header-top" aria-label="En-tête du site">

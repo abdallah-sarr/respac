@@ -1,129 +1,200 @@
-:root {
-  /* Colors */
-  --primary-red: #e50914;
-  --primary-red-dark: #b20710;
-  --primary-red-light: #ff1a1a;
-  --primary-red-hover: #cc0812;
+/**
+ * RESPAC - Design System Variables
+ * ================================
+ * Fichier centralisé des variables CSS pour tout le site
+ */
 
-  --color-primary: var(--primary-red);
-  --color-primary-dark: var(--primary-red-dark);
-  --color-primary-light: var(--primary-red-light);
+:root {
+  /* ========================================
+     COULEURS PRINCIPALES
+     ======================================== */
+
+  /* Couleur de marque - Rouge RESPAC */
+  --color-primary: #e50914;
+  --color-primary-dark: #b20710;
+  --color-primary-light: #ff1a1a;
+  --color-primary-hover: #cc0812;
+
+  /* Couleurs de texte */
   --color-text-primary: #1a1a1a;
   --color-text-secondary: #4b5563;
   --color-text-muted: #6b7280;
+  --color-text-inverse: #ffffff;
 
+  /* Couleurs de fond */
   --color-background: #ffffff;
   --color-background-alt: #f8f9fa;
   --color-background-dark: #1a1a1a;
+  --color-background-elevated: #ffffff;
 
+  /* Couleurs de bordure */
   --color-border: #e5e7eb;
   --color-border-light: #f3f4f6;
   --color-border-dark: #374151;
 
-  /* Typography */
+  /* ========================================
+     TYPOGRAPHIE
+     ======================================== */
+
+  /* Familles de polices */
   --font-primary: "Raleway", sans-serif;
   --font-secondary: "Elms Sans", sans-serif;
+  --font-display: "Playfair Display", serif;
 
-  --font-size-xs: 0.875rem;
-  --font-size-sm: 1rem;
-  --font-size-md: 1.125rem;
-  --font-size-lg: 1.25rem;
-  --font-size-xl: 1.5rem;
-  --font-size-2xl: 2.5rem;
-  --font-size-3xl: 3rem;
-  --font-size-4xl: 3.75rem;
-  --section-eyebrow-size: 0.875rem;
-  --section-eyebrow-letter-spacing: 0.24em;
-  --section-title-size: clamp(1.8rem, 3.1vw, 2.6rem);
-  --section-title-color: var(--primary-red);
-  --section-description-size: 1rem;
+  /* Tailles de police */
+  --font-size-xs: 0.875rem; /* 14px */
+  --font-size-sm: 1rem; /* 16px */
+  --font-size-md: 1.125rem; /* 18px */
+  --font-size-lg: 1.25rem; /* 20px */
+  --font-size-xl: 1.5rem; /* 24px */
+  --font-size-2xl: 2rem; /* 32px */
+  --font-size-3xl: 2.5rem; /* 40px */
+  --font-size-4xl: 3rem; /* 48px */
+  --font-size-5xl: 3.75rem; /* 60px */
+
+  /* Tailles responsives pour les titres */
+  --section-title-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  --hero-title-size: clamp(2.5rem, 5vw, 4rem);
   --card-title-size: clamp(1.05rem, 2vw, 1.3rem);
   --card-title-size-lg: clamp(1.5rem, 2.75vw, 1.95rem);
-  --card-title-color: #111827;
-  --card-title-weight: var(--font-weight-semibold);
-  --card-meta-color: var(--color-text-muted);
 
-  /* Line Heights */
+  /* Couleurs de titres */
+  --section-title-color: var(--color-primary);
+  --card-title-color: #111827;
+
+  /* Eyebrow (sur-titre) */
+  --section-eyebrow-size: 0.875rem;
+  --section-eyebrow-letter-spacing: 0.24em;
+
+  /* Hauteurs de ligne */
   --line-height-tight: 1.1;
   --line-height-normal: 1.5;
   --line-height-relaxed: 1.625;
 
-  /* Font Weights */
+  /* Graisses de police */
   --font-weight-normal: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
   --font-weight-extrabold: 800;
 
-  /* Spacing */
-  --spacing-xs: 0.25rem;
-  --spacing-sm: 0.5rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 1.5rem;
-  --spacing-xl: 2rem;
-  --spacing-2xl: 3rem;
-  --spacing-3xl: 4rem;
-  --spacing-4xl: 6rem;
+  /* ========================================
+     ESPACEMENT
+     ======================================== */
+  --spacing-2xs: 0.125rem; /* 2px */
+  --spacing-xs: 0.25rem; /* 4px */
+  --spacing-sm: 0.5rem; /* 8px */
+  --spacing-md: 1rem; /* 16px */
+  --spacing-lg: 1.5rem; /* 24px */
+  --spacing-xl: 2rem; /* 32px */
+  --spacing-2xl: 3rem; /* 48px */
+  --spacing-3xl: 4rem; /* 64px */
+  --spacing-4xl: 6rem; /* 96px */
 
-  /* Layout */
-  --container-max-width: 80rem;
+  /* ========================================
+     LAYOUT
+     ======================================== */
+  --container-max-width: 80rem; /* 1280px */
+  --container-padding: var(--spacing-lg);
   --header-height: 88px;
+  --section-padding-y: var(--spacing-4xl);
+  --section-padding-x: var(--spacing-lg);
 
-  /* Borders & Shadows */
-  --border-radius-sm: 0.25rem;
-  --border-radius-md: 0.5rem;
-  --border-radius-lg: 0.75rem;
-  --border-radius-xl: 1rem;
+  /* ========================================
+     BORDURES & OMBRES
+     ======================================== */
 
+  /* Rayons de bordure */
+  --border-radius-sm: 0.25rem; /* 4px */
+  --border-radius-md: 0.5rem; /* 8px */
+  --border-radius-lg: 0.75rem; /* 12px */
+  --border-radius-xl: 1rem; /* 16px */
+  --border-radius-2xl: 1.5rem; /* 24px */
+  --border-radius-full: 999px;
+
+  /* Ombres */
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
   --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
-  --cta-shadow: 0 18px 30px rgba(197, 8, 22, 0.28);
+  --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.25);
 
-  /* Transitions */
+  /* Ombre pour les CTA */
+  --cta-shadow: 0 18px 30px rgba(229, 9, 20, 0.28);
+  --cta-shadow-hover: 0 24px 40px rgba(229, 9, 20, 0.35);
+
+  /* ========================================
+     TRANSITIONS
+     ======================================== */
   --transition-fast: 150ms ease;
   --transition-normal: 300ms ease;
   --transition-slow: 500ms ease;
 
-  /* CTA */
+  /* ========================================
+     BOUTONS CTA
+     ======================================== */
   --cta-bg: linear-gradient(115deg, #ff5a63, #e50914);
   --cta-bg-hover: linear-gradient(115deg, #ff737c, #c20b18);
   --cta-text-color: #ffffff;
   --cta-border-color: transparent;
-  --cta-radius: 999px;
+  --cta-radius: var(--border-radius-full);
 
-  /* Dark Mode Colors */
-  --dark-color-text-primary: #ffffff;
-  --dark-color-text-secondary: #d1d5db;
-  --dark-color-text-muted: #9ca3af;
-  --dark-color-background: #0f1419;
-  --dark-color-background-alt: #1a1f2e;
-  --dark-color-background-elevated: #262f3f;
-  --dark-color-border: #2d3748;
-  --dark-color-border-light: #1e293b;
-  --dark-card-title-color: #f1f5f9;
-  --dark-card-bg: rgba(30, 41, 59, 0.6);
-  --dark-card-border: rgba(71, 85, 105, 0.2);
-  --dark-news-muted: rgba(226, 232, 240, 0.65);
+  /* ========================================
+     Z-INDEX
+     ======================================== */
+  --z-dropdown: 50;
+  --z-sticky: 60;
+  --z-header: 100;
+  --z-modal-backdrop: 200;
+  --z-modal: 210;
+  --z-tooltip: 300;
 }
 
-/* When the page is in dark mode (html.dark), map common variables to dark variants */
+/* ==========================================
+   MODE SOMBRE
+   ========================================== */
 .dark,
 :root.dark {
-  --color-text-primary: var(--dark-color-text-primary);
-  --color-text-secondary: var(--dark-color-text-secondary);
-  --color-text-muted: var(--dark-color-text-muted);
+  /* Couleurs de texte */
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #d1d5db;
+  --color-text-muted: #9ca3af;
 
-  --color-background: var(--dark-color-background);
-  --color-background-alt: var(--dark-color-background-alt);
-  --color-background-elevated: var(--dark-color-background-elevated);
+  /* Couleurs de fond */
+  --color-background: #0f1419;
+  --color-background-alt: #1a1f2e;
+  --color-background-elevated: #262f3f;
 
-  --color-border: var(--dark-color-border);
-  --color-border-light: var(--dark-color-border-light);
-  --card-title-color: var(--dark-card-title-color);
+  /* Couleurs de bordure */
+  --color-border: #2d3748;
+  --color-border-light: #1e293b;
 
-  /* CTAs: make them slightly brighter on dark */
+  /* Cartes */
+  --card-title-color: #f1f5f9;
+
+  /* CTA légèrement plus lumineux */
   --cta-bg: linear-gradient(115deg, #ff6b74, #ff3b3b);
   --cta-bg-hover: linear-gradient(115deg, #ff8a90, #e94a4a);
+
+  /* Ombres plus profondes */
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+@media (max-width: 768px) {
+  :root {
+    --section-padding-y: var(--spacing-3xl);
+    --section-padding-x: var(--spacing-md);
+    --container-padding: var(--spacing-md);
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --section-padding-x: var(--spacing-3xl);
+  }
 }

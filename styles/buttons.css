@@ -1,0 +1,201 @@
+/**
+ * RESPAC - Button Styles
+ * ======================
+ * All button variants and states
+ */
+
+/* ========================================
+   BASE BUTTON
+   ======================================== */
+.button,
+.cta-button,
+.primary-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-xl);
+  font-family: var(--font-primary);
+  font-size: 0.95rem;
+  font-weight: var(--font-weight-semibold);
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  background: var(--cta-bg);
+  color: var(--cta-text-color);
+  border: 1px solid var(--cta-border-color);
+  border-radius: var(--cta-radius);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  user-select: none;
+  min-height: 48px;
+  width: fit-content;
+  box-shadow: var(--cta-shadow);
+}
+
+/* ========================================
+   BUTTON STATES
+   ======================================== */
+.button:disabled,
+.cta-button:disabled,
+.primary-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.button:hover:not(:disabled),
+.cta-button:hover:not(:disabled),
+.primary-button:hover:not(:disabled) {
+  background: var(--cta-bg-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--cta-shadow-hover);
+}
+
+.button:active:not(:disabled),
+.cta-button:active:not(:disabled),
+.primary-button:active:not(:disabled) {
+  transform: translateY(0);
+  background: var(--color-primary-dark);
+  box-shadow: var(--shadow-md);
+}
+
+/* ========================================
+   BUTTON ICONS
+   ======================================== */
+.button ion-icon,
+.cta-button ion-icon,
+.primary-button ion-icon {
+  font-size: 1.25em;
+  transition: transform var(--transition-normal);
+}
+
+.button:hover ion-icon,
+.cta-button:hover ion-icon,
+.primary-button:hover ion-icon {
+  transform: translateX(4px);
+}
+
+/* ========================================
+   SECONDARY BUTTON
+   ======================================== */
+.secondary-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-xl);
+  font-family: var(--font-primary);
+  font-size: 0.95rem;
+  font-weight: var(--font-weight-semibold);
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  color: var(--section-title-color);
+  border: 1px solid rgba(229, 9, 20, 0.4);
+  border-radius: var(--cta-radius);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  user-select: none;
+  min-height: 48px;
+  width: fit-content;
+  box-shadow: none;
+}
+
+.secondary-button:hover:not(:disabled) {
+  background-color: rgba(229, 9, 20, 0.08);
+  box-shadow: 0 10px 20px rgba(229, 9, 20, 0.15);
+}
+
+.secondary-button:active:not(:disabled) {
+  background-color: rgba(229, 9, 20, 0.18);
+  box-shadow: none;
+}
+
+/* Inverse variant for dark backgrounds */
+.secondary-button--inverse {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.65);
+}
+
+.secondary-button--inverse:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.secondary-button--inverse:active:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ========================================
+   GHOST BUTTON
+   ======================================== */
+.button-ghost {
+  color: var(--color-text-primary);
+  background-color: transparent;
+  border-color: var(--color-border);
+  box-shadow: none;
+}
+
+.button-ghost:hover:not(:disabled) {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  background-color: rgba(229, 9, 20, 0.1);
+}
+
+/* ========================================
+   BUTTON SIZES
+   ======================================== */
+.button-sm {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-size: var(--font-size-xs);
+  min-height: 36px;
+}
+
+.button-lg {
+  padding: var(--spacing-lg) var(--spacing-2xl);
+  font-size: var(--font-size-lg);
+  min-height: 56px;
+}
+
+/* ========================================
+   ICON BUTTON
+   ======================================== */
+.button-icon {
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius-md);
+}
+
+.button-icon ion-icon {
+  font-size: 1.5em;
+}
+
+/* ========================================
+   THEME TOGGLE
+   ======================================== */
+.theme-toggle-square {
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0;
+  color: white;
+  transition: all var(--transition-normal);
+  cursor: pointer;
+}
+
+.theme-toggle-square:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+.theme-toggle-square ion-icon {
+  font-size: 1.5rem;
+}

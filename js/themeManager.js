@@ -1,7 +1,8 @@
 /**
- * Gestionnaire centralisé du thème pour tout le site
- * Gère la persistance du thème via localStorage
- * Thème par défaut : clair
+ * RESPAC - Theme Manager
+ * ======================
+ * Centralized theme management with localStorage persistence
+ * Default theme: light
  */
 
 const ThemeManager = (() => {
@@ -10,88 +11,111 @@ const ThemeManager = (() => {
   const DARK_THEME = "dark";
   const DEFAULT_THEME = LIGHT_THEME;
 
-  /**
-   * Initialise le thème au chargement de la page
-   */
-  const init = () => {
-    const savedTheme = localStorage.getItem(THEME_KEY);
-    const theme = savedTheme || DEFAULT_THEME;
-    applyTheme(theme);
+  // Icons for theme toggle
+  const ICONS = {
+    light: '<ion-icon name="moon-outline"></ion-icon>',
+    dark: '<ion-icon name="sunny-outline"></ion-icon>',
   };
 
   /**
-   * Applique le thème au HTML et sauvegarde dans localStorage
-   * @param {string} theme - "light" ou "dark"
+   * Get current theme from localStorage or default
+   * @returns {string} - Current theme
+   */
+  const getTheme = () => {
+    return localStorage.getItem(THEME_KEY) || DEFAULT_THEME;
+  };
+
+  /**
+   * Check if dark mode is active
+   * @returns {boolean}
+   */
+  const isDarkMode = () => {
+    return document.documentElement.classList.contains("dark");
+  };
+
+  /**
+   * Apply theme to document
+   * @param {string} theme - 'light' or 'dark'
    */
   const applyTheme = (theme) => {
     const htmlEl = document.documentElement;
+
     if (theme === DARK_THEME) {
       htmlEl.classList.add("dark");
     } else {
       htmlEl.classList.remove("dark");
     }
+
     localStorage.setItem(THEME_KEY, theme);
     updateThemeIcon();
   };
 
   /**
-   * Bascule entre le thème clair et sombre
+   * Toggle between light and dark theme
    */
   const toggle = () => {
-    const currentTheme = localStorage.getItem(THEME_KEY) || DEFAULT_THEME;
+    const currentTheme = getTheme();
     const newTheme = currentTheme === DARK_THEME ? LIGHT_THEME : DARK_THEME;
     applyTheme(newTheme);
   };
 
   /**
-   * Met à jour l'icône du bouton de toggle
+   * Update theme toggle button icon
    */
   const updateThemeIcon = () => {
     const themeToggleBtn = document.getElementById("theme-toggle");
     if (!themeToggleBtn) return;
 
-    const isDark = document.documentElement.classList.contains("dark");
-    themeToggleBtn.innerHTML = isDark
-      ? '<ion-icon name="sunny-outline"></ion-icon>'
-      : '<ion-icon name="moon-outline"></ion-icon>';
+    themeToggleBtn.innerHTML = isDarkMode() ? ICONS.dark : ICONS.light;
   };
 
   /**
-   * Attache l'événement click au bouton de toggle avec retry
+   * Attach click event to theme toggle button
    */
   const attachToggleListener = () => {
     const themeToggleBtn = document.getElementById("theme-toggle");
+
     if (themeToggleBtn) {
       themeToggleBtn.addEventListener("click", toggle);
     } else {
-      // Retry après 100ms si le bouton n'existe pas encore
+      // Retry after short delay if button not found
       setTimeout(attachToggleListener, 100);
     }
   };
 
   /**
-   * Initialisation automatique au DOMContentLoaded
+   * Initialize theme on page load
+   */
+  const init = () => {
+    // Apply saved theme or default
+    applyTheme(getTheme());
+    attachToggleListener();
+  };
+
+  /**
+   * Setup initialization based on DOM state
    */
   const setupInitialization = () => {
     if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", () => {
-        init();
-        attachToggleListener();
-      });
+      document.addEventListener("DOMContentLoaded", init);
     } else {
-      // DOM est déjà chargé
       init();
-      attachToggleListener();
     }
   };
 
+  // Auto-initialize
   setupInitialization();
 
-  // Exporter l'API publique
+  // Public API
   return {
     init,
     applyTheme,
     toggle,
+    getTheme,
+    isDarkMode,
     updateThemeIcon,
   };
 })();
+
+// Make available globally
+window.ThemeManager = ThemeManager;

@@ -192,7 +192,7 @@ a:hover {
 }
 
 .section-hero h1 {
-  color: var(--color-primary);
+  color: var(--color-primary) !important;
   margin-bottom: var(--spacing-lg);
 }
 
@@ -2334,14 +2334,16 @@ body > .section-hero {
 }
 
 body > section.section-hero h1,
-body > .section-hero h1 {
-  color: var(--section-title-color);
+body > .section-hero h1,
+main > .section-hero h1,
+.section-hero h1 {
+  color: var(--color-primary) !important;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.45);
 }
 
 body > section.section-hero p,
 body > .section-hero p {
-  color: rgba(255, 255, 255, 0.9);
+  color: #ffffff;
 }
 
 /* Boutons dans le hero : inverse pour lisibilité */
