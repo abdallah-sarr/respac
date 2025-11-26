@@ -39,11 +39,11 @@
 }
 
 .section-title {
-  font-size: var(--section-title-size);
+  font-size: var(--main-title-size);
   font-weight: var(--font-weight-extrabold);
   line-height: var(--line-height-tight);
   margin: 0 0 var(--spacing-2xl);
-  color: var(--color-primary);
+  color: var(--main-title-color);
   position: relative;
   display: inline-block;
 }
@@ -58,12 +58,6 @@
   line-height: var(--line-height-relaxed);
   margin: 0 auto var(--spacing-xl);
   max-width: 640px;
-}
-
-@media (min-width: 768px) {
-  .section-title {
-    font-size: var(--font-size-4xl);
-  }
 }
 
 /* ========================================

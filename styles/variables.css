@@ -53,13 +53,16 @@
   --font-size-5xl: 3.75rem; /* 60px */
 
   /* Tailles responsives pour les titres */
-  --section-title-size: clamp(1.8rem, 3.5vw, 2.5rem);
-  --hero-title-size: clamp(2.5rem, 5vw, 4rem);
+  --main-title-size: clamp(2rem, 4vw, 3rem);
+  --section-title-size: var(--main-title-size);
+  --hero-title-size: var(--main-title-size);
   --card-title-size: clamp(1.05rem, 2vw, 1.3rem);
   --card-title-size-lg: clamp(1.5rem, 2.75vw, 1.95rem);
 
-  /* Couleurs de titres */
-  --section-title-color: var(--color-primary);
+  /* Couleurs de titres - Rouge Netflix */
+  --netflix-red: #e50914;
+  --main-title-color: var(--netflix-red);
+  --section-title-color: var(--main-title-color);
   --card-title-color: #111827;
 
   /* Eyebrow (sur-titre) */
@@ -131,13 +134,14 @@
   --transition-slow: 500ms ease;
 
   /* ========================================
-     BOUTONS CTA
+     BOUTONS CTA - Rouge Netflix
      ======================================== */
-  --cta-bg: linear-gradient(115deg, #ff5a63, #e50914);
-  --cta-bg-hover: linear-gradient(115deg, #ff737c, #c20b18);
+  --cta-bg: var(--netflix-red);
+  --cta-bg-hover: var(--color-primary-dark);
   --cta-text-color: #ffffff;
   --cta-border-color: transparent;
   --cta-radius: var(--border-radius-full);
+  --cta-font-size: var(--font-size-sm);
 
   /* ========================================
      Z-INDEX

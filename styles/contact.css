@@ -79,9 +79,9 @@
 }
 
 .contact-left-title {
-  font-size: var(--font-size-3xl);
+  font-size: var(--main-title-size);
   font-weight: var(--font-weight-extrabold);
-  color: var(--section-title-color);
+  color: var(--main-title-color);
   margin-bottom: var(--spacing-sm);
 }
 
@@ -90,12 +90,6 @@
   color: var(--color-text-secondary);
   line-height: 1.6;
   margin-bottom: var(--spacing-md);
-}
-
-@media (min-width: 768px) {
-  .contact-left-title {
-    font-size: 2.5rem;
-  }
 }
 
 /* ========================================
@@ -268,7 +262,10 @@
   z-index: 5;
 }
 
-.contact-card--dark .contact-left-title,
+.contact-card--dark .contact-left-title {
+  color: var(--main-title-color);
+}
+
 .contact-card--dark .contact-item-title {
   color: #ffffff;
 }
@@ -295,7 +292,7 @@
 }
 
 .dark .contact-left-title {
-  color: #ffffff;
+  color: var(--main-title-color);
 }
 
 .dark .contact-left-desc {

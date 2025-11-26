@@ -154,7 +154,7 @@
 }
 
 .dark .benefits-title {
-  color: #ffffff;
+  color: var(--main-title-color);
 }
 
 .dark .benefits-description {

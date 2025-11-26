@@ -100,10 +100,10 @@
 }
 
 .hero-header h1 {
-  font-size: clamp(2.5rem, 5vw, 4.25rem);
+  font-size: var(--main-title-size);
   line-height: 1.1;
   letter-spacing: -0.02em;
-  color: var(--color-primary);
+  color: var(--main-title-color);
 }
 
 .hero-header p {
