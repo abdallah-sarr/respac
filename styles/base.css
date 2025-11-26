@@ -1,7 +1,7 @@
 /**
- * RESPAC - Base Styles
- * ====================
- * Reset, Typography, and Base Elements
+ * RESPAC - Material Design Base Styles
+ * ====================================
+ * Reset, Typography selon Material Design 3
  */
 
 /* ========================================
@@ -15,6 +15,10 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   overflow-x: hidden;
@@ -22,96 +26,265 @@ body {
 
 body {
   font-family: var(--font-primary);
-  font-size: var(--font-size-sm);
+  font-size: var(--md-body-large);
   line-height: var(--line-height-normal);
-  color: var(--color-text-primary);
-  background-color: var(--color-background);
+  color: var(--md-on-surface);
+  background-color: var(--md-surface);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: background-color var(--transition-normal),
-    color var(--transition-normal);
+  transition: background-color var(--transition-normal), color var(--transition-normal);
 }
 
 /* ========================================
-   TYPOGRAPHY
+   TYPOGRAPHY - Material Design Type Scale
    ======================================== */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-secondary);
+
+/* Display styles */
+.display-large {
+  font-size: var(--md-display-large);
+  font-weight: var(--font-weight-normal);
+  line-height: 1.12;
   letter-spacing: -0.02em;
-  line-height: var(--line-height-tight);
-  color: var(--color-text-primary);
+}
+
+.display-medium {
+  font-size: var(--md-display-medium);
+  font-weight: var(--font-weight-normal);
+  line-height: 1.16;
+  letter-spacing: 0;
+}
+
+.display-small {
+  font-size: var(--md-display-small);
+  font-weight: var(--font-weight-normal);
+  line-height: 1.22;
+  letter-spacing: 0;
+}
+
+/* Headline styles */
+h1, .headline-large {
+  font-family: var(--font-primary);
+  font-size: var(--md-headline-large);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+  letter-spacing: 0;
+  color: var(--md-on-surface);
   margin-bottom: var(--spacing-md);
 }
 
-h1 {
-  font-size: var(--font-size-3xl);
-  font-weight: var(--font-weight-extrabold);
-}
-
-h2 {
-  font-size: var(--font-size-2xl);
-  font-weight: var(--font-weight-bold);
-}
-
-h3 {
-  font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-semibold);
-}
-
-p {
+h2, .headline-medium {
+  font-family: var(--font-primary);
+  font-size: var(--md-headline-medium);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.29;
+  letter-spacing: 0;
+  color: var(--md-on-surface);
   margin-bottom: var(--spacing-md);
-  line-height: var(--line-height-relaxed);
 }
 
+h3, .headline-small {
+  font-family: var(--font-primary);
+  font-size: var(--md-headline-small);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.33;
+  letter-spacing: 0;
+  color: var(--md-on-surface);
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Title styles */
+h4, .title-large {
+  font-family: var(--font-primary);
+  font-size: var(--md-title-large);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.27;
+  letter-spacing: 0;
+  color: var(--md-on-surface);
+  margin-bottom: var(--spacing-sm);
+}
+
+h5, .title-medium {
+  font-family: var(--font-primary);
+  font-size: var(--md-title-medium);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  color: var(--md-on-surface);
+  margin-bottom: var(--spacing-xs);
+}
+
+h6, .title-small {
+  font-family: var(--font-primary);
+  font-size: var(--md-title-small);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.43;
+  letter-spacing: 0.01em;
+  color: var(--md-on-surface);
+  margin-bottom: var(--spacing-xs);
+}
+
+/* Body styles */
+p, .body-large {
+  font-size: var(--md-body-large);
+  font-weight: var(--font-weight-normal);
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+  margin-bottom: var(--spacing-md);
+}
+
+.body-medium {
+  font-size: var(--md-body-medium);
+  font-weight: var(--font-weight-normal);
+  line-height: 1.43;
+  letter-spacing: 0.02em;
+}
+
+.body-small {
+  font-size: var(--md-body-small);
+  font-weight: var(--font-weight-normal);
+  line-height: 1.33;
+  letter-spacing: 0.03em;
+}
+
+/* Label styles */
+.label-large {
+  font-size: var(--md-label-large);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.43;
+  letter-spacing: 0.01em;
+}
+
+.label-medium {
+  font-size: var(--md-label-medium);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.33;
+  letter-spacing: 0.05em;
+}
+
+.label-small {
+  font-size: var(--md-label-small);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.45;
+  letter-spacing: 0.05em;
+}
+
+/* ========================================
+   LINKS - Material Design
+   ======================================== */
 a {
-  color: var(--color-primary);
+  color: var(--md-primary);
   text-decoration: none;
-  transition: color var(--transition-normal);
+  transition: color var(--transition-fast);
 }
 
 a:hover {
-  color: var(--color-primary-dark);
+  color: var(--md-primary-dark);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--md-primary);
+  outline-offset: 2px;
+  border-radius: 2px;
 }
 
 /* ========================================
-   RESPONSIVE TYPOGRAPHY
+   SELECTION
    ======================================== */
-@media (min-width: 768px) {
-  h1 {
-    font-size: var(--font-size-4xl);
-  }
-
-  h2 {
-    font-size: var(--font-size-3xl);
-  }
-
-  h3 {
-    font-size: var(--font-size-2xl);
-  }
+::selection {
+  background-color: rgba(229, 9, 20, 0.2);
+  color: var(--md-on-surface);
 }
 
 /* ========================================
-   ICONS
+   FOCUS STYLES - Material Design
+   ======================================== */
+:focus-visible {
+  outline: 2px solid var(--md-primary);
+  outline-offset: 2px;
+}
+
+/* ========================================
+   ICONS - Material Design Sizing
    ======================================== */
 ion-icon,
-.fa,
-.fas,
-.far,
-.fab {
+.fa, .fas, .far, .fab,
+.material-icons {
+  font-size: 1.25rem;
+  vertical-align: middle;
+}
+
+/* Icon sizes */
+.icon-sm {
+  font-size: 1rem;
+}
+
+.icon-md {
   font-size: 1.5rem;
 }
 
-@media (min-width: 768px) {
-  ion-icon,
-  .fa,
-  .fas,
-  .far,
-  .fab {
-    font-size: 1.75rem;
-  }
+.icon-lg {
+  font-size: 2rem;
+}
+
+.icon-xl {
+  font-size: 2.5rem;
+}
+
+/* ========================================
+   DIVIDER - Material Design
+   ======================================== */
+hr, .divider {
+  border: none;
+  height: 1px;
+  background-color: var(--md-outline-variant);
+  margin: var(--spacing-md) 0;
+}
+
+/* ========================================
+   LISTS
+   ======================================== */
+ul, ol {
+  padding-left: var(--spacing-lg);
+}
+
+li {
+  margin-bottom: var(--spacing-xs);
+}
+
+/* ========================================
+   IMAGES
+   ======================================== */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ========================================
+   FORM ELEMENTS BASE
+   ======================================== */
+input, textarea, select, button {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* ========================================
+   SCROLLBAR - Material Design Style
+   ======================================== */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--md-surface-container);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--md-outline);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--md-on-surface-variant);
 }

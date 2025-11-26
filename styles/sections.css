@@ -1,43 +1,35 @@
 /**
- * RESPAC - Section Styles
- * =======================
- * Specific section styles for the website
+ * RESPAC - Material Design Section Styles
+ * =======================================
+ * Sections selon Material Design 3
  */
 
 /* ========================================
    HERO SECTION
    ======================================== */
 .section-hero {
-  padding-top: calc(var(--header-height) + 2rem);
+  padding-top: calc(var(--header-height) + var(--spacing-xl));
   padding-bottom: var(--spacing-4xl);
-  background-color: #0b1220;
+  background-color: var(--md-surface-container-lowest);
   text-align: center;
-  color: #ffffff;
+  color: var(--md-on-surface);
   position: relative;
-  min-height: 520px;
-}
-
-.section-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(rgba(2, 6, 23, 0.45), rgba(2, 6, 23, 0.45));
-  pointer-events: none;
+  min-height: 400px;
 }
 
 .section-hero h1 {
   font-size: var(--main-title-size);
+  font-weight: var(--font-weight-medium);
   color: var(--main-title-color) !important;
-  margin-bottom: var(--spacing-lg);
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.45);
+  margin-bottom: var(--spacing-md);
   position: relative;
   z-index: 1;
 }
 
 .section-hero p {
-  font-size: var(--font-size-lg);
-  color: #ffffff;
-  max-width: 800px;
+  font-size: var(--md-body-large);
+  color: var(--md-on-surface-variant);
+  max-width: 720px;
   margin: 0 auto;
   line-height: var(--line-height-relaxed);
   position: relative;
@@ -54,12 +46,12 @@
   position: relative;
   background-size: cover;
   background-position: center;
-  min-height: 100vh;
+  min-height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 8rem var(--spacing-lg);
+  padding: var(--spacing-4xl) var(--spacing-lg);
   color: white;
 }
 
@@ -69,11 +61,9 @@
   inset: 0;
   background: linear-gradient(
     to top,
-    rgba(14, 26, 22, 0.9) 0%,
-    rgba(14, 26, 22, 0.7) 15%,
-    rgba(14, 26, 22, 0.3) 30%,
-    rgba(0, 0, 0, 0.15) 40%,
-    rgba(0, 0, 0, 0.08) 100%
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.5) 40%,
+    rgba(0, 0, 0, 0.3) 100%
   );
   pointer-events: none;
 }
@@ -84,15 +74,15 @@
 .mission-section {
   display: flex;
   flex-direction: column;
-  background-color: black;
-  color: white;
+  background-color: var(--md-surface-container);
+  color: var(--md-on-surface);
   padding: 0;
-  min-height: 50vh;
+  min-height: auto;
   align-items: stretch;
 }
 
 .mission-text {
-  padding: var(--spacing-4xl) var(--spacing-xl);
+  padding: var(--spacing-3xl) var(--spacing-lg);
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -101,16 +91,16 @@
 
 .mission-title {
   font-size: var(--main-title-size);
-  font-weight: var(--font-weight-extrabold);
+  font-weight: var(--font-weight-medium);
   color: var(--main-title-color);
-  margin-bottom: var(--spacing-xl);
-  text-transform: capitalize;
+  margin-bottom: var(--spacing-lg);
 }
 
 .mission-description {
-  margin-bottom: var(--spacing-xl);
-  font-size: var(--font-size-md);
+  margin-bottom: var(--spacing-lg);
+  font-size: var(--md-body-large);
   line-height: var(--line-height-relaxed);
+  color: var(--md-on-surface-variant);
 }
 
 .mission-image {
@@ -126,14 +116,12 @@
 
 .mission-buttons {
   display: flex;
-  gap: var(--spacing-md);
-  margin-top: var(--spacing-lg);
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+  flex-wrap: wrap;
 }
 
 .mission-cta {
-  width: 320px;
-  padding-left: var(--spacing-xl);
-  padding-right: var(--spacing-xl);
   display: inline-block;
 }
 
@@ -144,6 +132,7 @@
 
   .mission-text {
     width: 50%;
+    padding: var(--spacing-4xl) var(--spacing-2xl);
   }
 
   .mission-image {
@@ -155,25 +144,9 @@
    MEMBER BENEFITS SECTION
    ======================================== */
 .member-benefits-section {
-  background: var(--color-background-alt);
+  background: var(--md-surface-container-low);
   padding: var(--spacing-4xl) var(--spacing-lg);
   position: relative;
-  overflow: hidden;
-}
-
-.member-benefits-section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--color-primary),
-    transparent
-  );
 }
 
 .benefits-container {
@@ -182,61 +155,48 @@
 }
 
 .benefits-header {
-  max-width: 45rem;
-  margin-bottom: var(--spacing-3xl);
+  max-width: 40rem;
+  margin-bottom: var(--spacing-2xl);
 }
 
 .benefits-title {
   font-size: var(--main-title-size);
-  font-weight: var(--font-weight-extrabold);
+  font-weight: var(--font-weight-medium);
   color: var(--main-title-color);
-  margin-bottom: var(--spacing-lg);
-  position: relative;
-  display: inline-block;
-}
-
-.benefits-title::after {
-  content: "";
-  position: absolute;
-  bottom: -0.5rem;
-  left: 0;
-  width: 60%;
-  height: 4px;
-  background: var(--main-title-color);
-  border-radius: 2px;
+  margin-bottom: var(--spacing-md);
 }
 
 .benefits-description {
-  font-size: var(--font-size-md);
-  line-height: 1.7;
-  color: var(--color-text-secondary);
-  margin-bottom: var(--spacing-xl);
+  font-size: var(--md-body-large);
+  line-height: var(--line-height-relaxed);
+  color: var(--md-on-surface-variant);
+  margin-bottom: var(--spacing-lg);
 }
 
 .benefits-content {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--spacing-2xl);
+  gap: var(--spacing-xl);
   align-items: start;
 }
 
 .benefits-left {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-xl);
+  gap: var(--spacing-lg);
 }
 
 .benefits-right {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--spacing-lg);
+  gap: var(--spacing-md);
 }
 
 .cta-member {
-  margin-top: var(--spacing-xl);
+  margin-top: var(--spacing-lg);
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: var(--spacing-xs);
 }
 
 @media (min-width: 640px) {
@@ -256,7 +216,7 @@
    ======================================== */
 .success-stories-section {
   padding: var(--spacing-3xl) 0;
-  background: var(--color-background-alt);
+  background: var(--md-surface-container-low);
 }
 
 .success-stories-section .container {
@@ -265,38 +225,38 @@
 
 .success-grid {
   display: flex;
-  gap: var(--spacing-lg);
+  gap: var(--spacing-md);
   justify-content: center;
   align-items: stretch;
   flex-wrap: wrap;
-  margin-top: var(--spacing-md);
+  margin-top: var(--spacing-lg);
 }
 
 /* ========================================
    NEWS SECTION
    ======================================== */
 .news-section {
-  background-color: var(--color-background);
+  background-color: var(--md-surface);
   padding: var(--spacing-3xl) var(--spacing-lg);
 }
 
 .news-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--spacing-xl);
+  gap: var(--spacing-lg);
   max-width: var(--container-max-width);
   margin: 0 auto;
 }
 
 .news-action {
-  margin-top: var(--spacing-2xl);
+  margin-top: var(--spacing-xl);
   display: flex;
   justify-content: flex-start;
 }
 
 @media (min-width: 768px) {
   .news-section {
-    padding: var(--spacing-3xl) var(--spacing-3xl);
+    padding: var(--spacing-3xl) var(--spacing-2xl);
   }
 
   .news-grid {
@@ -320,33 +280,34 @@
    RELEASES SECTION
    ======================================== */
 .releases-section {
-  background-color: black;
-  color: white;
+  background-color: var(--md-surface-container);
+  color: var(--md-on-surface);
   padding: var(--spacing-3xl) var(--spacing-lg);
 }
 
 .releases-header {
   text-align: center;
-  margin-bottom: var(--spacing-2xl);
+  margin-bottom: var(--spacing-xl);
 }
 
 .carousel-container {
   display: flex;
   overflow-x: auto;
-  gap: var(--spacing-lg);
+  gap: var(--spacing-md);
   padding-bottom: var(--spacing-md);
   scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
 }
 
 .releases-action {
-  margin-top: var(--spacing-xl);
+  margin-top: var(--spacing-lg);
   display: flex;
   justify-content: center;
 }
 
 @media (min-width: 768px) {
   .releases-section {
-    padding: var(--spacing-3xl) var(--spacing-3xl);
+    padding: var(--spacing-3xl) var(--spacing-2xl);
   }
 }
 
@@ -354,7 +315,7 @@
    FESTIVAL SECTION
    ======================================== */
 .festival-section {
-  background-color: var(--color-background);
+  background-color: var(--md-surface);
   padding: var(--spacing-3xl) var(--spacing-lg);
 }
 
@@ -362,20 +323,20 @@
   position: relative;
   width: 100%;
   overflow-x: auto;
-  padding: var(--spacing-md) 0;
+  padding: var(--spacing-sm) 0;
 }
 
 .festival-container {
   display: flex;
   overflow-x: auto;
-  gap: var(--spacing-lg);
+  gap: var(--spacing-md);
   padding-bottom: var(--spacing-md);
   scroll-snap-type: x mandatory;
 }
 
 @media (min-width: 768px) {
   .festival-section {
-    padding: var(--spacing-3xl) var(--spacing-3xl);
+    padding: var(--spacing-3xl) var(--spacing-2xl);
   }
 }
 
@@ -383,39 +344,39 @@
    PARTNERS SECTION
    ======================================== */
 .partners-section {
-  background: var(--color-background);
+  background: var(--md-surface);
   padding: var(--spacing-3xl) var(--spacing-lg);
 }
 
 .partner-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--spacing-xl);
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
   max-width: var(--container-max-width);
-  margin: var(--spacing-xl) auto 0;
+  margin: var(--spacing-lg) auto 0;
 }
 
 @media (min-width: 640px) {
-  .partner-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 768px) {
-  .partners-section {
-    padding: var(--spacing-3xl) var(--spacing-3xl);
-  }
-}
-
-@media (min-width: 1024px) {
   .partner-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 768px) {
+  .partners-section {
+    padding: var(--spacing-3xl) var(--spacing-2xl);
+  }
+}
+
+@media (min-width: 1024px) {
   .partner-grid {
     grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .partner-grid {
+    grid-template-columns: repeat(5, 1fr);
   }
 }
 
@@ -423,21 +384,21 @@
    SOCIAL SECTION
    ======================================== */
 .social-section {
-  background-color: var(--color-background-alt);
+  background-color: var(--md-surface-container-low);
   padding: var(--spacing-3xl) var(--spacing-lg);
 }
 
 .social-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--spacing-lg);
+  gap: var(--spacing-md);
   max-width: var(--container-max-width);
   margin: 0 auto;
 }
 
 @media (min-width: 768px) {
   .social-section {
-    padding: var(--spacing-4xl) var(--spacing-4xl);
+    padding: var(--spacing-3xl) var(--spacing-2xl);
   }
 
   .social-grid {
@@ -459,7 +420,7 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--spacing-2xl);
+  gap: var(--spacing-xl);
 }
 
 @media (min-width: 768px) {
