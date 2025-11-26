@@ -1436,7 +1436,7 @@ body.menu-open .mobile-menu {
 .benefits-title {
   font-size: 2.5rem;
   font-weight: 800;
-  color: #1a1a1a;
+  color: var(--section-title-color);
   margin-bottom: 1.5rem;
   position: relative;
   display: inline-block;
@@ -1649,7 +1649,7 @@ body.menu-open .mobile-menu {
 .contact-left-title {
   font-size: 2.25rem;
   font-weight: 800;
-  color: #111827;
+  color: var(--section-title-color);
   margin-bottom: 0.5rem;
 
   @media (min-width: 768px) {

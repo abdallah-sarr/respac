@@ -60,7 +60,7 @@
   margin: 0 auto var(--spacing-md);
   max-width: 900px; /* force le titre sur 2 lignes sur écrans larges */
   text-align: center;
-  color: #fff; /* contraste sur l'image */
+  color: var(--color-primary); /* contraste sur l'image */
   display: block;
 }
 

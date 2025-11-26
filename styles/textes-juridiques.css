@@ -194,6 +194,7 @@ h2 {
   position: relative;
   display: inline-block;
   padding-bottom: 1rem;
+  color: var(--color-primary);
 }
 
 @media (min-width: 768px) {
